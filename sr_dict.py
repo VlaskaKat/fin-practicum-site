@@ -207,3 +207,7 @@ SR.update({
 "Денежные переводы в практикум не входят: тема быстро меняется, её разбираем на разовых консультациях": "Novčani transferi nisu deo praktikuma: tema se brzo menja, pa je obrađujemo na pojedinačnim konsultacijama",
 "Что входит: 8 уроков в записи и консультация 1:1": "Šta je uključeno: 8 snimljenih lekcija i konsultacija 1:1",
 })
+SR.update({
+"финансовый практикум для тех, кто живёт в Сербии": "finansijski praktikum za one koji žive u Srbiji",
+"Как начать инвестировать в Сербии. Полный практикум: от контроля над своими деньгами и защиты семьи до финансовой системы, которая приведёт вас к вашим целям — с учётом законов, налогов и санкций.": "Kako početi sa investiranjem u Srbiji. Kompletan praktikum: od kontrole nad svojim novcem i zaštite porodice do finansijskog sistema koji će vas dovesti do vaših ciljeva — uz poštovanje zakona, poreza i sankcija.",
+})
