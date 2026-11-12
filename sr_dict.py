@@ -193,3 +193,17 @@ SR.update({
 "Встреча 1:1 по вашему личному финансовому плану, 60 минут": "Susret 1:1 o vašem ličnom finansijskom planu, 60 minuta",
 "1 месяц личного сопровождения в мессенджере": "1 mesec lične podrške u mesindžeru",
 })
+SR.update({
+"Смотреть тарифы": "Pogledajte pakete",
+"Ведёт Анна": "Vodi Ana",
+"Ведёт Екатерина": "Vodi Ekaterina",
+"Наши тарифы": "Naši paketi",
+"Каждый следующий тариф включает всё из предыдущих. По предварительной записи — скидка 10% на любой тариф.": "Svaki sledeći paket uključuje sve iz prethodnih. Uz prijavu unapred — popust 10% na bilo koji paket.",
+"по предварительной записи": "uz prijavu unapred",
+"дин.": "din.",
+"11 200 дин.": "11 200 din.", "52 900 дин.": "52 900 din.", "92 800 дин.": "92 800 din.", "198 600 дин.": "198 600 din.",
+"Плюс «Капитал без границ»: 8 недель, урок в записи и живая встреча": "Plus «Kapital bez granica»: 8 nedelja, snimljena lekcija i susret uživo",
+"Оставьте имя и хотя бы один контакт: email, телефон или Telegram. Мы первыми сообщим даты старта и закрепим за вами скидку 10%. Мест в тарифах 2–4 ограниченное количество.": "Ostavite ime i bar jedan kontakt: email, telefon ili Telegram. Prvi ćemo vam javiti datume početka i rezervisati popust od 10%. Broj mesta u paketima 2–4 je ograničen.",
+"Денежные переводы в практикум не входят: тема быстро меняется, её разбираем на разовых консультациях": "Novčani transferi nisu deo praktikuma: tema se brzo menja, pa je obrađujemo na pojedinačnim konsultacijama",
+"Что входит: 8 уроков в записи и консультация 1:1": "Šta je uključeno: 8 snimljenih lekcija i konsultacija 1:1",
+})
