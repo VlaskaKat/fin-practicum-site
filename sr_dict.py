@@ -258,3 +258,4 @@ SR.update({
 "Актуальные финансовые новости от наших партнёров — коротко и по делу.": "Aktuelne finansijske vesti od naših partnera — kratko i jasno.",
 })
 SR.update({'Модельные портфели от наших партнёров с 30-летним опытом инвестирования: регулярно обновляются и адаптированы под вашего брокера. Плюс регулярные новости фондового рынка.': 'Model portfolija od naših partnera sa 30 godina iskustva u investiranju: redovno se ažuriraju i prilagođeni su vašem brokeru. Plus redovne vesti sa berze.'})
+SR.update({"Альтернативные инструменты": "Alternativni instrumenti", "Актуальная информация об альтернативных инструментах для инвестирования.": "Aktuelne informacije o alternativnim instrumentima za investiranje."})
