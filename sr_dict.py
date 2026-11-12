@@ -252,3 +252,8 @@ SR.update({
 "Переводы": "Transferi",
 "Ответы на актуальные вопросы, если нужно сделать перевод: в рублях, в криптовалюте, SWIFT.": "Odgovori na aktuelna pitanja kada treba poslati novac: u rubljama, u kriptovaluti, SWIFT.",
 })
+SR.update({
+"Актуальная информация по валютным и денежным переводам и переводам в криптовалюте: рубли, SWIFT, крипта — и ответы на вопросы, если нужно сделать перевод.": "Aktuelne informacije o deviznim i novčanim transferima i transferima u kriptovaluti: rublje, SWIFT, kripto — i odgovori na pitanja kada treba poslati novac.",
+"Финансовые новости": "Finansijske vesti",
+"Актуальные финансовые новости от наших партнёров — коротко и по делу.": "Aktuelne finansijske vesti od naših partnera — kratko i jasno.",
+})
