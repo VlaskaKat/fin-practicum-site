@@ -377,7 +377,7 @@ footer a{color:var(--pearl);text-decoration:none}
   <div class="wrap signup-grid">
     <div>
       <h2>Предварительная запись на 3 поток</h2>
-      <p class="sub">Оставьте заявку, и мы первыми сообщим даты старта и закрепим за вами раннюю цену. Мест в тарифах 2–4 ограниченное количество.</p>
+      <p class="sub">Оставьте имя и хотя бы один контакт: email, телефон или Telegram. Мы первыми сообщим даты старта и закрепим за вами раннюю цену. Мест в тарифах 2–4 ограниченное количество.</p>
       <div class="socials" id="contacts">
         <a class="soc" href="https://t.me/katerinavlaska" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="#bfe3ff"><path d="M21.9 4.3 18.7 19.4c-.2 1.1-.9 1.3-1.8.8l-4.8-3.6-2.3 2.2c-.3.3-.5.5-1 .5l.3-4.9 8.9-8c.4-.3-.1-.5-.6-.2L6.4 13.2l-4.7-1.5c-1-.3-1-1 .2-1.5L20.6 3c.9-.3 1.6.2 1.3 1.3z"/></svg><b>Telegram</b><span>@katerinavlaska</span></a>
         <a class="soc" href="https://instagram.com/pavlova_finance" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="#bfe3ff" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".9" fill="#bfe3ff"/></svg><b>Instagram</b><span>@pavlova_finance</span></a>
@@ -388,8 +388,10 @@ footer a{color:var(--pearl);text-decoration:none}
         <h3>Заявка</h3>
         <label for="f-name">Имя</label>
         <input id="f-name" name="name" autocomplete="name" placeholder="Как к вам обращаться">
-        <label for="f-contact">Телефон или email</label>
-        <input id="f-contact" name="contact" autocomplete="email" placeholder="+381… или name@mail.com">
+        <label for="f-email">Email</label>
+        <input id="f-email" name="email" type="email" autocomplete="email" placeholder="name@mail.com">
+        <label for="f-phone">Телефон</label>
+        <input id="f-phone" name="phone" type="tel" autocomplete="tel" placeholder="+381…">
         <label for="f-tg">Ник в Telegram</label>
         <input id="f-tg" name="telegram" placeholder="@username">
         <label for="f-plan">Выберите тариф</label>
@@ -445,19 +447,23 @@ document.querySelectorAll('[data-plan]').forEach(a=>a.addEventListener('click',(
   [...s.options].forEach(o=>{if(o.text.endsWith('· '+a.dataset.plan))s.value=o.text});
 }));
 
-// form
+// form → Google Sheet (Apps Script web app)
+const LEAD_URL='';
 document.getElementById('leadForm').addEventListener('submit',async e=>{
   e.preventDefault();
-  const f=e.target,name=f.name.value.trim(),contact=f.contact.value.trim(),ok=document.getElementById('f-ok').checked;
-  f.name.classList.toggle('bad',!name);f.contact.classList.toggle('bad',!contact);
+  const f=e.target,v=n=>f[n].value.trim();
+  const name=v('name'),email=v('email'),phone=v('phone'),telegram=v('telegram'),ok=document.getElementById('f-ok').checked;
+  const hasContact=!!(email||phone||telegram);
+  f.name.classList.toggle('bad',!name);
+  ['email','phone','telegram'].forEach(n=>f[n].classList.toggle('bad',!hasContact));
   document.getElementById('consent').classList.toggle('bad',!ok);
-  if(!name||!contact||!ok)return;
-  const data={name,contact,telegram:f.telegram.value.trim(),plan:f.plan.value};
+  if(!name||!hasContact||!ok)return;
+  const btn=f.querySelector('button');btn.disabled=true;btn.textContent='Отправляем…';
   let sent=false;
-  try{const r=await fetch('/api/lead',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)});sent=r.ok}catch(_){}
+  if(LEAD_URL){try{await fetch(LEAD_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify({name,email,phone,telegram,plan:f.plan.value})});sent=true}catch(_){}}
   document.getElementById('formBody').style.display='none';
   document.getElementById('formOk').style.display='block';
-  if(!sent)document.getElementById('okText').innerHTML='Чтобы заявка точно дошла, продублируйте её нам в Telegram: <a href="https://t.me/katerinavlaska" target="_blank" rel="noopener" style="color:#bfe3ff">@katerinavlaska</a>';
+  if(!sent)document.getElementById('okText').innerHTML='Не получилось отправить заявку. Напишите нам в Telegram: <a href="https://t.me/katerinavlaska" target="_blank" rel="noopener" style="color:#bfe3ff">@katerinavlaska</a>';
 });
 
 // hero: constellation — drifting points joined by faint lines
