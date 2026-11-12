@@ -448,7 +448,7 @@ document.querySelectorAll('[data-plan]').forEach(a=>a.addEventListener('click',(
 }));
 
 // form → Google Sheet (Apps Script web app)
-const LEAD_URL='';
+const LEAD_URL='https://script.google.com/macros/s/AKfycbwFdkOisLuAkXA8KucrIf0n9kTtfEpcXzyKPS23eNtKKyaN5K7qYeoU6XeiZiRPmz4/exec';
 document.getElementById('leadForm').addEventListener('submit',async e=>{
   e.preventDefault();
   const f=e.target,v=n=>f[n].value.trim();
