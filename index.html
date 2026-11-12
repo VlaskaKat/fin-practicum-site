@@ -123,23 +123,43 @@ header.solid{border-color:var(--line)}
 .aside{margin-top:28px;color:var(--mist);font-size:15px}
 
 /* pricing */
-.tariffs{display:grid;grid-template-columns:repeat(4,1fr);margin-top:56px;border:1px solid var(--line);border-radius:24px;overflow:hidden;background:rgba(13,33,66,.45)}
-.tariff{padding:34px 28px;display:flex;flex-direction:column;border-right:1px solid var(--line)}
-.tariff:last-child{border-right:0}
-.tariff.vip{background:linear-gradient(180deg,rgba(62,142,222,.18),rgba(62,142,222,.04))}
-.tariff .t{font-size:14px;color:var(--danube);font-weight:500;margin-bottom:10px}
-.tariff h3{font-size:24px;letter-spacing:-.02em;margin-bottom:6px}
-.tariff .seats{font-size:14px;color:var(--mist);min-height:22px}
-.tariff .price{font-size:44px;font-weight:600;letter-spacing:-.035em;margin:26px 0 4px}
-.tariff .early{font-size:15px;color:var(--ice);min-height:24px;margin-bottom:24px}
-.tariff ul{list-style:none;flex:1;margin-bottom:30px;border-top:1px solid var(--line);padding-top:18px}
-.tariff li{font-size:15px;color:#d5e3f4;padding:7px 0 7px 22px;position:relative}
-.tariff li::before{content:"";position:absolute;left:0;top:15px;width:9px;height:9px;border-radius:50%;border:1.5px solid var(--danube)}
-.tariff li.inc{color:var(--ice)}
-.tariff li.inc::before{background:var(--danube)}
-.tariff .btn{width:100%;padding:15px 16px;font-size:15px}
-@media(max-width:1100px){.tariffs{grid-template-columns:1fr 1fr}.tariff:nth-child(2){border-right:0}.tariff:nth-child(-n+2){border-bottom:1px solid var(--line)}}
-@media(max-width:640px){.tariffs{grid-template-columns:1fr}.tariff{border-right:0;border-bottom:1px solid var(--line)}}
+.tiers{display:flex;flex-direction:column;gap:22px;margin-top:56px}
+.tier{display:grid;grid-template-columns:340px 1fr;border-radius:28px;overflow:hidden;border:1px solid rgba(191,227,255,.16)}
+.tier-side{padding:34px 32px;display:flex;flex-direction:column}
+.tier-body{padding:34px 36px;background:rgba(7,18,38,.38)}
+.tier .t{font-size:14px;font-weight:600;color:var(--ice);opacity:.85;margin-bottom:8px}
+.tier h3{font-size:30px;letter-spacing:-.01em;margin-bottom:6px}
+.tier .seats{font-size:14.5px;color:#cfe0f5}
+.tier .price{font-size:50px;font-weight:700;letter-spacing:-.02em;margin:22px 0 2px;line-height:1}
+.tier .early{font-size:15.5px;color:#fff;font-weight:600;min-height:24px;margin-bottom:22px}
+.tstats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:26px}
+.tstats div{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.14);border-radius:14px;padding:12px 10px;font-size:12.5px;line-height:1.25;color:#dceaff}
+.tstats b{display:block;font-size:26px;font-weight:700;color:#fff;margin-bottom:4px}
+.tier .btn{margin-top:auto}
+.tier-body h4{font-size:19px;font-weight:600;margin:4px 0 14px}
+.inc{display:inline-block;background:rgba(127,211,255,.16);color:var(--ice);border:1px solid rgba(127,211,255,.35);border-radius:12px;padding:10px 16px;font-size:15px;font-weight:600;margin-bottom:22px}
+.tl{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:10px 26px;margin-bottom:22px;counter-reset:x}
+.tl li{display:grid;grid-template-columns:34px 1fr;font-size:15.5px;color:#e3edfa;line-height:1.4}
+.tl span{font-weight:700;font-size:20px;color:#fff;line-height:1.1}
+.extra{list-style:none;border-top:1px solid var(--line);padding-top:16px}
+.extra li{position:relative;padding:6px 0 6px 24px;font-size:15.5px;color:#d5e3f4}
+.extra li::before{content:"";position:absolute;left:0;top:14px;width:10px;height:10px;border-radius:50%;background:var(--ice)}
+.extra.big{border:0;padding:0}
+.extra.big li{font-size:18px;color:#fff;padding:9px 0 9px 26px}
+.extra.big li::before{top:18px}
+.t1 .tier-side{background:linear-gradient(160deg,#16305c,#1d3d72)}
+.t2 .tier-side{background:linear-gradient(160deg,#1c4c94,#2563b8)}
+.t3 .tier-side{background:linear-gradient(160deg,#2366c4,#3a8ae0)}
+.t4{border-color:rgba(127,211,255,.6);box-shadow:0 30px 70px -30px rgba(91,184,240,.6)}
+.t4 .tier-side{background:linear-gradient(160deg,#3a8ae0,#5fb6f2 60%,#9ad7ff)}
+.t4 .tier-side .t,.t4 .seats{color:#06233f}
+.t4 h3,.t4 .price,.t4 .early{color:#06233f}
+.t4 .tstats div{background:rgba(6,35,63,.14);border-color:rgba(6,35,63,.2);color:#06233f}
+.t4 .tstats b{color:#06233f}
+.t4 .btn-main{background:#06233f;color:#fff}
+.t4 .btn-main:hover{background:#0d3460}
+.t1 .btn-ghost,.t2 .btn-ghost,.t3 .btn-ghost{box-shadow:inset 0 0 0 1px rgba(255,255,255,.55)}
+@media(max-width:900px){.tier{grid-template-columns:1fr}.tl{grid-template-columns:1fr}.tier-side,.tier-body{padding:26px}}
 
 /* authors */
 .duo{display:grid;grid-template-columns:1fr 1fr;gap:48px;margin-top:60px}
@@ -297,65 +317,73 @@ footer a{color:var(--pearl);text-decoration:none}
 <section id="pricing">
   <div class="wrap">
     <h2>Выберите свой формат</h2>
-    <p class="sub">Можно начать с «Финансового фундамента» или пройти весь путь до личного финансового плана. Ранняя цена — для тех, кто оставил предварительную заявку.</p>
-    <div class="tariffs">
-      <div class="tariff">
-        <div class="t">Тариф 1</div>
-        <h3>Финансовый фундамент</h3>
-        <div class="seats">Без ограничения мест</div>
-        <div class="price">€95</div>
-        <div class="early"></div>
-        <ul>
-          <li>8 уроков в записи</li>
-          <li>Индивидуальная консультация по подбору страхования</li>
-          <li>Таблица бюджета с ботом</li>
-          <li>Файл подбора страхового решения</li>
-        </ul>
-        <a class="btn btn-ghost" href="#signup" data-plan="Финансовый фундамент">Предварительная запись</a>
-      </div>
-      <div class="tariff">
-        <div class="t">Тариф 2</div>
-        <h3>Группа</h3>
-        <div class="seats">30 мест</div>
-        <div class="price">€450</div>
-        <div class="early">Ранняя цена €390</div>
-        <ul>
-          <li class="inc">Всё из тарифа 1</li>
-          <li>Капитал без границ: все записи</li>
-          <li>Живые встречи с примерами</li>
-          <li>Все шаблоны и чек-листы</li>
-          <li>Общий чат потока</li>
-        </ul>
-        <a class="btn btn-ghost" href="#signup" data-plan="Группа">Предварительная запись</a>
-      </div>
-      <div class="tariff">
-        <div class="t">Тариф 3</div>
-        <h3>С сопровождением</h3>
-        <div class="seats">15 мест</div>
-        <div class="price">€790</div>
-        <div class="early">Ранняя цена €690</div>
-        <ul>
-          <li class="inc">Всё из тарифа 2</li>
-          <li>Проверка заданий</li>
-          <li>Встреча 1:1 по финплану, 60 минут</li>
-        </ul>
-        <a class="btn btn-ghost" href="#signup" data-plan="С сопровождением">Предварительная запись</a>
-      </div>
-      <div class="tariff vip">
-        <div class="t">Тариф 4</div>
-        <h3>VIP</h3>
-        <div class="seats">5 мест</div>
-        <div class="price">€1 690</div>
-        <div class="early">Ранняя цена €1 490</div>
-        <ul>
-          <li class="inc">Всё из тарифа 3</li>
-          <li>2 встречи 1:1 по 90 минут</li>
-          <li>Месяц личного сопровождения в мессенджере</li>
-          <li>Помощь с открытием счетов</li>
-          <li>Клуб на 3 месяца</li>
-        </ul>
-        <a class="btn btn-main" href="#signup" data-plan="VIP">Предварительная запись</a>
-      </div>
+    <p class="sub">Каждый следующий тариф включает всё из предыдущих. Ранняя цена — для тех, кто оставил предварительную заявку.</p>
+    <div class="tiers">
+      <article class="tier t1">
+        <div class="tier-side">
+          <div class="t">Тариф 1</div>
+          <h3>Финансовый фундамент</h3>
+          <div class="seats">Без ограничения мест</div>
+          <div class="price">€95</div>
+          <div class="early">&nbsp;</div>
+          <div class="tstats"><div><b>8</b>уроков в записи</div><div><b>1</b>консультация 1:1</div></div>
+          <a class="btn btn-ghost" href="#signup" data-plan="Финансовый фундамент">Предварительная запись</a>
+        </div>
+        <div class="tier-body">
+          <h4>Что входит</h4>
+          <ol class="tl"><li><span>1</span>Основы финансовой грамотности</li><li><span>2</span>Финансовые блоки: как зарабатывать больше, научиться копить и перестать бояться потерять деньги</li><li><span>3</span>Финансовая карта: активы, пассивы, финансовые цели</li><li><span>4</span>Личный и семейный бюджет</li><li><span>5</span>Как вести бюджет за 5 минут в день</li><li><span>6</span>Зачем семье страхование и что уже даёт государство</li><li><span>7</span>Страхование жизни и здоровья: защита и накопления</li><li><span>8</span>Страхование здоровья и имущества</li></ol>
+          <ul class="extra"><li>Индивидуальная консультация по подбору страхования 1:1 с Анной, бесплатно</li><li>Таблица бюджета с ботом</li><li>Файл подбора страхового решения</li></ul>
+        </div>
+      </article>
+      <article class="tier t2">
+        <div class="tier-side">
+          <div class="t">Тариф 2</div>
+          <h3>Финансовая база</h3>
+          <div class="seats">30 мест</div>
+          <div class="price">€450</div>
+          <div class="early">Ранняя цена €390</div>
+          <div class="tstats"><div><b>21</b>урок в записи</div><div><b>6</b>живых встреч</div><div><b>1</b>консультация 1:1</div></div>
+          <a class="btn btn-ghost" href="#signup" data-plan="Финансовая база">Предварительная запись</a>
+        </div>
+        <div class="tier-body">
+          <div class="inc">Всё из тарифа «Финансовый фундамент»</div>
+          <h4>Плюс «Капитал без границ»: 8 недель</h4>
+          <ol class="tl"><li><span>1</span>Основы инвестирования: риск-профиль, стратегия и портфель</li><li><span>2</span>Инвестиционные решения для резидентов Сербии</li><li><span>3</span>Пенсионный капитал и образование детей</li><li><span>4</span>Инструменты пассивного дохода</li><li><span>5</span>Инструменты роста: высокий риск — высокая доходность</li><li><span>6</span>Налоги и валютное регулирование Сербии и России</li><li><span>7</span>Криптовалюта</li><li><span>8</span>Личный финансовый план</li></ol>
+          <ul class="extra"><li>Урок в записи с теорией по каждой теме</li><li>6 живых встреч с примерами и ответами на вопросы</li><li>Все шаблоны и чек-листы: риск-профиль, налоговый статус и календарь деклараций, безопасность криптовалюты, шаблон финплана</li><li>Общий чат потока</li></ul>
+        </div>
+      </article>
+      <article class="tier t3">
+        <div class="tier-side">
+          <div class="t">Тариф 3</div>
+          <h3>С сопровождением</h3>
+          <div class="seats">15 мест</div>
+          <div class="price">€790</div>
+          <div class="early">Ранняя цена €690</div>
+          <div class="tstats"><div><b>21</b>урок в записи</div><div><b>6</b>живых встреч</div><div><b>2</b>встречи 1:1</div></div>
+          <a class="btn btn-ghost" href="#signup" data-plan="С сопровождением">Предварительная запись</a>
+        </div>
+        <div class="tier-body">
+          <div class="inc">Всё из тарифов «Финансовый фундамент» и «Финансовая база»</div>
+          <h4>Плюс личное сопровождение</h4>
+          <ul class="extra big"><li>Проверка заданий</li><li>Встреча 1:1 по вашему личному финансовому плану, 60 минут</li></ul>
+        </div>
+      </article>
+      <article class="tier t4">
+        <div class="tier-side">
+          <div class="t">Тариф 4</div>
+          <h3>VIP</h3>
+          <div class="seats">5 мест</div>
+          <div class="price">€1 690</div>
+          <div class="early">Ранняя цена €1 490</div>
+          <div class="tstats"><div><b>21</b>урок в записи</div><div><b>6</b>живых встреч</div><div><b>4</b>встречи 1:1</div></div>
+          <a class="btn btn-main" href="#signup" data-plan="VIP">Предварительная запись</a>
+        </div>
+        <div class="tier-body">
+          <div class="inc">Всё из тарифов «Финансовый фундамент», «Финансовая база» и «С сопровождением»</div>
+          <h4>Плюс максимум личного внимания</h4>
+          <ul class="extra big"><li>2 встречи 1:1 по 90 минут</li><li>1 месяц личного сопровождения в мессенджере</li><li>Помощь с открытием счетов</li><li>Клуб на 3 месяца</li></ul>
+        </div>
+      </article>
     </div>
   </div>
 </section>
@@ -405,7 +433,7 @@ footer a{color:var(--pearl);text-decoration:none}
         <label for="f-plan">Выберите тариф</label>
         <select id="f-plan" name="plan">
           <option>Тариф 1 · Финансовый фундамент</option>
-          <option>Тариф 2 · Группа</option>
+          <option>Тариф 2 · Финансовая база</option>
           <option>Тариф 3 · С сопровождением</option>
           <option>Тариф 4 · VIP</option>
         </select>

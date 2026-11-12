@@ -123,23 +123,43 @@ header.solid{border-color:var(--line)}
 .aside{margin-top:28px;color:var(--mist);font-size:15px}
 
 /* pricing */
-.tariffs{display:grid;grid-template-columns:repeat(4,1fr);margin-top:56px;border:1px solid var(--line);border-radius:24px;overflow:hidden;background:rgba(13,33,66,.45)}
-.tariff{padding:34px 28px;display:flex;flex-direction:column;border-right:1px solid var(--line)}
-.tariff:last-child{border-right:0}
-.tariff.vip{background:linear-gradient(180deg,rgba(62,142,222,.18),rgba(62,142,222,.04))}
-.tariff .t{font-size:14px;color:var(--danube);font-weight:500;margin-bottom:10px}
-.tariff h3{font-size:24px;letter-spacing:-.02em;margin-bottom:6px}
-.tariff .seats{font-size:14px;color:var(--mist);min-height:22px}
-.tariff .price{font-size:44px;font-weight:600;letter-spacing:-.035em;margin:26px 0 4px}
-.tariff .early{font-size:15px;color:var(--ice);min-height:24px;margin-bottom:24px}
-.tariff ul{list-style:none;flex:1;margin-bottom:30px;border-top:1px solid var(--line);padding-top:18px}
-.tariff li{font-size:15px;color:#d5e3f4;padding:7px 0 7px 22px;position:relative}
-.tariff li::before{content:"";position:absolute;left:0;top:15px;width:9px;height:9px;border-radius:50%;border:1.5px solid var(--danube)}
-.tariff li.inc{color:var(--ice)}
-.tariff li.inc::before{background:var(--danube)}
-.tariff .btn{width:100%;padding:15px 16px;font-size:15px}
-@media(max-width:1100px){.tariffs{grid-template-columns:1fr 1fr}.tariff:nth-child(2){border-right:0}.tariff:nth-child(-n+2){border-bottom:1px solid var(--line)}}
-@media(max-width:640px){.tariffs{grid-template-columns:1fr}.tariff{border-right:0;border-bottom:1px solid var(--line)}}
+.tiers{display:flex;flex-direction:column;gap:22px;margin-top:56px}
+.tier{display:grid;grid-template-columns:340px 1fr;border-radius:28px;overflow:hidden;border:1px solid rgba(191,227,255,.16)}
+.tier-side{padding:34px 32px;display:flex;flex-direction:column}
+.tier-body{padding:34px 36px;background:rgba(7,18,38,.38)}
+.tier .t{font-size:14px;font-weight:600;color:var(--ice);opacity:.85;margin-bottom:8px}
+.tier h3{font-size:30px;letter-spacing:-.01em;margin-bottom:6px}
+.tier .seats{font-size:14.5px;color:#cfe0f5}
+.tier .price{font-size:50px;font-weight:700;letter-spacing:-.02em;margin:22px 0 2px;line-height:1}
+.tier .early{font-size:15.5px;color:#fff;font-weight:600;min-height:24px;margin-bottom:22px}
+.tstats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:26px}
+.tstats div{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.14);border-radius:14px;padding:12px 10px;font-size:12.5px;line-height:1.25;color:#dceaff}
+.tstats b{display:block;font-size:26px;font-weight:700;color:#fff;margin-bottom:4px}
+.tier .btn{margin-top:auto}
+.tier-body h4{font-size:19px;font-weight:600;margin:4px 0 14px}
+.inc{display:inline-block;background:rgba(127,211,255,.16);color:var(--ice);border:1px solid rgba(127,211,255,.35);border-radius:12px;padding:10px 16px;font-size:15px;font-weight:600;margin-bottom:22px}
+.tl{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:10px 26px;margin-bottom:22px;counter-reset:x}
+.tl li{display:grid;grid-template-columns:34px 1fr;font-size:15.5px;color:#e3edfa;line-height:1.4}
+.tl span{font-weight:700;font-size:20px;color:#fff;line-height:1.1}
+.extra{list-style:none;border-top:1px solid var(--line);padding-top:16px}
+.extra li{position:relative;padding:6px 0 6px 24px;font-size:15.5px;color:#d5e3f4}
+.extra li::before{content:"";position:absolute;left:0;top:14px;width:10px;height:10px;border-radius:50%;background:var(--ice)}
+.extra.big{border:0;padding:0}
+.extra.big li{font-size:18px;color:#fff;padding:9px 0 9px 26px}
+.extra.big li::before{top:18px}
+.t1 .tier-side{background:linear-gradient(160deg,#16305c,#1d3d72)}
+.t2 .tier-side{background:linear-gradient(160deg,#1c4c94,#2563b8)}
+.t3 .tier-side{background:linear-gradient(160deg,#2366c4,#3a8ae0)}
+.t4{border-color:rgba(127,211,255,.6);box-shadow:0 30px 70px -30px rgba(91,184,240,.6)}
+.t4 .tier-side{background:linear-gradient(160deg,#3a8ae0,#5fb6f2 60%,#9ad7ff)}
+.t4 .tier-side .t,.t4 .seats{color:#06233f}
+.t4 h3,.t4 .price,.t4 .early{color:#06233f}
+.t4 .tstats div{background:rgba(6,35,63,.14);border-color:rgba(6,35,63,.2);color:#06233f}
+.t4 .tstats b{color:#06233f}
+.t4 .btn-main{background:#06233f;color:#fff}
+.t4 .btn-main:hover{background:#0d3460}
+.t1 .btn-ghost,.t2 .btn-ghost,.t3 .btn-ghost{box-shadow:inset 0 0 0 1px rgba(255,255,255,.55)}
+@media(max-width:900px){.tier{grid-template-columns:1fr}.tl{grid-template-columns:1fr}.tier-side,.tier-body{padding:26px}}
 
 /* authors */
 .duo{display:grid;grid-template-columns:1fr 1fr;gap:48px;margin-top:60px}
@@ -297,65 +317,73 @@ footer a{color:var(--pearl);text-decoration:none}
 <section id="pricing">
   <div class="wrap">
     <h2>Izaberite svoj format</h2>
-    <p class="sub">Možete početi sa paketom «Finansijski temelj» ili proći ceo put do ličnog finansijskog plana. Rana cena važi za one koji su ostavili prijavu.</p>
-    <div class="tariffs">
-      <div class="tariff">
-        <div class="t">Paket 1</div>
-        <h3>Finansijski temelj</h3>
-        <div class="seats">Bez ograničenja mesta</div>
-        <div class="price">€95</div>
-        <div class="early"></div>
-        <ul>
-          <li>8 snimljenih lekcija</li>
-          <li>Individualna konsultacija za izbor osiguranja</li>
-          <li>Tabela budžeta sa botom</li>
-          <li>Fajl za izbor osiguranja</li>
-        </ul>
-        <a class="btn btn-ghost" href="#signup" data-plan="Finansijski temelj">Prijava</a>
-      </div>
-      <div class="tariff">
-        <div class="t">Paket 2</div>
-        <h3>Grupa</h3>
-        <div class="seats">30 mesta</div>
-        <div class="price">€450</div>
-        <div class="early">Rana cena €390</div>
-        <ul>
-          <li class="inc">Sve iz paketa 1</li>
-          <li>Kapital bez granica: svi snimci</li>
-          <li>Susreti uživo sa primerima</li>
-          <li>Svi šabloni i ček-liste</li>
-          <li>Zajednički čet grupe</li>
-        </ul>
-        <a class="btn btn-ghost" href="#signup" data-plan="Grupa">Prijava</a>
-      </div>
-      <div class="tariff">
-        <div class="t">Paket 3</div>
-        <h3>Sa podrškom</h3>
-        <div class="seats">15 mesta</div>
-        <div class="price">€790</div>
-        <div class="early">Rana cena €690</div>
-        <ul>
-          <li class="inc">Sve iz paketa 2</li>
-          <li>Provera zadataka</li>
-          <li>Susret 1:1 o finansijskom planu, 60 minuta</li>
-        </ul>
-        <a class="btn btn-ghost" href="#signup" data-plan="Sa podrškom">Prijava</a>
-      </div>
-      <div class="tariff vip">
-        <div class="t">Paket 4</div>
-        <h3>VIP</h3>
-        <div class="seats">5 mesta</div>
-        <div class="price">€1 690</div>
-        <div class="early">Rana cena €1 490</div>
-        <ul>
-          <li class="inc">Sve iz paketa 3</li>
-          <li>2 susreta 1:1 po 90 minuta</li>
-          <li>Mesec lične podrške u mesindžeru</li>
-          <li>Pomoć pri otvaranju računa</li>
-          <li>Klub na 3 meseca</li>
-        </ul>
-        <a class="btn btn-main" href="#signup" data-plan="VIP">Prijava</a>
-      </div>
+    <p class="sub">Svaki sledeći paket uključuje sve iz prethodnih. Rana cena važi za one koji su ostavili prijavu.</p>
+    <div class="tiers">
+      <article class="tier t1">
+        <div class="tier-side">
+          <div class="t">Paket 1</div>
+          <h3>Finansijski temelj</h3>
+          <div class="seats">Bez ograničenja mesta</div>
+          <div class="price">€95</div>
+          <div class="early">&nbsp;</div>
+          <div class="tstats"><div><b>8</b>snimljenih lekcija</div><div><b>1</b>konsultacija 1:1</div></div>
+          <a class="btn btn-ghost" href="#signup" data-plan="Finansijski temelj">Prijava</a>
+        </div>
+        <div class="tier-body">
+          <h4>Šta je uključeno</h4>
+          <ol class="tl"><li><span>1</span>Osnove finansijske pismenosti</li><li><span>2</span>Finansijske blokade: kako zarađivati više, naučiti da štedite i prestati da se plašite gubitka novca</li><li><span>3</span>Finansijska mapa: imovina, obaveze, finansijski ciljevi</li><li><span>4</span>Lični i porodični budžet</li><li><span>5</span>Kako voditi budžet za 5 minuta dnevno</li><li><span>6</span>Zašto je porodici potrebno osiguranje i šta već daje država</li><li><span>7</span>Osiguranje života i zdravlja: zaštita i štednja</li><li><span>8</span>Osiguranje zdravlja i imovine</li></ol>
+          <ul class="extra"><li>Individualna konsultacija za izbor osiguranja 1:1 sa Anom, besplatno</li><li>Tabela budžeta sa botom</li><li>Fajl za izbor osiguranja</li></ul>
+        </div>
+      </article>
+      <article class="tier t2">
+        <div class="tier-side">
+          <div class="t">Paket 2</div>
+          <h3>Finansijska baza</h3>
+          <div class="seats">30 mesta</div>
+          <div class="price">€450</div>
+          <div class="early">Rana cena €390</div>
+          <div class="tstats"><div><b>21</b>snimljena lekcija</div><div><b>6</b>susreta uživo</div><div><b>1</b>konsultacija 1:1</div></div>
+          <a class="btn btn-ghost" href="#signup" data-plan="Finansijska baza">Prijava</a>
+        </div>
+        <div class="tier-body">
+          <div class="inc">Sve iz paketa «Finansijski temelj»</div>
+          <h4>Plus «Kapital bez granica»: 8 nedelja</h4>
+          <ol class="tl"><li><span>1</span>Osnove investiranja: profil rizika, strategija i portfolio</li><li><span>2</span>Investiciona rešenja za rezidente Srbije</li><li><span>3</span>Penzioni kapital i obrazovanje dece</li><li><span>4</span>Instrumenti pasivnog prihoda</li><li><span>5</span>Instrumenti rasta: visok rizik — visok prinos</li><li><span>6</span>Porezi i devizni propisi Srbije i Rusije</li><li><span>7</span>Kriptovaluta</li><li><span>8</span>Lični finansijski plan</li></ol>
+          <ul class="extra"><li>Snimljena lekcija sa teorijom za svaku temu</li><li>6 susreta uživo sa primerima i odgovorima na pitanja</li><li>Svi šabloni i ček-liste: profil rizika, poreski status i kalendar prijava, bezbednost kriptovaluta, šablon finansijskog plana</li><li>Zajednički čet grupe</li></ul>
+        </div>
+      </article>
+      <article class="tier t3">
+        <div class="tier-side">
+          <div class="t">Paket 3</div>
+          <h3>Sa podrškom</h3>
+          <div class="seats">15 mesta</div>
+          <div class="price">€790</div>
+          <div class="early">Rana cena €690</div>
+          <div class="tstats"><div><b>21</b>snimljena lekcija</div><div><b>6</b>susreta uživo</div><div><b>2</b>susreta 1:1</div></div>
+          <a class="btn btn-ghost" href="#signup" data-plan="Sa podrškom">Prijava</a>
+        </div>
+        <div class="tier-body">
+          <div class="inc">Sve iz paketa «Finansijski temelj» i «Finansijska baza»</div>
+          <h4>Plus lična podrška</h4>
+          <ul class="extra big"><li>Provera zadataka</li><li>Susret 1:1 o vašem ličnom finansijskom planu, 60 minuta</li></ul>
+        </div>
+      </article>
+      <article class="tier t4">
+        <div class="tier-side">
+          <div class="t">Paket 4</div>
+          <h3>VIP</h3>
+          <div class="seats">5 mesta</div>
+          <div class="price">€1 690</div>
+          <div class="early">Rana cena €1 490</div>
+          <div class="tstats"><div><b>21</b>snimljena lekcija</div><div><b>6</b>susreta uživo</div><div><b>4</b>susreta 1:1</div></div>
+          <a class="btn btn-main" href="#signup" data-plan="VIP">Prijava</a>
+        </div>
+        <div class="tier-body">
+          <div class="inc">Sve iz paketa «Finansijski temelj», «Finansijska baza» i «Sa podrškom»</div>
+          <h4>Plus maksimum lične pažnje</h4>
+          <ul class="extra big"><li>2 susreta 1:1 po 90 minuta</li><li>1 mesec lične podrške u mesindžeru</li><li>Pomoć pri otvaranju računa</li><li>Klub na 3 meseca</li></ul>
+        </div>
+      </article>
     </div>
   </div>
 </section>
@@ -405,7 +433,7 @@ footer a{color:var(--pearl);text-decoration:none}
         <label for="f-plan">Izaberite paket</label>
         <select id="f-plan" name="plan">
           <option>Paket 1 · Finansijski temelj</option>
-          <option>Paket 2 · Grupa</option>
+          <option>Paket 2 · Finansijska baza</option>
           <option>Paket 3 · Sa podrškom</option>
           <option>Paket 4 · VIP</option>
         </select>
