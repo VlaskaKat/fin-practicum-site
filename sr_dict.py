@@ -244,3 +244,11 @@ SR.update({
 "Специализируется на инвестициях и страховании для семей: помогает выбрать инструменты под цели и выстроить защиту семьи.": "Specijalizovana za investicije i osiguranje za porodice: pomaže da izaberete instrumente za svoje ciljeve i izgradite zaštitu porodice.",
 "25 лет в финансах, работала в X5 Retail Group и Glencore. Инвестор, игропрактик, специалист по криптовалюте, бизнес-партнёр по финансам в нескольких компаниях.": "25 godina u finansijama, radila u kompanijama X5 Retail Group i Glencore. Investitor, voditelj edukativnih igara, stručnjak za kriptovalute, poslovni partner za finansije u nekoliko kompanija.",
 })
+SR.update({
+"в месяц, без скрытых платежей": "mesečno, bez skrivenih troškova",
+"Динамические модельные портфели": "Dinamični model portfolija",
+"Регулярно, раз в месяц, обновляем их вместе с нашими партнёрами с 30-летним опытом инвестирования и адаптируем под вашего брокера. Плюс актуальные новости фондового рынка.": "Redovno, jednom mesečno, ažuriramo ih zajedno sa našim partnerima sa 30 godina iskustva u investiranju i prilagođavamo vašem brokeru. Plus aktuelne vesti sa berze.",
+"Как купить биткоин, пошаговые гайды и помощь в открытии криптобирж и криптокошельков.": "Kako kupiti bitkoin, vodiči korak po korak i pomoć pri otvaranju naloga na kripto berzama i kripto novčanika.",
+"Переводы": "Transferi",
+"Ответы на актуальные вопросы, если нужно сделать перевод: в рублях, в криптовалюте, SWIFT.": "Odgovori na aktuelna pitanja kada treba poslati novac: u rubljama, u kriptovaluti, SWIFT.",
+})
