@@ -25,7 +25,7 @@ cat > /etc/nginx/sites-available/$DOMAIN <<EOF
 server {
     listen 80;
     listen [::]:80;
-    server_name $DOMAIN;
+    server_name $DOMAIN www.$DOMAIN;
     root $DIR;
     index index.html;
     location ~ /\.git { deny all; }
@@ -47,7 +47,7 @@ if command -v ufw >/dev/null && ufw status | grep -q "Status: active"; then
 fi
 
 echo "==> Включаю HTTPS"
-if certbot --nginx -d "$DOMAIN" --non-interactive --agree-tos --register-unsafely-without-email --redirect; then
+if certbot --nginx -d "$DOMAIN" -d "www.$DOMAIN" --non-interactive --agree-tos --register-unsafely-without-email --redirect; then
   echo "Готово: https://$DOMAIN"
 else
   echo "Сайт уже работает по http://$DOMAIN"
