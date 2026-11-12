@@ -59,8 +59,9 @@ header.solid{border-color:var(--line)}
 #flow{position:absolute;inset:0;width:100%;height:100%;z-index:-1}
 .hero::after{content:"";position:absolute;inset:auto 0 0;height:180px;background:linear-gradient(transparent,var(--night));z-index:-1}
 .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:30px;align-items:center;width:100%}
-.stream{display:inline-flex;align-items:center;gap:10px;font-size:14.5px;color:var(--ice);margin-bottom:28px}
-.stream i{width:8px;height:8px;border-radius:50%;background:#56d39a;animation:pulse 2.4s infinite}
+.stream{display:inline-flex;align-items:center;gap:12px;font-size:16px;font-weight:700;color:#06233f;background:linear-gradient(90deg,#7fd3ff,#bfe8ff);padding:11px 20px 11px 16px;border-radius:999px;margin-bottom:30px;box-shadow:0 0 0 0 rgba(127,211,255,.6),0 12px 34px -10px rgba(127,211,255,.7);animation:glow 2.8s infinite}
+@keyframes glow{0%{box-shadow:0 0 0 0 rgba(127,211,255,.55),0 12px 34px -10px rgba(127,211,255,.7)}70%{box-shadow:0 0 0 14px rgba(127,211,255,0),0 12px 34px -10px rgba(127,211,255,.7)}100%{box-shadow:0 0 0 0 rgba(127,211,255,0),0 12px 34px -10px rgba(127,211,255,.7)}}
+.stream i{width:10px;height:10px;border-radius:50%;background:#0aa86a;animation:pulse 2.4s infinite}
 @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(86,211,154,.6)}70%{box-shadow:0 0 0 10px rgba(86,211,154,0)}100%{box-shadow:0 0 0 0 rgba(86,211,154,0)}}
 .hero h1{font-size:clamp(42px,6vw,80px);font-weight:600;letter-spacing:-.015em;line-height:1.02;margin-bottom:26px}
 .hero h1 .thin{display:block;font-weight:300;color:var(--ice);font-size:.52em;letter-spacing:0;line-height:1.2;margin-top:18px}
@@ -86,9 +87,10 @@ header.solid{border-color:var(--line)}
 @media(max-width:560px){.outcomes{grid-template-columns:1fr}}
 
 /* numbers strip */
-.facts{display:flex;gap:64px;flex-wrap:wrap;margin-top:70px}
-.facts div{font-size:15px;color:var(--mist)}
-.facts b{display:block;font-size:46px;font-weight:600;color:var(--pearl);letter-spacing:-.03em;line-height:1.1}
+.facts{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:70px;padding:22px;border-radius:28px;background:linear-gradient(135deg,#1b4f96,#2a74c9 55%,#3e8ede)}
+.facts div{background:rgba(7,18,38,.28);border:1px solid rgba(255,255,255,.16);border-radius:20px;padding:26px 24px;font-size:15.5px;color:#dceaff}
+.facts b{display:block;font-size:52px;font-weight:700;color:#fff;letter-spacing:-.02em;line-height:1;margin-bottom:10px}
+@media(max-width:860px){.facts{grid-template-columns:1fr 1fr}}
 
 /* program */
 .program{background:linear-gradient(180deg,var(--night),var(--deep) 30%,var(--deep) 70%,var(--night))}
@@ -101,15 +103,16 @@ header.solid{border-color:var(--line)}
 .part-intro p{color:var(--mist);max-width:62ch}
 .part-intro .meta{color:var(--ice);font-size:15px;white-space:nowrap}
 .lessons{display:grid;grid-template-columns:1fr 1fr;column-gap:56px}
-.lesson{display:grid;grid-template-columns:48px 1fr;padding:22px 0;border-top:1px solid var(--line)}
-.lesson .n{color:var(--danube);font-weight:500;font-size:15px;padding-top:3px}
+.lesson{display:grid;grid-template-columns:58px 1fr;padding:22px 0;border-top:1px solid var(--line)}
+.lesson .n{color:var(--pearl);font-weight:700;font-size:34px;line-height:1}
 .lesson h4{font-size:18px;font-weight:500;letter-spacing:-.01em;margin-bottom:6px}
 .lesson p{font-size:15px;color:var(--mist)}
 .lesson .file{display:inline-block;margin-top:10px;font-size:13.5px;color:var(--ice);border:1px solid var(--line);border-radius:8px;padding:3px 10px}
 @media(max-width:860px){.lessons{grid-template-columns:1fr}}
 .weeks{border-top:1px solid var(--line)}
 .week{display:grid;grid-template-columns:110px 1fr 1fr;gap:34px;padding:30px 0;border-bottom:1px solid var(--line)}
-.week .when{color:var(--danube);font-size:15px;font-weight:500}
+.week .when{color:var(--mist);font-size:14px;font-weight:500}
+.week .when b{display:block;color:var(--pearl);font-size:34px;font-weight:700;line-height:1;margin-top:4px}
 .week .when small{display:block;color:var(--mist);font-weight:400;margin-top:6px}
 .week h4{font-size:21px;font-weight:500;margin-bottom:10px;letter-spacing:-.015em}
 .week p{font-size:15.5px;color:var(--mist)}
@@ -255,19 +258,19 @@ footer a{color:var(--pearl);text-decoration:none}
 
     <div class="part on" id="p1" role="tabpanel">
       <div class="part-intro">
-        <p>8 уроков в записи и индивидуальная консультация по подбору страхования. Ведут Анна и Екатерина, урок 1.2 — финансовый психолог.</p>
+        <p>8 уроков в записи и индивидуальная консультация по подбору страхования. Ведут Анна и Екатерина, урок 2 — финансовый психолог.</p>
         <span class="meta">8 уроков + консультация 1:1</span>
       </div>
       <div class="lessons">
-        <div class="lesson"><span class="n">1.1</span><div><h4>Основы финансовой грамотности</h4><p>Этапы финансовой устойчивости, на каком этапе вы сейчас по разнице доходов и расходов и какой следующий шаг.</p></div></div>
-        <div class="lesson"><span class="n">1.2</span><div><h4>Финансовые блоки</h4><p>Как зарабатывать больше, научиться копить и перестать бояться потерять деньги. Урок финансового психолога.</p></div></div>
-        <div class="lesson"><span class="n">1.3</span><div><h4>Финансовая карта</h4><p>Активы и пассивы в разных валютах и странах на одной странице, 3 главные финансовые цели.</p></div></div>
-        <div class="lesson"><span class="n">1.4</span><div><h4>Личный и семейный бюджет</h4><p>Категории, мультивалютность, подушка — сколько и где держать.</p></div></div>
-        <div class="lesson"><span class="n">1.5</span><div><h4>Бюджет за 5 минут в день</h4><p>Настройка бота для учёта и таблицы бюджета.</p><span class="file">Таблица бюджета с ботом</span></div></div>
-        <div class="lesson"><span class="n">1.6</span><div><h4>Зачем семье страхование</h4><p>Карта рисков семьи, что покрывает государственное страхование RFZO и где его не хватает.</p></div></div>
-        <div class="lesson"><span class="n">1.7</span><div><h4>Страхование жизни и здоровья</h4><p>Рисковое и накопительное страхование жизни, международные программы, нетрудоспособность, критические заболевания, травмы.</p></div></div>
-        <div class="lesson"><span class="n">1.8</span><div><h4>Страхование здоровья и имущества</h4><p>ДМС, КАСКО, страхование недвижимости: что действительно нужно, а на чём можно сэкономить.</p><span class="file">Файл подбора страхового решения</span></div></div>
-        <div class="lesson"><span class="n">1.9</span><div><h4>Консультация по подбору страхования</h4><p>Индивидуально и бесплатно: разбираем ваш заполненный шаблон и подбираем решение под семью.</p></div></div>
+        <div class="lesson"><span class="n">1</span><div><h4>Основы финансовой грамотности</h4><p>Из каких этапов складывается финансовая устойчивость, на каком этапе человек сейчас по разнице доходов и расходов и какой следующий шаг.</p></div></div>
+        <div class="lesson"><span class="n">2</span><div><h4>Финансовые блоки: как зарабатывать больше, научиться копить и перестать бояться потерять деньги</h4><p>Урок финансового психолога: денежные установки и страхи — страх потерять деньги, страх инвестировать, «большие деньги не для меня», импульсивные траты; что мешает расти доходу.</p></div></div>
+        <div class="lesson"><span class="n">3</span><div><h4>Финансовая карта: активы, пассивы, финансовые цели</h4><p>Активы и пассивы в разных валютах и странах на одной странице, 3 главные финансовые цели.</p></div></div>
+        <div class="lesson"><span class="n">4</span><div><h4>Личный и семейный бюджет</h4><p>Как правильно вести учёт: категории, мультивалютность, подушка — сколько и где держать.</p></div></div>
+        <div class="lesson"><span class="n">5</span><div><h4>Как вести бюджет за 5 минут в день</h4><p>Настройка бота для учёта и таблицы бюджета.</p><span class="file">Таблица бюджета с ботом</span></div></div>
+        <div class="lesson"><span class="n">6</span><div><h4>Зачем семье страхование и что уже даёт государство</h4><p>Что такое страхование и зачем оно нужно, карта рисков семьи, что покрывает государственное страхование RFZO и где его не хватает.</p></div></div>
+        <div class="lesson"><span class="n">7</span><div><h4>Страхование жизни и здоровья: защита и накопления</h4><p>Рисковое и накопительное страхование жизни, международные программы; в том же полисе-конструкторе — нетрудоспособность, критические заболевания, травмы, госпитализация.</p></div></div>
+        <div class="lesson"><span class="n">8</span><div><h4>Страхование здоровья и имущества</h4><p>ДМС, КАСКО, страхование недвижимости: что действительно нужно, а на чём можно сэкономить.</p><span class="file">Файл подбора страхового решения: вы отвечаете на вопросы и получаете список нужных вам видов страхования</span></div></div>
+        <div class="lesson"><span class="n">9</span><div><h4>Индивидуальная консультация по подбору страхования</h4><p>Бесплатно, 1:1 с Анной: разбор результатов шаблона подбора страхования и подбор решения под семью. На консультацию вы приходите с заполненным шаблоном из урока 8.</p></div></div>
       </div>
     </div>
 
@@ -277,14 +280,14 @@ footer a{color:var(--pearl);text-decoration:none}
         <span class="meta">8 недель</span>
       </div>
       <div class="weeks">
-        <div class="week"><div class="when">Неделя 1<small>Анна</small></div><div><h4>Основы инвестирования: риск-профиль, стратегия и портфель</h4><p>Риск-менеджмент и риск-профиль, виды инвестирования, регулярные инвестиции, модельные портфели и пропорции, типичные ошибки.</p></div><div class="live"><b>Живая встреча</b><p>Подбираем пропорции портфеля под свои цели на примерах модельных портфелей. Заполняем файл риск-профиля.</p></div></div>
-        <div class="week"><div class="when">Неделя 2<small>Анна</small></div><div><h4>Инвестиционные решения для резидентов Сербии</h4><p>Как выбрать брокера, что такое Unit-Linked и чем он отличается от брокерского счёта, как снизить санкционные риски.</p></div><div></div></div>
-        <div class="week"><div class="when">Неделя 3<small>Анна</small></div><div><h4>Пенсионный капитал и образование детей</h4><p>Государственная пенсия в России и Сербии, сколько накопить самому, пенсионные и накопительные стратегии, капитал на образование детей.</p></div><div class="live"><b>Живая встреча</b><p>Реальные пенсионные и накопительные программы, доступные сейчас. Выбираем брокера или Unit-Linked под себя.</p></div></div>
-        <div class="week"><div class="when">Неделя 4<small>Анна</small></div><div><h4>Инструменты пассивного дохода</h4><p>Облигации, дивиденды, фонды недвижимости, недвижимость в Сербии и за рубежом.</p></div><div></div></div>
-        <div class="week"><div class="when">Неделя 5<small>Анна</small></div><div><h4>Инструменты роста: высокий риск — высокая доходность</h4><p>Акции роста, тематические ETF, высокорисковые инструменты, обзор криптовалюты и какую долю им давать.</p></div><div class="live"><b>Живая встреча</b><p>Реальные компании в Сербии и на международных рынках по темам недель 4 и 5.</p></div></div>
-        <div class="week"><div class="when">Неделя 6</div><div><h4>Налоги и валютное регулирование Сербии и России</h4><p>Налоговое резидентство и налоги в Сербии, налоги в России и соглашение об избежании двойного налогообложения, валютное регулирование РФ и отчётность по криптовалюте.</p></div><div class="live"><b>Живая встреча</b><p>Продажа квартиры в России, дивиденды у брокера, паушал при счёте в РФ, продажа крипты. Чек-лист своего статуса и календарь деклараций.</p></div></div>
-        <div class="week"><div class="when">Неделя 7<small>Екатерина</small></div><div><h4>Криптовалюта</h4><p>Безопасное хранение: монеты и стейблкоины, биржи и кошельки, seed-фраза, защита от мошенников. Оплаты и переводы, вывод в фиат в Сербии, перевод активов из России.</p></div><div class="live"><b>Живая встреча</b><p>Оплатить расходы, вывести в динары или евро, перевести активы из России. Доля крипты в своём портфеле.</p></div></div>
-        <div class="week"><div class="when">Неделя 8</div><div><h4>Личный финансовый план</h4><p>Цели и расчёты с учётом инфляции и доходности, как подобрать инструмент под цель, порядок действий и пересмотр плана.</p></div><div class="live"><b>Живая встреча</b><p>Разбор 2–3 гипотетических клиентов: цели, расчёты, подбор инструментов с объяснением выбора.</p></div></div>
+        <div class="week"><div class="when">Неделя<b>1</b><small>Анна</small></div><div><h4>Основы инвестирования: риск-профиль, стратегия и портфель</h4><p>Основы, риск-менеджмент и риск-профиль, виды инвестирования, регулярные инвестиции, модельные портфели и пропорции, типичные ошибки.</p></div><div class="live"><b>Живая встреча</b><p>Подбираем пропорции портфеля под свои цели на примерах модельных портфелей. Заполняем файл риск-профиля.</p></div></div>
+        <div class="week"><div class="when">Неделя<b>2</b><small>Анна</small></div><div><h4>Инвестиционные решения для резидентов Сербии</h4><p>Как выбрать брокера, что такое Unit-Linked и чем отличается от брокерского счёта, снижение санкционных рисков.</p></div><div></div></div>
+        <div class="week"><div class="when">Неделя<b>3</b><small>Анна</small></div><div><h4>Пенсионный капитал и образование детей</h4><p>Государственная пенсия в России (стаж и баллы, выплата при жизни за рубежом, программа долгосрочных сбережений) и в Сербии (как рассчитывается, на что рассчитывать). Сколько накопить самому; пенсионные и накопительные стратегии. Капитал на образование детей.</p></div><div class="live"><b>Живая встреча</b><p>Реальные пенсионные и накопительные программы, доступные сейчас. Выбираем брокера или Unit-Linked под себя.</p></div></div>
+        <div class="week"><div class="when">Неделя<b>4</b><small>Анна</small></div><div><h4>Инструменты пассивного дохода</h4><p>Облигации, дивиденды, фонды недвижимости, недвижимость в Сербии и за рубежом.</p></div><div></div></div>
+        <div class="week"><div class="when">Неделя<b>5</b><small>Анна</small></div><div><h4>Инструменты роста: высокий риск — высокая доходность</h4><p>Акции роста, тематические ETF, высокорисковые инструменты, криптовалюта (обзор, подробно — на неделе 7), какую долю им давать.</p></div><div class="live"><b>Живая встреча</b><p>Реальные компании в Сербии и на международных рынках (к урокам в записи 4 и 5).</p></div></div>
+        <div class="week"><div class="when">Неделя<b>6</b></div><div><h4>Налоги и валютное регулирование Сербии и России</h4><p>Три короткие записи: налоговое резидентство и налоги в Сербии (налог на доход от капитала, декларация, сроки); налоги в России и соглашение об избежании двойного налогообложения; валютное регулирование РФ и криптовалюта (уведомления о счетах, отчёты о движении средств, отчёты в ФНС по крипте, исключение для живущих за рубежом больше 183 дней, налог с прибыли от крипты).</p></div><div class="live"><b>Живая встреча</b><p>Типовые ситуации: продажа квартиры в России, дивиденды у брокера, паушал при счёте в РФ, продажа крипты; чек-лист своего статуса; календарь деклараций.</p></div></div>
+        <div class="week"><div class="when">Неделя<b>7</b><small>Екатерина</small></div><div><h4>Криптовалюта</h4><p>Две записи: основы работы с криптовалютой — безопасное хранение и сбережение (монеты и стейблкоины, биржи и кошельки, стейблкоины в подушке, seed-фраза, защита от мошенников); криптовалюта для жизни и инвестиций (оплаты и переводы, вывод в фиат в Сербии, новый закон в России, перевод активов из России, доля крипты в портфеле).</p></div><div class="live"><b>Живая встреча</b><p>Сценарии: оплатить расходы, вывести в динары или евро, перевести активы из России; доля крипты в своём портфеле.</p></div></div>
+        <div class="week"><div class="when">Неделя<b>8</b></div><div><h4>Личный финансовый план</h4><p>Три короткие записи: финансовые цели и расчёты (пенсия, образование, пассивный доход с учётом инфляции и доходности); как подобрать финансовый инструмент под цель; порядок действий и пересмотр плана.</p></div><div class="live"><b>Живая встреча</b><p>Разбор 2–3 гипотетических клиентов: цели, расчёты, подбор инструментов с объяснением выбора.</p></div></div>
       </div>
       <p class="aside">Денежные переводы в практикум не входят: тема быстро меняется, её разбираем на разовых консультациях.</p>
     </div>
