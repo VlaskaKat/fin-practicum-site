@@ -361,3 +361,4 @@ SR.update({
 "Вы узнаете, как безопасно хранить криптовалюту, проводить оплаты и выводить деньги, и понимаете, какую долю ей давать в портфеле.":"Saznaćete kako bezbedno čuvati kriptovalutu, plaćati i isplaćivati novac, i razumećete koliki udeo joj dati u portfoliju.",
 })
 SR.update({'Шаблоны и чек-листы программы': 'Šabloni i ček-liste programa', 'Файл риск-профиля': 'Fajl profila rizika', 'Чек-лист налогового и валютного статуса': 'Ček-lista poreskog i deviznog statusa', 'Чек-лист безопасности криптовалюты': 'Ček-lista bezbednosti kriptovaluta'})
+SR.update({"8 мест":"8 mesta","94 000 дин.":"94 000 din."})
