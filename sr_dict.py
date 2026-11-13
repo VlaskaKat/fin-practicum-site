@@ -364,3 +364,4 @@ SR.update({'Шаблоны и чек-листы программы': 'Šabloni i
 SR.update({"8 мест":"8 mesta","94 000 дин.":"94 000 din."})
 SR.update({"тариф":"paket","Самостоятельный":"Samostalni"})
 SR.update({"176 400 дин.":"176 400 din.","3 месяца личного сопровождения в мессенджере":"3 meseca lične podrške u mesindžeru","Клуб на 1 месяц":"Klub na 1 mesec"})
+SR.update({"Встреча 1:1 по вашему личному финансовому плану, 90 минут":"Susret 1:1 o vašem ličnom finansijskom planu, 90 minuta","Всего 3 встречи 1:1 по 90 минут":"Ukupno 3 susreta 1:1 po 90 minuta"})
