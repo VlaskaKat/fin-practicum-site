@@ -283,3 +283,26 @@ SR.update({'Материалы и поддержка тарифа': 'Materijali 
 SR.update({'Добровольное медицинское страхование и страхование имущества': 'Dobrovoljno zdravstveno osiguranje i osiguranje imovine', 'Что действительно нужно, а на чём можно сэкономить.': 'Šta je zaista potrebno, a gde se može uštedeti.', 'У вас есть список видов страхования и понимание, какие из них нужны вашей семье, чтобы защититься от финансовых рисков.': 'Imate listu vrsta osiguranja i razumete koje su potrebne vašoj porodici da biste se zaštitili od finansijskih rizika.', 'Файл подбора страхового решения: опросник, который даёт результат и рекомендации по страхованию': 'Fajl za izbor osiguranja: upitnik koji daje rezultat i preporuke za osiguranje'})
 SR.update({'Бонусная встреча 1:1: разбор вашей страховой стратегии и подбор решения под вашу семью.': 'Bonus susret 1:1: analiza vaše strategije osiguranja i izbor rešenja za vašu porodicu.', 'Вы получаете рекомендации по защите для себя и своей семьи.': 'Dobijate preporuke za zaštitu sebe i svoje porodice.'})
 SR.update({"58 700 дин.":"58 700 din."})
+SR.update({
+"Финансовая стратегия · С сопровождением":"Finansijska strategija · Sa podrškom",
+"Тариф «VIP»":"Paket «VIP»",
+"Подробнее о программе":"Više o programu",
+"Финансовая стратегия · VIP":"Finansijska strategija · VIP",
+"Всё из программы «Финансовый фундамент» и тарифов «Самостоятельный» и «С сопровождением»":"Sve iz programa «Finansijski temelj» i paketa «Samostalni» i «Sa podrškom»",
+"Финансовая стратегия · Самостоятельный":"Finansijska strategija · Samostalni",
+"Всё из программы «Финансовый фундамент»":"Sve iz programa «Finansijski temelj»",
+"Программы":"Programi",
+"Материалы и поддержка программы":"Materijali i podrška programa",
+"Программа «Финансовый фундамент»":"Program «Finansijski temelj»",
+"Клуб стартует после окончания обучения по программе «Финансовая стратегия». Вступить можно после прохождения этого обучения, а записаться — уже сейчас.":"Klub počinje nakon završetka obuke po programu «Finansijska strategija». Učlaniti se možete posle te obuke, a prijaviti se — već sada.",
+"Две программы: «Финансовый фундамент» для старта и «Финансовая стратегия» в трёх тарифах. Каждый следующий вариант включает всё из предыдущих. По предварительной записи — скидка 15%.":"Dva programa: «Finansijski temelj» za početak i «Finansijska strategija» u tri paketa. Svaka sledeća opcija uključuje sve iz prethodnih. Uz prijavu unapred — popust 15%.",
+"Тариф «С сопровождением»":"Paket «Sa podrškom»",
+"Тариф «Самостоятельный»":"Paket «Samostalni»",
+"Выберите программу":"Izaberite program",
+"В зависимости от программы и тарифа.":"U zavisnosti od programa i paketa.",
+"Наши программы":"Naši programi",
+"Программа «Финансовая стратегия»":"Program «Finansijska strategija»",
+"Подробнее о программах":"Više o programima",
+"Всё из программы «Финансовый фундамент» и тарифа «Самостоятельный»":"Sve iz programa «Finansijski temelj» i paketa «Samostalni»",
+"Программа":"Program",
+})
