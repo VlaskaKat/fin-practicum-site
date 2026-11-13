@@ -7,7 +7,7 @@ def enc(im,w,q=84):
     if im.width>w: im=im.resize((w,int(im.height*w/im.width)),Image.LANCZOS)
     b=io.BytesIO();im.save(b,'JPEG',quality=q,optimize=True);return 'data:image/jpeg;base64,'+base64.b64encode(b.getvalue()).decode()
 poster=Image.open('/mnt/user-data/uploads/b1e42452-image.png')
-imgs={'{HERO}':enc(poster.crop((60,215,1020,748)),1200),'{EK}':enc(Image.open('/tmp/pp/s19_4.png'),800),'{AN}':enc(poster.crop((610,230,930,630)),500)}
+imgs={'{HERO}':enc(poster.crop((60,215,1020,748)),1200),'{EK}':enc(Image.open('/tmp/pp/s19_4.png'),800),'{AN}':enc(Image.open('/home/claude/site/anna.png'),800)}
 ru=t.replace('{LANGSW}','<b>RU</b><a href="sr/" hreflang="sr">SR</a>')
 sr=t.replace('{LANGSW}','<a href="../" hreflang="ru">RU</a><b>SR</b>').replace('<html lang="ru">','<html lang="sr-Latn">')
 missing=set()
