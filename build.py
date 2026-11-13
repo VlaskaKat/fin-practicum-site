@@ -25,7 +25,7 @@ def tra(m):
         if v in SR: return m.group(1)+'="'+SR[v]+'"'
         missing.add(v)
     return m.group(0)
-head=re.sub(r'\b(alt|placeholder|aria-label|data-plan|content)="([^"]*)"',tra,head)
+head=re.sub(r'\b(alt|placeholder|aria-label|data-plan|content|value)="([^"]*)"',tra,head)
 for k in ['Отправляем…','Не получилось отправить заявку. Напишите нам в Telegram:']:
     rest=rest.replace(k,SR[k])
 sr=head+'<script>'+rest
