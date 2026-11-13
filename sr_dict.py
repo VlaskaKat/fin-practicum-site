@@ -363,3 +363,4 @@ SR.update({
 SR.update({'Шаблоны и чек-листы программы': 'Šabloni i ček-liste programa', 'Файл риск-профиля': 'Fajl profila rizika', 'Чек-лист налогового и валютного статуса': 'Ček-lista poreskog i deviznog statusa', 'Чек-лист безопасности криптовалюты': 'Ček-lista bezbednosti kriptovaluta'})
 SR.update({"8 мест":"8 mesta","94 000 дин.":"94 000 din."})
 SR.update({"тариф":"paket","Самостоятельный":"Samostalni"})
+SR.update({"176 400 дин.":"176 400 din.","3 месяца личного сопровождения в мессенджере":"3 meseca lične podrške u mesindžeru","Клуб на 1 месяц":"Klub na 1 mesec"})
