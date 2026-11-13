@@ -59,9 +59,11 @@ header.solid{border-color:var(--line)}
 #flow{position:absolute;inset:0;width:100%;height:100%;z-index:-1}
 .hero::after{content:"";position:absolute;inset:auto 0 0;height:180px;background:linear-gradient(transparent,var(--night));z-index:-1}
 .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:30px;align-items:center;width:100%}
-.stream{display:inline-flex;align-items:center;gap:12px;font-size:16px;font-weight:700;color:#06233f;background:linear-gradient(90deg,#7fd3ff,#bfe8ff);padding:11px 20px 11px 16px;border-radius:999px;margin-bottom:30px;box-shadow:0 0 0 0 rgba(127,211,255,.6),0 12px 34px -10px rgba(127,211,255,.7);animation:glow 2.8s infinite}
-@keyframes glow{0%{box-shadow:0 0 0 0 rgba(127,211,255,.55),0 12px 34px -10px rgba(127,211,255,.7)}70%{box-shadow:0 0 0 14px rgba(127,211,255,0),0 12px 34px -10px rgba(127,211,255,.7)}100%{box-shadow:0 0 0 0 rgba(127,211,255,0),0 12px 34px -10px rgba(127,211,255,.7)}}
-.stream i{width:10px;height:10px;border-radius:50%;background:#0aa86a;animation:pulse 2.4s infinite}
+.stream{display:inline-flex;align-items:center;gap:12px;font-size:17px;font-weight:800;color:#03213d;text-decoration:none;background:linear-gradient(90deg,#00d2ff,#7ff0ff,#00d2ff);background-size:200% 100%;padding:13px 24px 13px 18px;border-radius:999px;margin-bottom:30px;animation:blink 1.1s ease-in-out infinite,slide 3s linear infinite}
+@keyframes blink{0%,100%{opacity:1;transform:scale(1);box-shadow:0 0 0 0 rgba(0,210,255,.75),0 0 34px 6px rgba(0,210,255,.7)}50%{opacity:.72;transform:scale(1.04);box-shadow:0 0 0 12px rgba(0,210,255,0),0 0 12px 0 rgba(0,210,255,.3)}}
+@keyframes slide{to{background-position:-200% 0}}
+.stream:hover{animation-play-state:paused}
+.stream i{width:11px;height:11px;border-radius:50%;background:#ff3b5c;animation:pulse 2.4s infinite}
 @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(86,211,154,.6)}70%{box-shadow:0 0 0 10px rgba(86,211,154,0)}100%{box-shadow:0 0 0 0 rgba(86,211,154,0)}}
 .hero h1{font-size:clamp(42px,6vw,80px);font-weight:600;letter-spacing:-.015em;line-height:1.02;margin-bottom:26px}
 .hero h1 .thin{display:block;font-weight:500;color:var(--ice);font-size:.6em;letter-spacing:0;line-height:1.2;margin-top:18px}
@@ -271,8 +273,8 @@ footer a{color:var(--pearl);text-decoration:none}
   <canvas id="flow" aria-hidden="true"></canvas>
   <div class="wrap hero-grid">
     <div>
-      <div class="stream load d1"><i></i>Otvorene su prijave za 3. grupu</div>
-      <h1 class="load d2">Put do finansijske slobode<span class="thin">finansijski praktikum za one koji žive u Srbiji</span></h1>
+      <a class="stream" href="#signup"><i></i>Otvorene su prijave za 3. grupu</a>
+      <h1 class="load d2">Put do finansijske slobode<span class="thin">praktikum o ličnim finansijama za one koji žive u Srbiji</span></h1>
       <p class="sub load d3">Kako početi sa investiranjem u Srbiji. Kompletan praktikum: od kontrole nad svojim novcem i zaštite porodice do finansijskog sistema koji će vas dovesti do vaših ciljeva — uz poštovanje zakona, poreza i sankcija.</p>
       <div class="cta-row load d4">
         <a class="btn btn-main" href="#signup">Prijava</a>
