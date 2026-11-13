@@ -55,7 +55,7 @@ header.solid{border-color:var(--line)}
 @media(max-width:520px){.nav .btn{display:none}.brand span{display:none}}
 
 /* hero */
-.hero{min-height:100vh;padding:130px 0 90px;display:flex;align-items:center;overflow:hidden;isolation:isolate}
+.hero{padding:104px 0 70px;overflow:hidden;isolation:isolate}
 #flow{position:absolute;inset:0;width:100%;height:100%;z-index:-1}
 .hero::after{content:"";position:absolute;inset:auto 0 0;height:180px;background:linear-gradient(transparent,var(--night));z-index:-1}
 .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:30px;align-items:center;width:100%}
@@ -65,14 +65,14 @@ header.solid{border-color:var(--line)}
 .stream:hover{animation-play-state:paused}
 .stream i{width:22px;height:22px;border-radius:50%;background:#12c46b;border:3px solid #fff;animation:pulse 2.4s infinite}
 @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(86,211,154,.6)}70%{box-shadow:0 0 0 10px rgba(86,211,154,0)}100%{box-shadow:0 0 0 0 rgba(86,211,154,0)}}
-.hero h1{font-size:clamp(42px,6vw,80px);font-weight:600;letter-spacing:-.015em;line-height:1.02;margin-bottom:26px}
+.hero h1{font-size:clamp(38px,4.6vw,64px);font-weight:600;letter-spacing:-.015em;line-height:1.02;margin-bottom:26px}
 .hero h1 .thin{display:block;font-weight:500;color:var(--ice);font-size:.6em;letter-spacing:0;line-height:1.2;margin-top:18px}
 .hero .sub{margin-bottom:38px;font-size:20px;color:#d2e1f5;max-width:34ch}
 .hero-list{list-style:none;margin-bottom:38px;display:grid;gap:10px}
 .hero-list li{position:relative;padding-left:36px;font-size:19px;color:#e3edfa;line-height:1.4}
 .hero-list li::before{content:"";position:absolute;left:0;top:3px;width:22px;height:22px;border-radius:50%;background:#2a74c9 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12l5 5L20 7'/%3E%3C/svg%3E") center/12px no-repeat}
 .cta-row{display:flex;gap:14px;flex-wrap:wrap}
-.authors-line{margin-top:46px;font-size:15px;color:var(--mist)}
+.authors-line{margin-top:18px;font-size:15px;color:var(--mist)}
 .authors-line b{color:var(--pearl);font-weight:500}
 .portrait{position:relative}
 .portrait img{width:120%;max-width:none;margin-left:-8%;-webkit-mask-image:radial-gradient(ellipse 60% 62% at 52% 50%,#000 42%,transparent 100%);mask-image:radial-gradient(ellipse 60% 62% at 52% 50%,#000 42%,transparent 100%)}
@@ -83,8 +83,8 @@ header.solid{border-color:var(--line)}
 @media(max-width:900px){.hero{min-height:auto;padding-top:100px}.hero-grid{grid-template-columns:1fr}.portrait{order:-1;margin:0 -24px -20px}.portrait img{width:100%;margin:0}}
 
 /* paths */
-.paths-sec{padding:0 0 40px;margin-top:-30px}
-.paths{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.paths{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:10px}
+.hero .portrait img{width:100%;margin-left:0}
 .path{border-radius:28px;padding:34px;border:1px solid rgba(127,211,255,.45);box-shadow:0 30px 70px -30px rgba(91,184,240,.55);display:flex;flex-direction:column}
 .p-start{background:linear-gradient(160deg,#16305c,#1f4a8a)}
 .p-invest{background:linear-gradient(160deg,#2366c4,#3f93e6)}
@@ -97,7 +97,7 @@ header.solid{border-color:var(--line)}
 .path-cta{display:flex;gap:10px;flex-wrap:wrap}
 .path-cta .btn{padding:14px 20px;font-size:15px}
 .path .btn-ghost{box-shadow:inset 0 0 0 1px rgba(255,255,255,.55)}
-@media(max-width:900px){.paths{grid-template-columns:1fr}.paths-sec{margin-top:0}}
+@media(max-width:900px){.paths{grid-template-columns:1fr}}
 
 /* outcomes */
 .outcomes{display:grid;grid-template-columns:repeat(5,1fr);border-top:1px solid var(--line);margin-top:56px}
@@ -296,23 +296,16 @@ footer a{color:var(--pearl);text-decoration:none}
       <a class="stream" href="#signup"><i></i>Открыта предварительная запись на 3 поток</a>
       <h1 class="load d2">Путь к финансовой свободе<span class="thin">практикум по личным финансам для тех, кто живёт в Сербии</span></h1>
       
-      <div class="cta-row load d4">
-        <a class="btn btn-main" href="#signup">Предварительная запись</a>
-        <a class="btn btn-ghost" href="#pricing">Смотреть тарифы</a>
-      </div>
       <p class="authors-line load d5">Авторский практикум <b>Анны Чачиной</b> и <b>Екатерины Павловой</b></p>
     </div>
     <div class="portrait load d2"><img src="{HERO}" alt="Анна Чачина и Екатерина Павлова"></div>
   </div>
-</section>
-
-<section class="paths-sec">
-  <div class="wrap paths">
+  <div class="wrap paths load d4">
       <div class="path p-start">
         <div class="path-tag">Для тех, кто только начинает</div>
         <h3>Финансовый фундамент</h3>
         <p class="path-sub">От финансовой психологии до первых накоплений</p>
-        <ul><li>Денежные страхи и установки</li><li>Бюджет за 5 минут в день</li><li>Подушка безопасности</li><li>Страхование семьи без переплат</li></ul>
+        <ul><li>Работа с денежными страхами и установками</li><li>Как вести бюджет без стресса за 5 минут в день</li><li>Как создать подушку безопасности</li><li>Защита семьи от непредвиденных расходов через страхование</li></ul>
         <div class="path-cta"><a class="btn btn-main" href="#signup" data-plan="Финансовый фундамент">Предварительная запись</a><a class="btn btn-ghost" href="#tariff-1">Подробнее о тарифе</a></div>
       </div>
       <div class="path p-invest">
