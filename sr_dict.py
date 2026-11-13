@@ -360,3 +360,4 @@ SR.update({
 "Вы узнаете свой риск-профиль, понимаете основы инвестирования и видите, какой подход подходит именно вам.":"Saznaćete svoj profil rizika, razumećete osnove investiranja i videćete koji pristup odgovara baš vama.",
 "Вы узнаете, как безопасно хранить криптовалюту, проводить оплаты и выводить деньги, и понимаете, какую долю ей давать в портфеле.":"Saznaćete kako bezbedno čuvati kriptovalutu, plaćati i isplaćivati novac, i razumećete koliki udeo joj dati u portfoliju.",
 })
+SR.update({'Шаблоны и чек-листы программы': 'Šabloni i ček-liste programa', 'Файл риск-профиля': 'Fajl profila rizika', 'Чек-лист налогового и валютного статуса': 'Ček-lista poreskog i deviznog statusa', 'Чек-лист безопасности криптовалюты': 'Ček-lista bezbednosti kriptovaluta'})
