@@ -311,3 +311,5 @@ SR.update({'Как определить свой риск-профиль и уп
 SR.update({'Как выбрать локального или зарубежного брокера. Инвестиционное страхование.':'Kako izabrati domaćeg ili stranog brokera. Investiciono osiguranje.'})
 SR.update({'Выбор брокера и инвестиционного инструмента под себя с учётом текущих ограничений.':'Izbor brokera i investicionog instrumenta za sebe, uzimajući u obzir trenutna ograničenja.'})
 SR.update({'Реальные пенсионные и накопительные программы, доступные сейчас.':'Stvarni penzioni i štedni programi dostupni sada.'})
+SR.update({'Акции роста, тематические ETF, высокорисковые инструменты, криптовалюта, какую долю им давать.':'Akcije rasta, tematski ETF-ovi, visokorizični instrumenti, kriptovaluta, koliki udeo im dati.'})
+SR.update({'Реальные компании в Сербии и на международных рынках.':'Stvarne kompanije u Srbiji i na međunarodnim tržištima.'})
