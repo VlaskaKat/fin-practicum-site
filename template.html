@@ -72,7 +72,7 @@ header.solid{border-color:var(--line)}
 .hero-list li{position:relative;padding-left:36px;font-size:19px;color:#e3edfa;line-height:1.4}
 .hero-list li::before{content:"";position:absolute;left:0;top:3px;width:22px;height:22px;border-radius:50%;background:#2a74c9 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12l5 5L20 7'/%3E%3C/svg%3E") center/12px no-repeat}
 .cta-row{display:flex;gap:14px;flex-wrap:wrap}
-.authors-line{margin-top:22px;display:flex;flex-wrap:wrap;align-items:center;gap:10px 12px;font-size:17px;color:var(--mist)}
+.authors-line{grid-column:1/-1;margin:0 0 4px;display:flex;flex-wrap:wrap;align-items:center;gap:10px 12px;font-size:17px;color:var(--mist)}
 .who{display:inline-block;padding:11px 20px;border-radius:14px;font-size:18px;font-weight:600;color:#fff;text-decoration:none;background:rgba(127,211,255,.12);border:1px solid rgba(127,211,255,.5);box-shadow:0 10px 30px -14px rgba(91,184,240,.7);transition:background .2s}
 .who:hover{background:rgba(127,211,255,.25)}
 
@@ -298,11 +298,11 @@ footer a{color:var(--pearl);text-decoration:none}
       <a class="stream" href="#signup"><i></i>Открыта предварительная запись на 3 поток</a>
       <h1 class="load d2">Путь к финансовой свободе<span class="thin">практикум по личным финансам для тех, кто живёт в Сербии</span></h1>
       
-      <div class="authors-line load d5"><span>Авторский практикум</span><a class="who" href="#person-anna">Анны Чачиной</a><span>и</span><a class="who" href="#person-ekaterina">Екатерины Павловой</a></div>
     </div>
     <div class="portrait load d2"><img src="{HERO}" alt="Анна Чачина и Екатерина Павлова"></div>
   </div>
   <div class="wrap paths load d4">
+      <div class="authors-line load d5"><span>Авторский практикум</span><a class="who" href="#person-anna">Анны Чачиной</a><span>и</span><a class="who" href="#person-ekaterina">Екатерины Павловой</a></div>
       <div class="path p-start">
         <div class="path-tag">Для тех, кто только начинает</div>
         <h3>Финансовый фундамент</h3>
