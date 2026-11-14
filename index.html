@@ -276,6 +276,9 @@ input.bad{border-color:#f08a8a}
 .picks.bad{outline:1px solid #f08a8a;outline-offset:4px}
 .pick{display:flex;gap:12px;align-items:flex-start;padding:12px 14px;border:1px solid var(--line);border-radius:12px;background:rgba(238,244,251,.04);cursor:pointer;font-size:15px;color:var(--pearl);margin:0}
 .pick input{width:18px;height:18px;margin:2px 0 0;accent-color:var(--danube);flex:0 0 18px}
+.pick.bad{border-color:#f08a8a}
+select.bad{border-color:#f08a8a}
+#clubpick{margin-bottom:18px}
 .pick:has(input:checked){border-color:var(--ice);background:rgba(127,211,255,.12)}
 .again{margin-top:18px}
 form .btn{width:100%}
@@ -481,8 +484,9 @@ footer a{color:var(--pearl);text-decoration:none}
         <input id="f-phone" name="phone" type="tel" autocomplete="tel" placeholder="+381…">
         <label for="f-tg">Ник в Telegram</label>
         <input id="f-tg" name="telegram" placeholder="@username">
-        <div class="lbl">Выберите программы <small>(можно несколько)</small></div>
-        <div class="picks" id="picks"><label class="pick"><input type="checkbox" name="plan" value="Программа «Финансовый фундамент»"><span>Программа «Финансовый фундамент»</span></label><label class="pick"><input type="checkbox" name="plan" value="Программа «Финансовая стратегия», тариф «Самостоятельный»"><span>Программа «Финансовая стратегия», тариф «Самостоятельный»</span></label><label class="pick"><input type="checkbox" name="plan" value="Программа «Финансовая стратегия», тариф «С сопровождением»"><span>Программа «Финансовая стратегия», тариф «С сопровождением»</span></label><label class="pick"><input type="checkbox" name="plan" value="Программа «Финансовая стратегия», тариф «VIP»"><span>Программа «Финансовая стратегия», тариф «VIP»</span></label><label class="pick"><input type="checkbox" name="plan" value="Финансовый клуб"><span>Финансовый клуб</span></label></div>
+        <label for="f-plan">Программа</label>
+        <select id="f-plan" name="plan"><option value="">Выберите программу</option><option>Программа «Финансовый фундамент»</option><option>Программа «Финансовая стратегия», тариф «Самостоятельный»</option><option>Программа «Финансовая стратегия», тариф «С сопровождением»</option><option>Программа «Финансовая стратегия», тариф «VIP»</option></select>
+        <label class="pick" id="clubpick"><input type="checkbox" id="f-club" value="Финансовый клуб"><span>Хочу в Финансовый клуб</span></label>
         <label class="consent" id="consent"><input type="checkbox" id="f-ok"> Согласен(на) на обработку персональных данных</label>
         <button class="btn btn-main" type="submit">Отправить заявку</button>
       </div>
@@ -528,11 +532,11 @@ document.querySelectorAll('.switch button').forEach(b=>b.addEventListener('click
 // tariff buttons preselect
 document.querySelectorAll('[data-plan]').forEach(a=>a.addEventListener('click',()=>{
   document.getElementById('formBody').style.display='';document.getElementById('formOk').style.display='none';
-  document.querySelectorAll('#picks input').forEach(i=>{if(i.value===a.dataset.plan)i.checked=true});
+  if(a.closest('#club')){document.getElementById('f-club').checked=true}else{const sel=document.getElementById('f-plan');[...sel.options].forEach(o=>{if(o.text===a.dataset.plan)sel.value=o.value||o.text})}
 }));
 document.getElementById('again').addEventListener('click',()=>{
   const f=document.getElementById('leadForm');
-  f.querySelectorAll('#picks input').forEach(i=>i.checked=false);
+  document.getElementById('f-plan').value='';document.getElementById('f-club').checked=false;
   const b=f.querySelector('button[type=submit]');b.disabled=false;b.textContent=b.dataset.t||b.textContent;
   document.getElementById('formOk').style.display='none';document.getElementById('formBody').style.display='';
 });
@@ -543,8 +547,8 @@ document.getElementById('leadForm').addEventListener('submit',async e=>{
   e.preventDefault();
   const f=e.target,v=n=>f[n].value.trim();
   const name=v('name'),email=v('email'),phone=v('phone'),telegram=v('telegram'),ok=document.getElementById('f-ok').checked;
-  const plans=[...f.querySelectorAll('#picks input:checked')].map(i=>i.value);
-  document.getElementById('picks').classList.toggle('bad',!plans.length);
+  const plans=[f.plan.value,document.getElementById('f-club').checked?'Финансовый клуб':''].filter(Boolean);
+  f.plan.classList.toggle('bad',!plans.length);document.getElementById('clubpick').classList.toggle('bad',!plans.length);
   const hasContact=!!(email||phone||telegram);
   f.name.classList.toggle('bad',!name);
   ['email','phone','telegram'].forEach(n=>f[n].classList.toggle('bad',!hasContact));
@@ -552,7 +556,7 @@ document.getElementById('leadForm').addEventListener('submit',async e=>{
   if(!name||!hasContact||!ok||!plans.length)return;
   const btn=f.querySelector('button[type=submit]');btn.dataset.t=btn.dataset.t||btn.textContent;btn.disabled=true;btn.textContent='Отправляем…';
   let sent=false;
-  if(LEAD_URL){try{await fetch(LEAD_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify({name,email,phone,telegram,plan:plans.join('; ')})});sent=true}catch(_){}}
+  if(LEAD_URL){try{for(const plan of plans){await fetch(LEAD_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify({name,email,phone,telegram,plan})})}sent=true}catch(_){}}
   document.getElementById('formBody').style.display='none';
   document.getElementById('formOk').style.display='block';
   if(!sent)document.getElementById('okText').innerHTML='Не получилось отправить заявку. Напишите нам в Telegram: <a href="https://t.me/katerinavlaska" target="_blank" rel="noopener" style="color:#bfe3ff">@katerinavlaska</a>';
