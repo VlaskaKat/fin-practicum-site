@@ -372,3 +372,4 @@ SR.update({'Предварительная запись в клуб': 'Prijava z
 SR.update({'Выберите программы': 'Izaberite programe', '(можно несколько)': '(može više)', 'Записаться ещё на программу': 'Prijavite se za još jedan program'})
 SR.update({"Предварительная запись":"Prijava","Остались вопросы? Наши контакты":"Imate pitanja? Naši kontakti","Екатерина Павлова":"Ekaterina Pavlova","Telegram @katerinavlaska":"Telegram @katerinavlaska","Контакты":"Kontakti"})
 SR.update({"Программа":"Program","Выберите программу":"Izaberite program","Хочу в Финансовый клуб":"Želim u Finansijski klub","Финансовый клуб":"Finansijski klub"})
+SR.update({"Анна Чачина":"Ana Čačina","Telegram @a_chachina":"Telegram @a_chachina"})
