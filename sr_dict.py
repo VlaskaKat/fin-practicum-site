@@ -376,3 +376,4 @@ SR.update({"Анна Чачина":"Ana Čačina","Telegram @a_chachina":"Telegr
 SR.update({"46 900 дин.":"46 900 din.","70 500 дин.":"70 500 din."})
 SR.update({"личный в Telegram с Анной или Екатериной":"lični na Telegramu sa Anom ili Ekaterinom"})
 SR.update({"129 300 дин.":"129 300 din."})
+SR.update({"≈ €33 в месяц":"≈ €33 mesečno"})
