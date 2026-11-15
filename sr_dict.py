@@ -394,3 +394,4 @@ SR.update({'Выпускница Высшей школы финансового 
 SR.update({'Высшая школа финансового директора. Logic Planning Group (США) — финансовое планирование и страхование. 5+ профильных курсов по криптовалюте: инвестирование, DeFi, безопасность.': 'Visoka škola finansijskog direktora. Logic Planning Group (SAD) — finansijsko planiranje i osiguranje. 5+ specijalizovanih kurseva o kriptovalutama: investiranje, DeFi, bezbednost.'})
 SR.update({'Практикующий инвестор, в том числе в криптовалюте, и игропрактик. Живу с семьёй в Сербии.': 'Aktivni investitor, uključujući kriptovalute, i voditelj edukativnih igara. Živim sa porodicom u Srbiji.'})
 SR.update({'Международный финансовый советник': 'Međunarodni finansijski savetnik'})
+SR.update({'Практикующий инвестор и игропрактик. Живу с семьёй в Сербии.': 'Aktivni investitor i voditelj edukativnih igara. Živim sa porodicom u Srbiji.'})
