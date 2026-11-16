@@ -50,13 +50,13 @@ header{position:fixed;inset:0 0 auto;z-index:50;background:rgba(21,37,74,.9);bac
 .brand .mark{width:38px;height:38px;border-radius:10px;background:var(--blue);display:grid;place-items:center;font-family:"PT Serif",serif;font-weight:700;font-size:17px}
 .brand b{font-family:"PT Serif",serif;font-size:18px;display:block}
 .brand span{font-size:12.5px;color:rgba(255,255,255,.6)}
-.nav ul{display:flex;gap:26px;list-style:none;font-size:15px}
+.nav ul{display:flex;gap:22px;list-style:none;font-size:15px;white-space:nowrap}
 .nav ul a{text-decoration:none;color:rgba(255,255,255,.72);transition:color .2s;padding:6px 0;border-bottom:2px solid transparent}
 .nav ul a:hover{color:#fff}.nav ul a.on{color:#fff;border-color:var(--cyan)}
 .nav .btn{padding:11px 18px;font-size:15px}
 .burger{display:none;background:none;border:0;color:#fff;width:40px;height:40px;cursor:pointer}
 .burger svg{width:26px;height:26px}
-@media(max-width:960px){.nav ul{display:none;position:absolute;top:72px;left:0;right:0;flex-direction:column;gap:0;background:var(--ink);padding:10px 24px 20px;border-bottom:1px solid rgba(255,255,255,.1)}
+@media(max-width:1100px){.nav ul{display:none;position:absolute;top:72px;left:0;right:0;flex-direction:column;gap:0;background:var(--ink);padding:10px 24px 20px;border-bottom:1px solid rgba(255,255,255,.1)}
 .nav ul.open{display:flex}.nav ul a{display:block;padding:12px 0}.burger{display:block}}
 @media(max-width:520px){.nav .btn{display:none}.brand span{display:none}}
 
@@ -283,8 +283,8 @@ def btc_bg(size, top, side, val, delay=0, extra=''):
     return f'<div class="btc-bg" style="width:{size}px;height:{size}px;top:{top};{side}:{val};animation-delay:-{delay}s{extra}">{BTC}</div>'
 
 def header(active, root):
-    items = [('index', 'Главная', root), ('about', 'Обо мне', root + '#about'), ('services', 'Услуги и цены', root + '#services'),
-             ('bot', 'Бюджет-ассистент', root + 'bot/'), ('crypto', 'Курс «Азы криптовалют»', root + 'crypto/'), ('contacts', 'Контакты', '#contacts')]
+    items = [('index', 'Главная', root), ('about', 'Обо мне', root + '#about'), ('services', 'Услуги', root + '#services'),
+             ('bot', 'Бюджет-бот', root + 'bot/'), ('crypto', 'Курс по крипте', root + 'crypto/'), ('club', 'Финансовый клуб', root + 'club/'), ('contacts', 'Контакты', '#contacts')]
     lis = ''.join(f'<li><a href="{h}"{" class=on" if k == active else ""}>{t}</a></li>' for k, t, h in items if k != 'index')
     return f'''<header><div class="wrap nav">
 <a class="brand" href="{root}"><span class="mark">ЕП</span><span><b>Екатерина Павлова</b><span>Финансовый советник · Сербия</span></span></a>
@@ -364,7 +364,7 @@ svc_groups = [
   ('Стратегическая сессия', '€500', '2 встречи', 'Разбор вашей ситуации и личная стратегия.', 'Записаться', TG, False),
   ('Финансовый план', 'от €1 500', '5 встреч за 2 месяца', 'Полный план, подбор инструментов и поддержка во внедрении.', 'Записаться', TG, True),
   ('Практикум «Путь к финансовой свободе»', 'от €85', 'вместе с Анной Чачиной', 'Личные финансы и инвестиции для резидентов Сербии: 6 модулей с практикой.', 'Подробнее', PRACTICUM, False),
-  ('Финансовый клуб', '€33', 'в месяц', 'Закрытый чат с ответами, бот бесплатно, шаблоны, скидка 30%.', 'Подробнее', PRACTICUM + '#club', False)]),
+  ('Финансовый клуб', '€33', 'в месяц', 'Закрытый чат с ответами, бот бесплатно, шаблоны, скидка 30%.', 'Подробнее', 'club/', False)]),
  ('Мои продукты', 'Инструменты, которыми можно пользоваться самостоятельно.', [
   ('Бюджет-ассистент', '€9', 'в месяц или €90 за год', 'Telegram-бот и Google-таблица с дашбордом. Первый месяц бесплатно.', 'Подробнее', 'bot/', False),
   ('Курс «Азы криптовалют»', '€390', 'за весь курс, до 5 человек', 'Живые уроки и личная проверка домашних заданий.', 'Подробнее', 'crypto/', False)])]
@@ -509,7 +509,7 @@ bot_body = f'''
 <div class="card fade"><div class="ic" style="font-size:22px">📁</div><h3>Шаблоны и скидка 30%</h3><p>Шаблон бюджета, личного финплана, расчёт пенсионного капитала и скидка 30% на личные консультации.</p></div>
 </div>
 <p class="note" style="color:rgba(255,255,255,.65)">Подписка €33 в месяц. Клуб открыт для выпускников практикума «Путь к финансовой свободе», предварительная запись уже идёт.</p>
-<div class="hero-btns" style="margin:26px 0 0"><a class="btn btn-blue" href="{PRACTICUM}#club" target="_blank" rel="noopener">Подробнее о клубе</a></div>
+<div class="hero-btns" style="margin:26px 0 0"><a class="btn btn-blue" href="../club/">Подробнее о клубе</a></div>
 </div></section>
 
 <section class="light" id="price">
@@ -612,12 +612,63 @@ crypto_body = f'''
 </div></section>
 '''
 
+
+# ---------------- CLUB ----------------
+club_feats = [('💬', 'Ответы на все вопросы', 'Постоянная помощь в закрытом чате от Анны и Екатерины: пишете вопрос — получаете ответ.'),
+ ('📈', 'Модельные портфели', 'Динамические портфели от наших партнёров с 30-летним опытом инвестирования, регулярно обновляются. Плюс новости фондового рынка.'),
+ ('🏦', 'Брокеры и счета', 'Какого брокера выбрать, как открыть счёт и подключиться: актуальные инструкции и помощь.'),
+ ('⚖️', 'Законы, налоги и санкции', 'Гайды и обновления по всем изменениям в России и Сербии, которые касаются нас: налоги, санкции, как платить.'),
+ ('🧩', 'Альтернативные инструменты', 'Актуальная информация об альтернативных инструментах для инвестирования.'),
+ ('🪙', 'Криптовалюта', 'Как купить биткоин, пошаговые гайды и помощь с криптобиржами и кошельками.'),
+ ('🌍', 'Переводы', 'Рубли, SWIFT, крипта: как сделать перевод сейчас и ответы на вопросы, если нужно перевести деньги.'),
+ ('📰', 'Финансовые новости', 'Новости от наших партнёров — коротко и по делу.'),
+ ('🎥', 'Онлайн-встречи каждый месяц', 'Разбираем актуальные темы вместе и отвечаем на вопросы вживую.'),
+ ('🛡', 'Страхование', 'Ответы на вопросы о страховании семьи, здоровья и имущества.'),
+ ('📊', 'Бюджет и личные финансы', 'Помощь с настройкой своей финансовой системы и ведением бюджета.'),
+ ('🤖', 'Бот-ассистент бесплатно', 'На всё время участия в клубе — бот, который голосом помогает вести бюджет за 5 минут в день.'),
+ ('💸', 'Скидка 30% на консультации', 'На все личные консультации с Анной и Екатериной.'),
+ ('📁', 'Шаблоны и гайды', 'Шаблон бюджета, подбор страхования, расчёт пенсионного капитала, риск-профиль и шаблон личного финплана — с инструкциями.'),
+ ('🤝', 'Свои люди рядом', 'Сообщество русскоязычных резидентов, которые тоже наводят порядок в деньгах.')]
+club_body = f'''
+<section class="hero phero">
+
+<div class="wrap phero-grid">
+<div>
+<div class="eyebrow"><i></i>Закрытое сообщество · Анна Чачина и Екатерина Павлова</div>
+<h1 style="color:#fff;text-transform:uppercase;margin-bottom:22px">Финансовый клуб</h1>
+<p class="lead">Для тех, кто хочет держать свои финансы в порядке постоянно. Мы рядом, когда меняются законы, санкции и налоги, и когда нужно открыть новый счёт или выбрать инструмент.</p>
+<div class="hero-btns"><a class="btn btn-blue" href="{PRACTICUM}#signup" target="_blank" rel="noopener">Предварительная запись</a><a class="btn btn-ghost" href="#price">Стоимость</a></div>
+</div>
+<div class="price pop" style="color:var(--text);text-align:center;max-width:340px;justify-self:center;width:100%"><span class="lbl">Подписка</span>
+<h3>Финансовый клуб</h3><div class="val">€33</div><div class="dur">в месяц</div><p>Чат с ответами, встречи каждый месяц, шаблоны, бот бесплатно и скидка 30% на консультации.</p>
+<a class="btn btn-blue" href="{PRACTICUM}#signup" target="_blank" rel="noopener">Оставить заявку</a></div>
+</div></section>
+
+<section class="light">
+<div class="wrap">
+<div class="kicker fade">Что внутри</div>
+<h2 class="fade">Всё, что нужно, в одном месте</h2>
+<p class="sub fade">Не нужно искать ответы по разным чатам и каналам: спрашиваете — мы отвечаем и держим в курсе.</p>
+<div class="grid g3">{''.join(f'<div class="card fade"><div class="ic" style="font-size:22px">{i}</div><h3>{h}</h3><p>{t}</p></div>' for i, h, t in club_feats)}</div>
+</div></section>
+
+<section class="dark" id="price">
+<div class="wrap" style="max-width:820px;text-align:center">
+<div class="kicker fade" style="justify-content:center">Как вступить</div>
+<h2 class="fade" style="margin:0 auto 14px">€33 в месяц</h2>
+<p class="sub fade" style="margin:0 auto 30px">Клуб открыт для тех, кто прошёл программу «Финансовая стратегия» практикума «Путь к финансовой свободе». Оставить предварительную запись можно уже сейчас.</p>
+<div class="hero-btns" style="justify-content:center;margin:0"><a class="btn btn-blue" href="{PRACTICUM}#signup" target="_blank" rel="noopener">Предварительная запись</a><a class="btn btn-ghost" href="{PRACTICUM}" target="_blank" rel="noopener">О практикуме</a></div>
+</div></section>
+'''
+
 os.makedirs('bot', exist_ok=True)
+os.makedirs('club', exist_ok=True)
 os.makedirs('crypto', exist_ok=True)
 pages = {
  'index.html': page('Екатерина Павлова — международный финансовый советник', 'Екатерина Павлова, международный финансовый советник в Сербии. Личные финансы, криптовалюта, налоги, инвестиции. Бесплатная встреча-знакомство 30 минут.', 'index', '', main_body),
  'bot/index.html': page('Бюджет-ассистент — Telegram-бот для учёта финансов | Екатерина Павлова', 'Telegram-бот для учёта личных финансов и мини-бизнеса: голосовой ввод, несколько валют, Google-таблица с дашбордом. Первый месяц бесплатно.', 'bot', '../', bot_body),
  'crypto/index.html': page('Курс «Азы криптовалют» — мини-группа до 5 человек | Екатерина Павлова', 'Авторский курс Екатерины Павловой: блокчейн, биткоин, безопасность, стейблкоины, налоги. Живые уроки, проверка домашних заданий, первая покупка и холодный кошелёк.', 'crypto', '../', crypto_body),
+ 'club/index.html': page('Финансовый клуб Анны Чачиной и Екатерины Павловой', 'Закрытое сообщество для русскоязычных резидентов Сербии: ответы на вопросы, модельные портфели, налоги и санкции, встречи каждый месяц, бот-ассистент бесплатно. €33 в месяц.', 'club', '../', club_body),
 }
 for path, html in pages.items():
     with open(path, 'w', encoding='utf-8') as f:
