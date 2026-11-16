@@ -17,7 +17,11 @@ T = {
   cta_main='Записаться на бесплатную встречу', cta_ghost='Смотреть форматы',
   first_l='Первый шаг', first_v='Встреча-знакомство · 30 мин · бесплатно',
   st1='25+', st1t='клиентов на сопровождении', st2='20+', st2t='лет в корпоративных финансах', st3='€0', st3t='первая встреча',
-  about_h='Обо мне',
+  about_h='Обо мне', role2='Международный финансовый советник',
+  bio=['Помогаю создать пассивный доход и защитить накопления от рисков: на любой стадии жизни, в любой стране мира.',
+       '6 лет в финансовом консалтинге, 50+ клиентов из Сербии, России, Нидерландов, Испании, Азии.',
+       '20+ лет в финансах: руководящие позиции в Gillette, P&amp;G, Unilever, Wiener Städtische, Generali.',
+       'Сертифицированный финансовый консультант, международный финансовый менеджер CIMA, член ассоциации финансовых планировщиков в РФ.'],
   exp_l='Опыт',
   exp=['<b>25+ клиентов</b> на сопровождении',
        '<b>20+ лет в корпоративных финансах:</b> руководящие позиции в Gillette, P&amp;G, Unilever',
@@ -70,7 +74,11 @@ T = {
   cta_main='Zakažite besplatan sastanak', cta_ghost='Pogledajte formate',
   first_l='Prvi korak', first_v='Upoznavni sastanak · 30 min · besplatno',
   st1='25+', st1t='klijenata koje vodim', st2='20+', st2t='godina u korporativnim finansijama', st3='€0', st3t='prvi sastanak',
-  about_h='O meni',
+  about_h='O meni', role2='Međunarodni finansijski savetnik',
+  bio=['Pomažem da stvorite pasivni prihod i zaštitite ušteđevinu od rizika: u bilo kojoj fazi života, u bilo kojoj zemlji sveta.',
+       '6 godina u finansijskom konsaltingu, 50+ klijenata iz Srbije, Rusije, Holandije, Španije, Azije.',
+       '20+ godina u finansijama: rukovodeće pozicije u kompanijama Gillette, P&amp;G, Unilever, Wiener Städtische, Generali.',
+       'Sertifikovani finansijski konsultant, međunarodni finansijski menadžer CIMA, član udruženja finansijskih planera u Rusiji.'],
   exp_l='Iskustvo',
   exp=['<b>25+ klijenata</b> koje stalno vodim',
        '<b>20+ godina u korporativnim finansijama:</b> rukovodeće pozicije u kompanijama Gillette, P&amp;G, Unilever',
@@ -186,6 +194,16 @@ ul.ticks li svg{flex:none;width:22px;height:22px;color:#fff;background:var(--cop
 .chips span{background:var(--bg);border:1px solid var(--line);border-radius:999px;padding:10px 18px;font-weight:500}
 @media(max-width:800px){.about{grid-template-columns:1fr}}
 
+.bio{max-width:820px}
+.bio img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:24px;box-shadow:0 30px 60px -30px rgba(20,28,58,.45)}
+.role2{color:var(--copper);font-weight:600;font-size:18px;margin-bottom:10px}
+.insta{display:inline-flex;align-items:center;gap:8px;color:var(--navy);text-decoration:none;font-weight:500;margin-bottom:22px;border-bottom:1px solid var(--line)}
+.insta:hover{color:var(--copper)}
+.bio-lead{font-family:"Playfair Display",Georgia,serif;font-style:italic;font-size:21px;color:var(--navy);line-height:1.45;margin-bottom:22px}
+.spec{margin-top:28px}
+.spec h3{font-family:Onest,system-ui,sans-serif;font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-weight:600;margin-bottom:14px}
+.chips span{background:#fff}
+@media(max-width:860px){.bio{grid-template-columns:1fr;gap:30px}.bio img{max-width:420px}}
 /* questions */
 .qsec{background:var(--bg-2)}
 .qs{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:14px;counter-reset:q}
@@ -305,10 +323,16 @@ def page(d):
 </div></section>
 
 <section id="about"><div class="wrap">
-  <div class="kicker">{d['about_h']}</div>
-  <div class="about">
-    <div class="box fade"><h3>{d['exp_l']}</h3><ul class="ticks">{ticks(d['exp'])}</ul></div>
-    <div class="box fade"><h3>{d['spec_l']}</h3><div class="chips">{chips}</div></div>
+  <div class="bio fade">
+    <div>
+      <div class="kicker">{d['about_h']}</div>
+      <h2 style="margin-bottom:6px">{d['brand']}</h2>
+      <div class="role2">{d['role2']}</div>
+      <a class="insta" href="https://www.instagram.com/anna.finance.invest/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="17.3" cy="6.7" r="1.2" fill="currentColor"/></svg>@anna.finance.invest</a>
+      <p class="bio-lead">{d['bio'][0]}</p>
+      <ul class="ticks">{ticks(d['bio'][1:])}</ul>
+      <div class="spec"><h3>{d['spec_l']}</h3><div class="chips">{chips}</div></div>
+    </div>
   </div>
 </div></section>
 

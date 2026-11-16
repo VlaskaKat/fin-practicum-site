@@ -83,6 +83,16 @@ ul.ticks li svg{flex:none;width:22px;height:22px;color:#fff;background:var(--cop
 .chips span{background:var(--bg);border:1px solid var(--line);border-radius:999px;padding:10px 18px;font-weight:500}
 @media(max-width:800px){.about{grid-template-columns:1fr}}
 
+.bio{max-width:820px}
+.bio img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:24px;box-shadow:0 30px 60px -30px rgba(20,28,58,.45)}
+.role2{color:var(--copper);font-weight:600;font-size:18px;margin-bottom:10px}
+.insta{display:inline-flex;align-items:center;gap:8px;color:var(--navy);text-decoration:none;font-weight:500;margin-bottom:22px;border-bottom:1px solid var(--line)}
+.insta:hover{color:var(--copper)}
+.bio-lead{font-family:"Playfair Display",Georgia,serif;font-style:italic;font-size:21px;color:var(--navy);line-height:1.45;margin-bottom:22px}
+.spec{margin-top:28px}
+.spec h3{font-family:Onest,system-ui,sans-serif;font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-weight:600;margin-bottom:14px}
+.chips span{background:#fff}
+@media(max-width:860px){.bio{grid-template-columns:1fr;gap:30px}.bio img{max-width:420px}}
 /* questions */
 .qsec{background:var(--bg-2)}
 .qs{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:14px;counter-reset:q}
@@ -172,10 +182,16 @@ footer a{color:#fff;text-decoration:none}
 </div></section>
 
 <section id="about"><div class="wrap">
-  <div class="kicker">Обо мне</div>
-  <div class="about">
-    <div class="box fade"><h3>Опыт</h3><ul class="ticks"><li><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" d="m5 12.5 4.5 4.5L19 7.5"/></svg><span><b>25+ клиентов</b> на сопровождении</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" d="m5 12.5 4.5 4.5L19 7.5"/></svg><span><b>20+ лет в корпоративных финансах:</b> руководящие позиции в Gillette, P&amp;G, Unilever</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" d="m5 12.5 4.5 4.5L19 7.5"/></svg><span><b>Эксперт по страхованию:</b> Wiener Städtische, Generali (Сербия)</span></li></ul></div>
-    <div class="box fade"><h3>Специализация</h3><div class="chips"><span>Защита капитала</span><span>Международные решения</span><span>Образование детей и пенсия</span><span>Денежные переводы и криптовалюта</span></div></div>
+  <div class="bio fade">
+    <div>
+      <div class="kicker">Обо мне</div>
+      <h2 style="margin-bottom:6px">Анна Чачина</h2>
+      <div class="role2">Международный финансовый советник</div>
+      <a class="insta" href="https://www.instagram.com/anna.finance.invest/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="17.3" cy="6.7" r="1.2" fill="currentColor"/></svg>@anna.finance.invest</a>
+      <p class="bio-lead">Помогаю создать пассивный доход и защитить накопления от рисков: на любой стадии жизни, в любой стране мира.</p>
+      <ul class="ticks"><li><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>6 лет в финансовом консалтинге, 50+ клиентов из Сербии, России, Нидерландов, Испании, Азии.</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>20+ лет в финансах: руководящие позиции в Gillette, P&amp;G, Unilever, Wiener Städtische, Generali.</span></li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>Сертифицированный финансовый консультант, международный финансовый менеджер CIMA, член ассоциации финансовых планировщиков в РФ.</span></li></ul>
+      <div class="spec"><h3>Специализация</h3><div class="chips"><span>Защита капитала</span><span>Международные решения</span><span>Образование детей и пенсия</span><span>Денежные переводы и криптовалюта</span></div></div>
+    </div>
   </div>
 </div></section>
 
