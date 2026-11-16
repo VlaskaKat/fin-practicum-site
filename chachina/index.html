@@ -150,8 +150,26 @@ ul.ticks li svg{flex:none;width:22px;height:22px;color:#fff;background:var(--cop
 .prac p{color:var(--muted);max-width:62ch}
 @media(max-width:800px){.prac{grid-template-columns:1fr;padding:30px 26px}}
 
+/* club */
+.club{background:var(--navy);color:#fff;background-image:radial-gradient(900px 500px at 0% 0%,rgba(184,105,63,.25),transparent 60%)}
+.club h2{color:#fff}.club .sub{color:rgba(255,255,255,.72)}.club .kicker{color:var(--sand)}
+.club-card{display:grid;grid-template-columns:300px 1fr;border-radius:26px;overflow:hidden;border:1px solid rgba(233,201,174,.35)}
+.club-side{padding:34px 30px;background:linear-gradient(160deg,var(--copper),var(--copper-2) 60%,var(--sand));color:var(--navy);display:flex;flex-direction:column}
+.club-side .t{font-size:14px;font-weight:600;margin-bottom:12px}
+.club-side .cp{font-family:"Playfair Display",Georgia,serif;font-size:46px;font-weight:700;line-height:1}
+.club-side .cp small{font-family:Onest,system-ui,sans-serif;font-size:17px;font-weight:600}
+.club-side .eur{margin:10px 0 22px;font-weight:600}
+.club-note{font-size:14.5px;line-height:1.5;font-weight:500;background:rgba(20,28,58,.12);border-radius:14px;padding:12px 14px;margin-bottom:20px}
+.club-side .btn{margin-top:auto}
+.club-side .more{margin-top:14px;font-size:14.5px;font-weight:600;color:var(--navy);text-decoration:none;border-bottom:1px solid rgba(20,28,58,.35);align-self:flex-start}
+.club-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;padding:26px;background:var(--navy-2)}
+.ct{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09);border-radius:16px;padding:18px 20px}
+.ct b{display:block;color:var(--sand);font-size:16.5px;margin-bottom:6px}
+.ct p{font-size:15px;color:rgba(255,255,255,.75);line-height:1.5}
+@media(max-width:900px){.club-card{grid-template-columns:1fr}.club-grid{grid-template-columns:1fr}}
+
 /* final cta */
-.final{padding:0 0 96px}
+.final{padding:96px 0}
 .cta{background:var(--navy);color:#fff;border-radius:28px;padding:56px 48px;display:flex;justify-content:space-between;align-items:center;gap:30px;flex-wrap:wrap;background-image:radial-gradient(700px 300px at 100% 100%,rgba(184,105,63,.4),transparent 60%)}
 .cta h2{color:#fff;margin-bottom:8px}
 .cta p{color:rgba(255,255,255,.75);font-size:18px}
@@ -166,7 +184,7 @@ footer a{color:#fff;text-decoration:none}
 <body>
 <header><div class="wrap nav">
   <a class="brand" href="#top"><b>Анна Чачина</b><span>Финансовый консультант · Сербия</span></a>
-  <ul><li><a href="#questions">Вопросы</a></li><li><a href="#formats">Форматы</a></li><li><a href="#support">Сопровождение</a></li><li><a href="#contacts">Контакты</a></li></ul>
+  <ul><li><a href="#questions">Вопросы</a></li><li><a href="#formats">Форматы</a></li><li><a href="#support">Сопровождение</a></li><li><a href="#club">Финансовый клуб</a></li><li><a href="#contacts">Контакты</a></li></ul>
   <div class="nav-r"><div class="lang"><b>RU</b><a href="sr/" hreflang="sr">SR</a></div><a class="btn btn-copper" href="https://t.me/a_chachina" target="_blank" rel="noopener">Записаться</a></div>
 </div></header>
 
@@ -225,6 +243,17 @@ footer a{color:#fff;text-decoration:none}
 <section style="padding-top:0"><div class="wrap">
   <div class="prac fade"><div><div class="kicker">Обучение</div><h2>Практикум «Путь к финансовой свободе»</h2><p>Хотите разобраться в личных финансах самостоятельно? Вместе с Екатериной Павловой мы ведём единственный русскоязычный практикум по личным финансам и инвестициям для резидентов Сербии.</p></div>
   <a class="btn btn-navy" href="https://rs.fin-academy.net/" target="_blank" rel="noopener">Подробнее о практикуме →</a></div>
+</div></section>
+
+<section class="club" id="club"><div class="wrap">
+  <div class="kicker">Сообщество</div><h2>Финансовый клуб</h2><p class="sub">Закрытое сообщество для тех, кто хочет держать свои финансы в порядке постоянно, а не только во время практикума. Мы рядом, когда меняются законы, санкции и налоги, и когда нужно открыть новый счёт или выбрать инструмент.</p>
+  <div class="club-card fade">
+    <div class="club-side"><div class="t">Подписка</div><div class="cp">3 900 <small>дин./мес.</small></div><div class="eur">≈ €33 в месяц</div>
+      <p class="club-note">Клуб стартует после окончания обучения по программе «Финансовая стратегия». Вступить можно после прохождения этого обучения, а оставить предварительную запись — уже сейчас.</p>
+      <a class="btn btn-navy" href="https://t.me/a_chachina" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M21.9 4.3 18.7 19.4c-.2 1.1-.9 1.3-1.8.8l-4.8-3.6-2.3 2.2c-.3.3-.5.5-1 .5l.3-4.9 8.9-8c.4-.3-.1-.5-.6-.2L6.4 13.2l-4.7-1.5c-1-.3-1-1 .2-1.5L20.6 3c.9-.3 1.6.2 1.3 1.3z"/></svg>Предварительная запись в клуб</a>
+      <a class="more" href="https://rs.fin-academy.net/#club" target="_blank" rel="noopener">Клуб на сайте практикума →</a></div>
+    <div class="club-grid"><div class="ct"><b>Ответы на все вопросы</b><p>Постоянная помощь в закрытом чате от Анны и Екатерины: пишете вопрос — получаете ответ.</p></div><div class="ct"><b>Динамические модельные портфели</b><p>Модельные портфели от наших партнёров с 30-летним опытом инвестирования: регулярно обновляются и адаптированы под рынок. Плюс регулярные новости фондового рынка.</p></div><div class="ct"><b>Брокеры и брокерские счета</b><p>Актуальные инструкции и помощь: какого брокера выбрать, как открыть счёт и подключиться.</p></div><div class="ct"><b>Законы, налоги и санкции</b><p>Гайды и обновления по всем изменениям в России и Сербии, которые касаются нас, резидентов: налоги, санкции, как платить.</p></div><div class="ct"><b>Альтернативные инструменты</b><p>Актуальная информация об альтернативных инструментах для инвестирования.</p></div><div class="ct"><b>Криптовалюта</b><p>Как купить биткоин, пошаговые гайды и помощь в открытии криптобирж и криптокошельков.</p></div><div class="ct"><b>Переводы</b><p>Актуальная информация по валютным и денежным переводам и переводам в криптовалюте: рубли, SWIFT, крипта — и ответы на вопросы, если нужно сделать перевод.</p></div><div class="ct"><b>Финансовые новости</b><p>Актуальные финансовые новости от наших партнёров — коротко и по делу.</p></div><div class="ct"><b>Онлайн-встречи каждый месяц</b><p>Разбираем актуальные темы вместе и отвечаем на вопросы вживую.</p></div><div class="ct"><b>Страхование</b><p>Ответы на все ваши вопросы о страховании семьи, здоровья и имущества.</p></div><div class="ct"><b>Бюджет и личные финансы</b><p>Помощь с настройкой своей финансовой системы и ведением бюджета.</p></div><div class="ct"><b>Бот-ассистент бесплатно</b><p>На всё время участия в клубе — бот, который голосом помогает вести бюджет за 5 минут в день.</p></div><div class="ct"><b>Скидка 30% на консультации</b><p>На все личные консультации с Анной и Екатериной.</p></div><div class="ct"><b>Шаблоны, гайды и инструкции</b><p>Всё доступно всем участникам клуба, с инструкциями, как этим пользоваться: шаблон бюджета, подбор страхования, расчёт пенсионного капитала, расчёт, сколько инвестировать под вашу цель, риск-профиль и шаблон личного финансового плана.</p></div></div>
+  </div>
 </div></section>
 
 <section class="final" id="contacts"><div class="wrap">

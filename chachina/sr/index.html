@@ -150,8 +150,26 @@ ul.ticks li svg{flex:none;width:22px;height:22px;color:#fff;background:var(--cop
 .prac p{color:var(--muted);max-width:62ch}
 @media(max-width:800px){.prac{grid-template-columns:1fr;padding:30px 26px}}
 
+/* club */
+.club{background:var(--navy);color:#fff;background-image:radial-gradient(900px 500px at 0% 0%,rgba(184,105,63,.25),transparent 60%)}
+.club h2{color:#fff}.club .sub{color:rgba(255,255,255,.72)}.club .kicker{color:var(--sand)}
+.club-card{display:grid;grid-template-columns:300px 1fr;border-radius:26px;overflow:hidden;border:1px solid rgba(233,201,174,.35)}
+.club-side{padding:34px 30px;background:linear-gradient(160deg,var(--copper),var(--copper-2) 60%,var(--sand));color:var(--navy);display:flex;flex-direction:column}
+.club-side .t{font-size:14px;font-weight:600;margin-bottom:12px}
+.club-side .cp{font-family:"Playfair Display",Georgia,serif;font-size:46px;font-weight:700;line-height:1}
+.club-side .cp small{font-family:Onest,system-ui,sans-serif;font-size:17px;font-weight:600}
+.club-side .eur{margin:10px 0 22px;font-weight:600}
+.club-note{font-size:14.5px;line-height:1.5;font-weight:500;background:rgba(20,28,58,.12);border-radius:14px;padding:12px 14px;margin-bottom:20px}
+.club-side .btn{margin-top:auto}
+.club-side .more{margin-top:14px;font-size:14.5px;font-weight:600;color:var(--navy);text-decoration:none;border-bottom:1px solid rgba(20,28,58,.35);align-self:flex-start}
+.club-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;padding:26px;background:var(--navy-2)}
+.ct{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09);border-radius:16px;padding:18px 20px}
+.ct b{display:block;color:var(--sand);font-size:16.5px;margin-bottom:6px}
+.ct p{font-size:15px;color:rgba(255,255,255,.75);line-height:1.5}
+@media(max-width:900px){.club-card{grid-template-columns:1fr}.club-grid{grid-template-columns:1fr}}
+
 /* final cta */
-.final{padding:0 0 96px}
+.final{padding:96px 0}
 .cta{background:var(--navy);color:#fff;border-radius:28px;padding:56px 48px;display:flex;justify-content:space-between;align-items:center;gap:30px;flex-wrap:wrap;background-image:radial-gradient(700px 300px at 100% 100%,rgba(184,105,63,.4),transparent 60%)}
 .cta h2{color:#fff;margin-bottom:8px}
 .cta p{color:rgba(255,255,255,.75);font-size:18px}
@@ -166,7 +184,7 @@ footer a{color:#fff;text-decoration:none}
 <body>
 <header><div class="wrap nav">
   <a class="brand" href="#top"><b>Ana Čačina</b><span>Finansijski konsultant · Srbija</span></a>
-  <ul><li><a href="#questions">Pitanja</a></li><li><a href="#formats">Formati</a></li><li><a href="#support">Podrška</a></li><li><a href="#contacts">Kontakt</a></li></ul>
+  <ul><li><a href="#questions">Pitanja</a></li><li><a href="#formats">Formati</a></li><li><a href="#support">Podrška</a></li><li><a href="#club">Finansijski klub</a></li><li><a href="#contacts">Kontakt</a></li></ul>
   <div class="nav-r"><div class="lang"><a href="../" hreflang="ru">RU</a><b>SR</b></div><a class="btn btn-copper" href="https://t.me/a_chachina" target="_blank" rel="noopener">Zakažite</a></div>
 </div></header>
 
@@ -225,6 +243,17 @@ footer a{color:#fff;text-decoration:none}
 <section style="padding-top:0"><div class="wrap">
   <div class="prac fade"><div><div class="kicker">Obuka</div><h2>Praktikum «Put do finansijske slobode»</h2><p>Želite sami da se snađete u ličnim finansijama? Zajedno sa Ekaterinom Pavlovom vodim jedini praktikum na ruskom jeziku o ličnim finansijama i investicijama za rezidente Srbije.</p></div>
   <a class="btn btn-navy" href="https://rs.fin-academy.net/sr/" target="_blank" rel="noopener">Više o praktikumu →</a></div>
+</div></section>
+
+<section class="club" id="club"><div class="wrap">
+  <div class="kicker">Zajednica</div><h2>Finansijski klub</h2><p class="sub">Zatvorena zajednica za one koji žele da njihove finansije uvek budu u redu, a ne samo tokom praktikuma. Tu smo kada se menjaju zakoni, sankcije i porezi, i kada treba otvoriti novi račun ili izabrati instrument.</p>
+  <div class="club-card fade">
+    <div class="club-side"><div class="t">Pretplata</div><div class="cp">3 900 <small>din./mes.</small></div><div class="eur">≈ €33 mesečno</div>
+      <p class="club-note">Klub počinje nakon završetka obuke po programu «Finansijska strategija». Učlaniti se možete posle te obuke, a prijaviti se — već sada.</p>
+      <a class="btn btn-navy" href="https://t.me/a_chachina" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M21.9 4.3 18.7 19.4c-.2 1.1-.9 1.3-1.8.8l-4.8-3.6-2.3 2.2c-.3.3-.5.5-1 .5l.3-4.9 8.9-8c.4-.3-.1-.5-.6-.2L6.4 13.2l-4.7-1.5c-1-.3-1-1 .2-1.5L20.6 3c.9-.3 1.6.2 1.3 1.3z"/></svg>Prijava za klub</a>
+      <a class="more" href="https://rs.fin-academy.net/sr/#club" target="_blank" rel="noopener">Klub na sajtu praktikuma →</a></div>
+    <div class="club-grid"><div class="ct"><b>Odgovori na sva pitanja</b><p>Stalna pomoć u zatvorenom četu od Ane i Ekaterine: postavite pitanje — dobijete odgovor.</p></div><div class="ct"><b>Dinamični model portfolija</b><p>Model portfolija od naših partnera sa 30 godina iskustva u investiranju: redovno se ažuriraju i prilagođeni su tržištu. Plus redovne vesti sa berze.</p></div><div class="ct"><b>Brokeri i brokerski računi</b><p>Aktuelna uputstva i pomoć: kog brokera izabrati, kako otvoriti račun i povezati se.</p></div><div class="ct"><b>Zakoni, porezi i sankcije</b><p>Vodiči i novosti o svim promenama u Rusiji i Srbiji koje se tiču nas, rezidenata: porezi, sankcije, kako plaćati.</p></div><div class="ct"><b>Alternativni instrumenti</b><p>Aktuelne informacije o alternativnim instrumentima za investiranje.</p></div><div class="ct"><b>Kriptovaluta</b><p>Kako kupiti bitkoin, vodiči korak po korak i pomoć pri otvaranju naloga na kripto berzama i kripto novčanika.</p></div><div class="ct"><b>Transferi</b><p>Aktuelne informacije o deviznim i novčanim transferima i transferima u kriptovaluti: rublje, SWIFT, kripto — i odgovori na pitanja kada treba poslati novac.</p></div><div class="ct"><b>Finansijske vesti</b><p>Aktuelne finansijske vesti od naših partnera — kratko i jasno.</p></div><div class="ct"><b>Onlajn susreti svakog meseca</b><p>Zajedno analiziramo aktuelne teme i odgovaramo na pitanja uživo.</p></div><div class="ct"><b>Osiguranje</b><p>Odgovori na sva vaša pitanja o osiguranju porodice, zdravlja i imovine.</p></div><div class="ct"><b>Budžet i lične finansije</b><p>Pomoć pri podešavanju vašeg finansijskog sistema i vođenju budžeta.</p></div><div class="ct"><b>Bot-asistent besplatno</b><p>Tokom celog članstva u klubu — bot koji vam glasom pomaže da vodite budžet za 5 minuta dnevno.</p></div><div class="ct"><b>Popust 30% na konsultacije</b><p>Na sve lične konsultacije sa Anom i Ekaterinom.</p></div><div class="ct"><b>Šabloni, vodiči i uputstva</b><p>Sve je dostupno svim članovima kluba, uz uputstva kako da ih koristite: šablon budžeta, izbor osiguranja, proračun penzionog kapitala, proračun koliko da investirate za vaš cilj, profil rizika i šablon ličnog finansijskog plana.</p></div></div>
+  </div>
 </div></section>
 
 <section class="final" id="contacts"><div class="wrap">

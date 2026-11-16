@@ -60,6 +60,19 @@ T = {
   pr_t='Хотите разобраться в личных финансах самостоятельно? Вместе с Екатериной Павловой мы ведём единственный русскоязычный практикум по личным финансам и инвестициям для резидентов Сербии.',
   pr_btn='Подробнее о практикуме', pr_url='https://rs.fin-academy.net/',
   c_h='Начните с бесплатной встречи-знакомства', c_t='30 минут — разберём ваш вопрос и подберём формат.',
+  nav_club='Финансовый клуб',
+  cl_l='Сообщество',
+  cl_h='Финансовый клуб',
+  cl_sub='Закрытое сообщество для тех, кто хочет держать свои финансы в порядке постоянно, а не только во время практикума. Мы рядом, когда меняются законы, санкции и налоги, и когда нужно открыть новый счёт или выбрать инструмент.',
+  cl_t='Подписка',
+  cl_price='3 900',
+  cl_cur='дин./мес.',
+  cl_eur='≈ €33 в месяц',
+  cl_note='Клуб стартует после окончания обучения по программе «Финансовая стратегия». Вступить можно после прохождения этого обучения, а оставить предварительную запись — уже сейчас.',
+  cl_btn='Предварительная запись в клуб',
+  cl_more='Клуб на сайте практикума',
+  cl_url='https://rs.fin-academy.net/#club',
+  cl_items=[('Ответы на все вопросы', 'Постоянная помощь в закрытом чате от Анны и Екатерины: пишете вопрос — получаете ответ.'), ('Динамические модельные портфели', 'Модельные портфели от наших партнёров с 30-летним опытом инвестирования: регулярно обновляются и адаптированы под рынок. Плюс регулярные новости фондового рынка.'), ('Брокеры и брокерские счета', 'Актуальные инструкции и помощь: какого брокера выбрать, как открыть счёт и подключиться.'), ('Законы, налоги и санкции', 'Гайды и обновления по всем изменениям в России и Сербии, которые касаются нас, резидентов: налоги, санкции, как платить.'), ('Альтернативные инструменты', 'Актуальная информация об альтернативных инструментах для инвестирования.'), ('Криптовалюта', 'Как купить биткоин, пошаговые гайды и помощь в открытии криптобирж и криптокошельков.'), ('Переводы', 'Актуальная информация по валютным и денежным переводам и переводам в криптовалюте: рубли, SWIFT, крипта — и ответы на вопросы, если нужно сделать перевод.'), ('Финансовые новости', 'Актуальные финансовые новости от наших партнёров — коротко и по делу.'), ('Онлайн-встречи каждый месяц', 'Разбираем актуальные темы вместе и отвечаем на вопросы вживую.'), ('Страхование', 'Ответы на все ваши вопросы о страховании семьи, здоровья и имущества.'), ('Бюджет и личные финансы', 'Помощь с настройкой своей финансовой системы и ведением бюджета.'), ('Бот-ассистент бесплатно', 'На всё время участия в клубе — бот, который голосом помогает вести бюджет за 5 минут в день.'), ('Скидка 30% на консультации', 'На все личные консультации с Анной и Екатериной.'), ('Шаблоны, гайды и инструкции', 'Всё доступно всем участникам клуба, с инструкциями, как этим пользоваться: шаблон бюджета, подбор страхования, расчёт пенсионного капитала, расчёт, сколько инвестировать под вашу цель, риск-профиль и шаблон личного финансового плана.')],
   foot='© 2026 Анна Чачина · Международный финансовый консультант · Сербия',
 ),
 'sr': dict(
@@ -117,6 +130,19 @@ T = {
   pr_t='Želite sami da se snađete u ličnim finansijama? Zajedno sa Ekaterinom Pavlovom vodim jedini praktikum na ruskom jeziku o ličnim finansijama i investicijama za rezidente Srbije.',
   pr_btn='Više o praktikumu', pr_url='https://rs.fin-academy.net/sr/',
   c_h='Počnite od besplatnog upoznavnog sastanka', c_t='30 minuta — analiziramo vaše pitanje i biramo format.',
+  nav_club='Finansijski klub',
+  cl_l='Zajednica',
+  cl_h='Finansijski klub',
+  cl_sub='Zatvorena zajednica za one koji žele da njihove finansije uvek budu u redu, a ne samo tokom praktikuma. Tu smo kada se menjaju zakoni, sankcije i porezi, i kada treba otvoriti novi račun ili izabrati instrument.',
+  cl_t='Pretplata',
+  cl_price='3 900',
+  cl_cur='din./mes.',
+  cl_eur='≈ €33 mesečno',
+  cl_note='Klub počinje nakon završetka obuke po programu «Finansijska strategija». Učlaniti se možete posle te obuke, a prijaviti se — već sada.',
+  cl_btn='Prijava za klub',
+  cl_more='Klub na sajtu praktikuma',
+  cl_url='https://rs.fin-academy.net/sr/#club',
+  cl_items=[('Odgovori na sva pitanja', 'Stalna pomoć u zatvorenom četu od Ane i Ekaterine: postavite pitanje — dobijete odgovor.'), ('Dinamični model portfolija', 'Model portfolija od naših partnera sa 30 godina iskustva u investiranju: redovno se ažuriraju i prilagođeni su tržištu. Plus redovne vesti sa berze.'), ('Brokeri i brokerski računi', 'Aktuelna uputstva i pomoć: kog brokera izabrati, kako otvoriti račun i povezati se.'), ('Zakoni, porezi i sankcije', 'Vodiči i novosti o svim promenama u Rusiji i Srbiji koje se tiču nas, rezidenata: porezi, sankcije, kako plaćati.'), ('Alternativni instrumenti', 'Aktuelne informacije o alternativnim instrumentima za investiranje.'), ('Kriptovaluta', 'Kako kupiti bitkoin, vodiči korak po korak i pomoć pri otvaranju naloga na kripto berzama i kripto novčanika.'), ('Transferi', 'Aktuelne informacije o deviznim i novčanim transferima i transferima u kriptovaluti: rublje, SWIFT, kripto — i odgovori na pitanja kada treba poslati novac.'), ('Finansijske vesti', 'Aktuelne finansijske vesti od naših partnera — kratko i jasno.'), ('Onlajn susreti svakog meseca', 'Zajedno analiziramo aktuelne teme i odgovaramo na pitanja uživo.'), ('Osiguranje', 'Odgovori na sva vaša pitanja o osiguranju porodice, zdravlja i imovine.'), ('Budžet i lične finansije', 'Pomoć pri podešavanju vašeg finansijskog sistema i vođenju budžeta.'), ('Bot-asistent besplatno', 'Tokom celog članstva u klubu — bot koji vam glasom pomaže da vodite budžet za 5 minuta dnevno.'), ('Popust 30% na konsultacije', 'Na sve lične konsultacije sa Anom i Ekaterinom.'), ('Šabloni, vodiči i uputstva', 'Sve je dostupno svim članovima kluba, uz uputstva kako da ih koristite: šablon budžeta, izbor osiguranja, proračun penzionog kapitala, proračun koliko da investirate za vaš cilj, profil rizika i šablon ličnog finansijskog plana.')],
   foot='© 2026 Ana Čačina · Međunarodni finansijski konsultant · Srbija',
 ),
 }
@@ -261,8 +287,26 @@ ul.ticks li svg{flex:none;width:22px;height:22px;color:#fff;background:var(--cop
 .prac p{color:var(--muted);max-width:62ch}
 @media(max-width:800px){.prac{grid-template-columns:1fr;padding:30px 26px}}
 
+/* club */
+.club{background:var(--navy);color:#fff;background-image:radial-gradient(900px 500px at 0% 0%,rgba(184,105,63,.25),transparent 60%)}
+.club h2{color:#fff}.club .sub{color:rgba(255,255,255,.72)}.club .kicker{color:var(--sand)}
+.club-card{display:grid;grid-template-columns:300px 1fr;border-radius:26px;overflow:hidden;border:1px solid rgba(233,201,174,.35)}
+.club-side{padding:34px 30px;background:linear-gradient(160deg,var(--copper),var(--copper-2) 60%,var(--sand));color:var(--navy);display:flex;flex-direction:column}
+.club-side .t{font-size:14px;font-weight:600;margin-bottom:12px}
+.club-side .cp{font-family:"Playfair Display",Georgia,serif;font-size:46px;font-weight:700;line-height:1}
+.club-side .cp small{font-family:Onest,system-ui,sans-serif;font-size:17px;font-weight:600}
+.club-side .eur{margin:10px 0 22px;font-weight:600}
+.club-note{font-size:14.5px;line-height:1.5;font-weight:500;background:rgba(20,28,58,.12);border-radius:14px;padding:12px 14px;margin-bottom:20px}
+.club-side .btn{margin-top:auto}
+.club-side .more{margin-top:14px;font-size:14.5px;font-weight:600;color:var(--navy);text-decoration:none;border-bottom:1px solid rgba(20,28,58,.35);align-self:flex-start}
+.club-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;padding:26px;background:var(--navy-2)}
+.ct{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09);border-radius:16px;padding:18px 20px}
+.ct b{display:block;color:var(--sand);font-size:16.5px;margin-bottom:6px}
+.ct p{font-size:15px;color:rgba(255,255,255,.75);line-height:1.5}
+@media(max-width:900px){.club-card{grid-template-columns:1fr}.club-grid{grid-template-columns:1fr}}
+
 /* final cta */
-.final{padding:0 0 96px}
+.final{padding:96px 0}
 .cta{background:var(--navy);color:#fff;border-radius:28px;padding:56px 48px;display:flex;justify-content:space-between;align-items:center;gap:30px;flex-wrap:wrap;background-image:radial-gradient(700px 300px at 100% 100%,rgba(184,105,63,.4),transparent 60%)}
 .cta h2{color:#fff;margin-bottom:8px}
 .cta p{color:rgba(255,255,255,.75);font-size:18px}
@@ -285,6 +329,7 @@ def page(d):
         fmts += f'<div class="fmt{hl} fade">{tag}<h3>{n}</h3><div class="price">{p}</div><div class="dur">{m} {d["min"]}</div><p>{t}</p><a class="btn {btn}" {tg}>{TGSVG}{d["f_btn"]}</a></div>'
     steps = ''.join(f'<div class="step fade"><h3>{a}</h3><p>{b}</p></div>' for a,b in d['how'])
     qs = ''.join(f'<li class="fade">{q}</li>' for q in d['qs'])
+    club = ''.join(f'<div class="ct"><b>{a}</b><p>{b}</p></div>' for a,b in d['cl_items'])
     chips = ''.join(f'<span>{x}</span>' for x in d['spec'])
     alt = 'https://chachina.fin-academy.net/'
     return f'''<!DOCTYPE html>
@@ -307,7 +352,7 @@ def page(d):
 <body>
 <header><div class="wrap nav">
   <a class="brand" href="#top"><b>{d['brand']}</b><span>{d['brand_sub']}</span></a>
-  <ul><li><a href="#questions">{d['nav_q']}</a></li><li><a href="#formats">{d['nav_f']}</a></li><li><a href="#support">{d['nav_p']}</a></li><li><a href="#contacts">{d['nav_c']}</a></li></ul>
+  <ul><li><a href="#questions">{d['nav_q']}</a></li><li><a href="#formats">{d['nav_f']}</a></li><li><a href="#support">{d['nav_p']}</a></li><li><a href="#club">{d['nav_club']}</a></li><li><a href="#contacts">{d['nav_c']}</a></li></ul>
   <div class="nav-r"><div class="lang">{d['langsw']}</div><a class="btn btn-copper" {tg}>{d['book']}</a></div>
 </div></header>
 
@@ -366,6 +411,17 @@ def page(d):
 <section style="padding-top:0"><div class="wrap">
   <div class="prac fade"><div><div class="kicker">{d['pr_l']}</div><h2>{d['pr_h']}</h2><p>{d['pr_t']}</p></div>
   <a class="btn btn-navy" href="{d['pr_url']}" target="_blank" rel="noopener">{d['pr_btn']} →</a></div>
+</div></section>
+
+<section class="club" id="club"><div class="wrap">
+  <div class="kicker">{d['cl_l']}</div><h2>{d['cl_h']}</h2><p class="sub">{d['cl_sub']}</p>
+  <div class="club-card fade">
+    <div class="club-side"><div class="t">{d['cl_t']}</div><div class="cp">{d['cl_price']} <small>{d['cl_cur']}</small></div><div class="eur">{d['cl_eur']}</div>
+      <p class="club-note">{d['cl_note']}</p>
+      <a class="btn btn-navy" {tg}>{TGSVG}{d['cl_btn']}</a>
+      <a class="more" href="{d['cl_url']}" target="_blank" rel="noopener">{d['cl_more']} →</a></div>
+    <div class="club-grid">{club}</div>
+  </div>
 </div></section>
 
 <section class="final" id="contacts"><div class="wrap">
