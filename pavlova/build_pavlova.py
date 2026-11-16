@@ -398,7 +398,7 @@ main_body = f'''
 <a class="btn btn-blue" href="{TG}" target="_blank" rel="noopener">Записаться</a></div>
 </div>
 <div class="grid g2" style="margin-top:22px">
-<a class="card fade" href="crypto/" style="text-decoration:none"><div class="ic">{BTC}</div><h3>Курс «Азы криптовалют»</h3><p>Мини-группа до 5 человек, живые уроки и личная проверка домашних заданий. Программа →</p></a>
+<a class="card fade" href="crypto/" style="text-decoration:none"><div class="ic">{BTC}</div><h3>Курс «Азы криптовалют»</h3><p>€390 · мини-группа до 5 человек, живые уроки и личная проверка домашних заданий. Программа →</p></a>
 <a class="card fade" href="bot/" style="text-decoration:none"><div class="ic">₽€</div><h3>Консультация по бюджету + настройка бота · €100</h3><p>Разбираем ваш бюджет и настраиваем бюджет-ассистента под вашу семью или бизнес →</p></a>
 </div>
 </div></section>
@@ -558,7 +558,7 @@ crypto_body = f'''
 <div class="wrap" style="max-width:820px">
 <div class="price pop fade" style="padding:44px;text-align:center"><span class="lbl">Мини-группа до 5 человек</span>
 <h3 style="font-size:28px;text-transform:uppercase">Курс «Азы криптовалют»</h3>
-<div class="val">Стоимость по запросу</div><div class="dur">6 живых уроков · домашние задания с проверкой · материалы навсегда</div>
+<div class="val">€390</div><div class="dur">за весь курс · 6 живых уроков · домашние задания с проверкой · материалы навсегда</div>
 <p>Напишите мне — расскажу о ближайшем наборе и забронирую место в группе.</p>
 <a class="btn btn-blue" href="{TG}" target="_blank" rel="noopener" style="width:auto;align-self:center">{TGSVG}Узнать дату старта</a></div>
 </div></section>
