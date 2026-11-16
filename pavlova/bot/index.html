@@ -77,9 +77,9 @@ section.light .sym{color:var(--ink);opacity:.02}section.light .sym.b{opacity:.01
 .stats{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid rgba(255,255,255,.14);padding:26px 0 40px;gap:20px}
 .stats b{font-family:"PT Serif",serif;font-size:36px;color:var(--cyan);display:block;line-height:1.1}
 .stats span{font-size:14px;line-height:1.4;display:block;color:rgba(255,255,255,.65)}
-.photo{position:relative;align-self:end;justify-self:center;width:100%;max-width:320px}
+.photo{position:relative;align-self:center;justify-self:center;margin-bottom:56px;width:100%;max-width:320px}
 .photo::before{display:none;content:"";position:absolute;inset:-18px -18px auto auto;width:70%;height:70%;border:1.5px solid rgba(163,188,230,.45);border-radius:20px}
-.photo img{position:relative;width:100%;aspect-ratio:4/5;object-fit:cover;object-position:top;border-radius:20px 20px 0 0;box-shadow:0 0 70px -10px rgba(110,145,220,.55),0 0 0 1px rgba(150,180,240,.15)}
+.photo img{position:relative;width:100%;aspect-ratio:4/5;object-fit:cover;object-position:top;border-radius:20px;box-shadow:0 0 70px -10px rgba(110,145,220,.55),0 0 0 1px rgba(150,180,240,.15)}
 .photo .badge{position:absolute;left:-26px;bottom:40px;background:#fff;color:var(--ink);border-radius:14px;padding:12px 16px;display:flex;align-items:center;gap:10px;font-size:14px;font-weight:600;box-shadow:0 18px 40px -12px rgba(0,0,0,.5);animation:float2 6s ease-in-out infinite}
 .photo .badge svg{width:30px;height:30px;color:#f7931a}
 @keyframes float2{50%{transform:translateY(-10px)}}
