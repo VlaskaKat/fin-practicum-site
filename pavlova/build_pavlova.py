@@ -203,6 +203,7 @@ section.light .sym{color:var(--ink);opacity:.02}section.light .sym.b{opacity:.01
 .results div{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:22px 18px;text-align:center;font-weight:600;font-size:16px}
 .results div i{display:grid;place-items:center;width:52px;height:52px;margin:0 auto 12px;border-radius:50%;background:rgba(163,188,230,.12);color:var(--cyan);font-style:normal;font-size:22px}
 
+.shot{width:100%;max-width:300px;height:auto;margin:0 auto;border-radius:30px;box-shadow:0 40px 80px -30px rgba(0,0,0,.7),0 0 0 6px #101d3c,0 0 0 7px rgba(255,255,255,.12);position:relative;z-index:1}
 /* mock phone (bot) */
 .phone{background:#101d3c;border-radius:34px;padding:14px;max-width:330px;margin:0 auto;box-shadow:0 40px 80px -30px rgba(0,0,0,.7),inset 0 0 0 1px rgba(255,255,255,.1);position:relative;z-index:1}
 .chat{background:linear-gradient(#1b2d58,#14244a);border-radius:24px;padding:18px 14px;display:grid;gap:10px;min-height:420px;align-content:end}
@@ -422,7 +423,7 @@ main_body = f'''
 </div>
 <div class="grid g2" style="margin-top:22px">
 <a class="card fade" href="crypto/" style="text-decoration:none"><div class="ic">{BTC}</div><h3>Курс «Азы криптовалют»</h3><p>€390 · мини-группа до 5 человек, живые уроки и личная проверка домашних заданий. Программа →</p></a>
-<a class="card fade" href="bot/" style="text-decoration:none"><div class="ic">₽€</div><h3>Консультация по бюджету + настройка бота · €100</h3><p>Разбираем ваш бюджет и настраиваем бюджет-ассистента под вашу семью или бизнес →</p></a>
+<a class="card fade" href="bot/" style="text-decoration:none"><div class="ic">₽€</div><h3>Помощь в настройке бюджета · €50</h3><p>Настраиваем статьи бюджета и бюджет-ассистента под вашу семью или бизнес →</p></a>
 </div>
 </div></section>
 
@@ -439,12 +440,15 @@ main_body = f'''
 '''
 
 # ---------------- BOT ----------------
-bot_feats = [('🎙', 'Голосом или текстом', 'Скажите «кофе 350 динаров» — бот поймёт сумму, валюту и статью и запишет сам.'),
-             ('💱', 'Несколько валют', 'Динары, евро, рубли, доллары: бот пересчитывает в две ваши базовые валюты и сохраняет курс.'),
-             ('📊', 'Своя Google-таблица', 'Все записи падают в вашу таблицу с готовым дашбордом: весь год на одном экране.'),
-             ('👨‍👩‍👧', 'Ведём вместе', 'Каждый член семьи пишет ассистенту, а в таблице видно, кто внёс запись.'),
-             ('💼', 'Бизнес отдельным блоком', 'Свои статьи доходов и расходов бизнеса, план и факт по месяцам — не смешиваем с семейными деньгами.'),
-             ('🎯', 'Цели и накопления', 'Норма сбережений за год, сравнение с планом по целям и топ статей расходов.')]
+bot_curr = [('1', 'Основная валюта', 'Если вы называете просто сумму, без валюты, бот запишет её в основной валюте.'),
+            ('2', 'Вторая валюта', 'В ней бот тоже пересчитывает весь бюджет. Обычно это евро или динары.'),
+            ('🌍', 'Любая валюта мира', 'Поехали в Турцию и платите лирами? Пишите в лирах, бот сам пересчитает в обе ваши валюты.')]
+bot_feats = [('🎙', 'Голосом или текстом', 'Скажите или напишите «кофе 5 евро» или «молоко 120, яйца 150, сок 200». Бот сам поймёт статью, посчитает сумму и запишет. Ошиблись? Нажмите «Отменить».'),
+             ('📊', 'Ваша Google-таблица', 'Все данные попадают в вашу таблицу на вашем Google Диске. В ней уже есть дашборд, отчёты, бюджет и мини-урок.'),
+             ('👨‍👩‍👧', 'Семейный бюджет', 'Можно добавить несколько человек. Каждый пишет своему ассистенту, а всё попадает в одну общую таблицу.'),
+             ('💼', 'Доходы и расходы бизнеса', 'Свои статьи бизнеса и план по месяцам тоже ведутся через бота. Видно, сколько бизнес приносит на самом деле.'),
+             ('🎯', 'Цели и накопления', 'План по месяцам и главное — годовая цель. Каждый месяц видно, насколько вы приблизились или отстали и что поправить.'),
+             ('📈', 'Свои отчёты', 'Все записи лежат в таблице одним массивом, поэтому вы можете сами построить любой отчёт или дашборд.')]
 bot_body = f'''
 <section class="hero phero">
 
@@ -455,16 +459,19 @@ bot_body = f'''
 <p class="lead">Помощник по учёту личных финансов, который подойдёт и для мини-бизнеса. Нельзя управлять тем, что не измеряешь.</p>
 <div class="hero-btns"><a class="btn btn-blue" href="{BOT}" target="_blank" rel="noopener">{TGSVG}Открыть бота</a><a class="btn btn-ghost" href="#price">Стоимость</a></div>
 </div>
-<div class="phone"><div class="chat">
-<div class="top"><i>₽€</i><div>Бюджет с Павловой<small>бот</small></div></div>
-<div class="msg me voice" style="animation-delay:.4s">▶ <span><i style="height:8px"></i><i style="height:14px;animation-delay:.1s"></i><i style="height:10px;animation-delay:.2s"></i><i style="height:16px;animation-delay:.3s"></i><i style="height:9px;animation-delay:.4s"></i><i style="height:13px;animation-delay:.5s"></i><i style="height:7px;animation-delay:.6s"></i></span> 0:04</div>
-<div class="msg bot" style="animation-delay:1.3s">✅ Записал: <b>Продукты</b><br>2 400 RSD = 20,5 € · 2 050 ₽<br><small style="opacity:.6">курс на сегодня</small></div>
-<div class="msg me" style="animation-delay:2.3s">такси 15 евро</div>
-<div class="msg bot" style="animation-delay:3.1s">✅ <b>Транспорт</b> · 15 €<br>За ноябрь потрачено 64% бюджета</div>
-</div></div>
+<img class="shot" src="bot-screenshot.jpg" width="660" height="1431" alt="Бюджет-ассистент в Telegram: голосовое сообщение и запись трат в таблицу">
 </div></section>
 
 <section class="light">
+
+<div class="wrap">
+<div class="kicker fade">Валюты</div>
+<h2 class="fade">Две ваши валюты, а записывать можно в любой</h2>
+<p class="sub fade">При настройке вы выбираете две валюты, и бот всё время пересчитывает каждую запись в обе.</p>
+<div class="grid g3">{''.join(f'<div class="card fade"><div class="ic" style="font-size:22px">{i}</div><h3>{h}</h3><p>{t}</p></div>' for i, h, t in bot_curr)}</div>
+</div></section>
+
+<section class="dark">
 
 <div class="wrap">
 <div class="kicker fade">Возможности</div>
@@ -473,7 +480,7 @@ bot_body = f'''
 <div class="grid g3">{''.join(f'<div class="card fade"><div class="ic" style="font-size:22px">{i}</div><h3>{h}</h3><p>{t}</p></div>' for i, h, t in bot_feats)}</div>
 </div></section>
 
-<section class="dark">
+<section class="light">
 
 <div class="wrap">
 <div class="kicker fade">Как начать</div>
@@ -490,9 +497,9 @@ bot_body = f'''
 <h2 class="fade">Подписка и настройка</h2>
 <p class="sub fade">Первый месяц бесплатно — попробуйте и решите, подходит ли вам.</p>
 <div class="prices">
-<div class="price fade"><h3>Месяц</h3><div class="val">490 ₽</div><div class="dur">или 900 ⭐ Telegram Stars</div><p>Бот, Google-таблица с дашбордом, мини-видеоурок и клуб «Финансовая база».</p><a class="btn btn-line" href="{BOT}" target="_blank" rel="noopener">Начать бесплатно</a></div>
-<div class="price pop fade"><span class="lbl">Выгоднее</span><h3>Год</h3><div class="val">9 000 ⭐</div><div class="dur">Telegram Stars · 2 месяца в подарок</div><p>Всё то же самое на весь год, без ежемесячных списаний.</p><a class="btn btn-blue" href="{BOT}" target="_blank" rel="noopener">Открыть бота</a></div>
-<div class="price fade"><h3>Консультация + настройка</h3><div class="val">€100</div><div class="dur">личная встреча</div><p>Разберём ваш бюджет, настроим статьи, валюты и семейный доступ под вас.</p><a class="btn btn-line" href="{TG}" target="_blank" rel="noopener">Записаться</a></div>
+<div class="price fade"><h3>Месяц</h3><div class="val">9 €</div><div class="dur">или 1 050 динаров в месяц</div><p>Бот, Google-таблица с дашбордом, мини-видеоурок и клуб «Финансовая база».</p><a class="btn btn-line" href="{BOT}" target="_blank" rel="noopener">Начать бесплатно</a></div>
+<div class="price pop fade"><span class="lbl">Выгоднее</span><h3>Год</h3><div class="val">90 €</div><div class="dur">или 10 500 динаров · 2 месяца в подарок</div><p>Всё то же самое на весь год, без ежемесячных списаний.</p><a class="btn btn-blue" href="{BOT}" target="_blank" rel="noopener">Открыть бота</a></div>
+<div class="price fade"><h3>Помощь в настройке</h3><div class="val">50 €</div><div class="dur">или 5 900 динаров · личная встреча</div><p>Вместе настроим статьи бюджета, валюты и семейный доступ под вас.</p><a class="btn btn-line" href="{TG}" target="_blank" rel="noopener">Записаться</a></div>
 </div>
 <p class="note">В подписку входит клуб «Финансовая база»: еженедельные посты, ответы на вопросы и обратная связь по бюджету.</p>
 </div></section>
