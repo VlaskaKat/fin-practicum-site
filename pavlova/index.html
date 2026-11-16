@@ -232,6 +232,9 @@ section.light .sym{color:var(--ink);opacity:.02}section.light .sym.b{opacity:.01
 .about img{box-shadow:0 30px 70px -28px rgba(86,117,181,.7),0 0 0 1px rgba(120,150,210,.12)!important}
 .phone{box-shadow:0 40px 80px -30px rgba(0,0,0,.6),0 0 60px -10px rgba(110,145,220,.35),inset 0 0 0 1px rgba(255,255,255,.1)}
 .qs div,.plan,.feat a{transition:transform .3s,box-shadow .3s}
+.ava{width:54px;height:54px;border-radius:50%;margin-bottom:14px;box-shadow:0 8px 20px -8px rgba(21,37,74,.45)}
+.price .ava{position:absolute;top:22px;right:22px;width:46px;height:46px;margin:0}.price .ava~h3{padding-right:50px}
+.eyebrow img{width:26px;height:26px;border-radius:50%;margin-left:-8px}
 .grp{font-size:clamp(20px,2.2vw,26px);margin:56px 0 6px}
 .intro{font-size:18px;max-width:70ch;margin-bottom:26px;line-height:1.65}
 .bio{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:8px}@media(max-width:760px){.bio{grid-template-columns:1fr}}
@@ -285,7 +288,7 @@ footer{background:#101d3c;color:rgba(255,255,255,.6);padding:40px 0;font-size:14
 <h2 class="fade">Инструменты, которые я сделала для вас</h2>
 <p class="sub fade">Удобный учёт и понятное обучение — с этого начинается порядок в деньгах.</p>
 <div class="feat">
-<a class="f1 fade" href="bot/"><span class="tag">Telegram-бот</span><h3>Бюджет-ассистент</h3><p>Записываете траты голосом в любой валюте. Бот пересчитает их в две ваши валюты и занесёт в Google-таблицу с дашбордом.</p><span class="more">Подробнее о боте</span><div class="big"><svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="26" fill="none" stroke="currentColor" stroke-width="3"/><path d="M32 14v18l12 8" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg></div></a>
+<a class="f1 fade" href="bot/"><img class="ava" src="bot/bot-avatar.png" alt="" style="width:64px;height:64px"><span class="tag">Telegram-бот</span><h3>Бюджет-ассистент</h3><p>Записываете траты голосом в любой валюте. Бот пересчитает их в две ваши валюты и занесёт в Google-таблицу с дашбордом.</p><span class="more">Подробнее о боте</span><div class="big"><svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="26" fill="none" stroke="currentColor" stroke-width="3"/><path d="M32 14v18l12 8" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg></div></a>
 <a class="f2 fade" href="crypto/"><span class="tag">Авторский курс · до 5 человек</span><h3>Азы криптовалют</h3><p>Живые уроки в мини-группе: от блокчейна до первой покупки, холодного кошелька и крипто-карты.</p><span class="more">Программа курса</span><div class="big"><svg viewBox="0 0 64 64" aria-hidden="true"><path fill="currentColor" d="M46.1 27.4c.6-4.3-2.6-6.6-7.1-8.1l1.5-5.8-3.5-.9-1.4 5.7c-.9-.2-1.9-.5-2.8-.7l1.4-5.7-3.5-.9-1.5 5.8c-.8-.2-1.5-.3-2.2-.5l-4.9-1.2-.9 3.8s2.6.6 2.6.6c1.4.4 1.7 1.3 1.6 2l-1.7 6.7c.1 0 .2.1.4.1l-.4-.1-2.3 9.4c-.2.4-.6 1.1-1.6.8 0 0-2.6-.6-2.6-.6l-1.8 4 4.6 1.2c.9.2 1.7.4 2.5.6l-1.5 5.9 3.5.9 1.5-5.8c1 .3 1.9.5 2.8.7l-1.4 5.8 3.5.9 1.5-5.9c6 1.1 10.5.7 12.4-4.8 1.5-4.4-.1-6.9-3.2-8.6 2.3-.5 4-2 4.5-5.1zm-8 11.2c-1.1 4.4-8.4 2-10.8 1.4l1.9-7.7c2.4.6 10 1.8 8.9 6.3zm1.1-11.3c-1 4-7.1 2-9.1 1.5l1.7-7c2 .5 8.4 1.4 7.4 5.5z"/></svg></div></a>
 </div></div></section>
 
@@ -311,7 +314,7 @@ footer{background:#101d3c;color:rgba(255,255,255,.6);padding:40px 0;font-size:14
 <a class="btn btn-line" href="https://t.me/katerinavlaska" target="_blank" rel="noopener">Записаться</a></div><div class="price fade">
 <h3>Аудит финансов</h3><div class="val">€150</div><div class="dur">90 минут</div><p>Взгляд со стороны и письменные рекомендации.</p>
 <a class="btn btn-line" href="https://t.me/katerinavlaska" target="_blank" rel="noopener">Записаться</a></div><div class="price fade">
-<h3>Помощь с бюджетом</h3><div class="val">€50</div><div class="dur">личная встреча</div><p>Настроим статьи бюджета, валюты и бюджет-ассистента.</p>
+<img class="ava" src="bot/bot-avatar.png" alt=""><h3>Помощь с бюджетом</h3><div class="val">€50</div><div class="dur">личная встреча</div><p>Настроим статьи бюджета, валюты и бюджет-ассистента.</p>
 <a class="btn btn-line" href="https://t.me/katerinavlaska" target="_blank" rel="noopener">Записаться</a></div></div><h3 class="fade grp">Долгосрочная работа</h3><p class="sub fade" style="margin-bottom:26px">Когда нужен не один ответ, а система: стратегия, план и поддержка.</p>
 <div class="prices p4"><div class="price fade">
 <h3>Стратегическая сессия</h3><div class="val">€500</div><div class="dur">2 встречи</div><p>Разбор вашей ситуации и личная стратегия.</p>
@@ -323,7 +326,7 @@ footer{background:#101d3c;color:rgba(255,255,255,.6);padding:40px 0;font-size:14
 <h3>Финансовый клуб</h3><div class="val">3 900 дин.</div><div class="dur">≈ €33 в месяц</div><p>Закрытый чат с ответами, бот бесплатно, шаблоны, скидка 30%.</p>
 <a class="btn btn-line" href="https://rs.fin-academy.net/#club" target="_blank" rel="noopener">Подробнее</a></div></div><h3 class="fade grp">Мои продукты</h3><p class="sub fade" style="margin-bottom:26px">Инструменты, которыми можно пользоваться самостоятельно.</p>
 <div class="prices p4"><div class="price fade">
-<h3>Бюджет-ассистент</h3><div class="val">€9</div><div class="dur">в месяц или €90 за год</div><p>Telegram-бот и Google-таблица с дашбордом. Первый месяц бесплатно.</p>
+<img class="ava" src="bot/bot-avatar.png" alt=""><h3>Бюджет-ассистент</h3><div class="val">€9</div><div class="dur">в месяц или €90 за год</div><p>Telegram-бот и Google-таблица с дашбордом. Первый месяц бесплатно.</p>
 <a class="btn btn-line" href="bot/">Подробнее</a></div><div class="price fade">
 <h3>Курс «Азы криптовалют»</h3><div class="val">€390</div><div class="dur">за весь курс, до 5 человек</div><p>Живые уроки и личная проверка домашних заданий.</p>
 <a class="btn btn-line" href="crypto/">Подробнее</a></div></div>

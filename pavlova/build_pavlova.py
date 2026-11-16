@@ -239,6 +239,9 @@ section.light .sym{color:var(--ink);opacity:.02}section.light .sym.b{opacity:.01
 .about img{box-shadow:0 30px 70px -28px rgba(86,117,181,.7),0 0 0 1px rgba(120,150,210,.12)!important}
 .phone{box-shadow:0 40px 80px -30px rgba(0,0,0,.6),0 0 60px -10px rgba(110,145,220,.35),inset 0 0 0 1px rgba(255,255,255,.1)}
 .qs div,.plan,.feat a{transition:transform .3s,box-shadow .3s}
+.ava{width:54px;height:54px;border-radius:50%;margin-bottom:14px;box-shadow:0 8px 20px -8px rgba(21,37,74,.45)}
+.price .ava{position:absolute;top:22px;right:22px;width:46px;height:46px;margin:0}.price .ava~h3{padding-right:50px}
+.eyebrow img{width:26px;height:26px;border-radius:50%;margin-left:-8px}
 .grp{font-size:clamp(20px,2.2vw,26px);margin:56px 0 6px}
 .intro{font-size:18px;max-width:70ch;margin-bottom:26px;line-height:1.65}
 .bio{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:8px}@media(max-width:760px){.bio{grid-template-columns:1fr}}
@@ -370,7 +373,7 @@ def svc_card(n, v, d, t, b, href, pop):
     ext = '' if not href.startswith('http') else ' target="_blank" rel="noopener"'
     small = ' style="font-size:24px"' if len(v) > 10 else ''
     return f'''<div class="price{' pop' if pop else ''} fade">{'<span class="lbl">Начните здесь</span>' if n == 'Встреча-знакомство' else ''}{'<span class="lbl">Максимум результата</span>' if n == 'Финансовый план' else ''}
-<h3>{n}</h3><div class="val"{small}>{v}</div><div class="dur">{d}</div><p>{t}</p>
+{'<img class="ava" src="bot/bot-avatar.png" alt="">' if n in ('Помощь с бюджетом', 'Бюджет-ассистент') else ''}<h3>{n}</h3><div class="val"{small}>{v}</div><div class="dur">{d}</div><p>{t}</p>
 <a class="btn {'btn-blue' if pop else 'btn-line'}" href="{href}"{ext}>{b}</a></div>'''
 
 svc_html = ''.join(f'''<h3 class="fade grp">{g}</h3><p class="sub fade" style="margin-bottom:26px">{gd}</p>
@@ -408,7 +411,7 @@ main_body = f'''
 <h2 class="fade">Инструменты, которые я сделала для вас</h2>
 <p class="sub fade">Удобный учёт и понятное обучение — с этого начинается порядок в деньгах.</p>
 <div class="feat">
-<a class="f1 fade" href="bot/"><span class="tag">Telegram-бот</span><h3>Бюджет-ассистент</h3><p>Записываете траты голосом в любой валюте. Бот пересчитает их в две ваши валюты и занесёт в Google-таблицу с дашбордом.</p><span class="more">Подробнее о боте</span><div class="big"><svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="26" fill="none" stroke="currentColor" stroke-width="3"/><path d="M32 14v18l12 8" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg></div></a>
+<a class="f1 fade" href="bot/"><img class="ava" src="bot/bot-avatar.png" alt="" style="width:64px;height:64px"><span class="tag">Telegram-бот</span><h3>Бюджет-ассистент</h3><p>Записываете траты голосом в любой валюте. Бот пересчитает их в две ваши валюты и занесёт в Google-таблицу с дашбордом.</p><span class="more">Подробнее о боте</span><div class="big"><svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="26" fill="none" stroke="currentColor" stroke-width="3"/><path d="M32 14v18l12 8" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg></div></a>
 <a class="f2 fade" href="crypto/"><span class="tag">Авторский курс · до 5 человек</span><h3>Азы криптовалют</h3><p>Живые уроки в мини-группе: от блокчейна до первой покупки, холодного кошелька и крипто-карты.</p><span class="more">Программа курса</span><div class="big">{BTC}</div></a>
 </div></div></section>
 
@@ -456,7 +459,7 @@ bot_body = f'''
 
 <div class="wrap phero-grid">
 <div>
-<div class="eyebrow"><i></i>Telegram-бот · @BudgetAssistantPavlovaBot</div>
+<div class="eyebrow"><img src="bot-avatar.png" alt="">Telegram-бот · @BudgetAssistantPavlovaBot</div>
 <h1 style="color:#fff;text-transform:uppercase;margin-bottom:22px">Бюджет-ассистент</h1>
 <p class="lead">Записывайте траты голосом в любой валюте мира. Бот сам пересчитает их в две ваши валюты и занесёт в Google-таблицу с дашбордом.</p>
 <div class="hero-btns"><a class="btn btn-blue" href="{BOT}" target="_blank" rel="noopener">{TGSVG}Открыть бота</a><a class="btn btn-ghost" href="#price">Стоимость</a></div>
