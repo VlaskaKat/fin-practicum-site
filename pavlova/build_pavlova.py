@@ -147,6 +147,22 @@ section.light .sym{color:var(--ink);opacity:.02}section.light .sym.b{opacity:.01
 .qs div::before{content:"?";position:absolute;left:16px;top:16px;width:24px;height:24px;border-radius:50%;background:var(--blue);color:#fff;font-size:14px;font-weight:700;display:grid;place-items:center}
 @media(max-width:760px){.qs{grid-template-columns:1fr}}
 
+.club{background:var(--ink);color:#fff;background-image:radial-gradient(900px 500px at 0% 0%,rgba(86,117,181,.35),transparent 60%)}
+.club h2{color:#fff}.club .sub{color:rgba(255,255,255,.72)}.club .kicker{color:var(--cyan)}.club .kicker::before{background:var(--cyan)}
+.club-card{display:grid;grid-template-columns:300px 1fr;border-radius:26px;overflow:hidden;border:1px solid rgba(163,188,230,.35);box-shadow:0 30px 70px -30px rgba(110,145,220,.6)}
+.club-side{padding:34px 30px;background:linear-gradient(160deg,var(--blue),var(--blue-2) 60%,var(--cyan));color:#fff;display:flex;flex-direction:column}
+.club-side .t{font-size:14px;font-weight:600;margin-bottom:12px}
+.club-side .cp{font-family:"PT Serif",Georgia,serif;font-size:46px;font-weight:700;line-height:1}
+.club-side .cp small{font-family:inherit;font-size:17px;font-weight:600}
+.club-side .eur{margin:10px 0 22px;font-weight:600}
+.club-note{font-size:14.5px;line-height:1.5;font-weight:500;background:rgba(21,37,74,.25);border-radius:14px;padding:12px 14px;margin-bottom:20px}
+.club-side .btn{margin-top:auto;background:var(--ink);color:#fff;width:100%}
+.club-side .more{margin-top:14px;font-size:14.5px;font-weight:600;color:#fff;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.5);align-self:flex-start}
+.club-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;padding:26px;background:var(--ink-2)}
+.ct{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09);border-radius:16px;padding:18px 20px}
+.ct b{display:block;color:var(--cyan);font-size:16.5px;margin-bottom:6px}
+.ct p{font-size:15px;color:rgba(255,255,255,.75);line-height:1.5}
+@media(max-width:900px){.club-card{grid-template-columns:1fr}.club-grid{grid-template-columns:1fr}}
 /* prices */
 .prices{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-bottom:22px}
 @media(max-width:900px){.prices{grid-template-columns:1fr}}
@@ -284,7 +300,7 @@ def btc_bg(size, top, side, val, delay=0, extra=''):
 
 def header(active, root):
     items = [('index', 'Главная', root), ('about', 'Обо мне', root + '#about'), ('services', 'Услуги', root + '#services'),
-             ('bot', 'Бюджет-бот', root + 'bot/'), ('crypto', 'Курс по крипте', root + 'crypto/'), ('club', 'Финансовый клуб', root + 'club/'), ('contacts', 'Контакты', '#contacts')]
+             ('bot', 'Бюджет-бот', root + 'bot/'), ('crypto', 'Курс по крипте', root + 'crypto/'), ('club', 'Финансовый клуб', root + '#club'), ('contacts', 'Контакты', '#contacts')]
     lis = ''.join(f'<li><a href="{h}"{" class=on" if k == active else ""}>{t}</a></li>' for k, t, h in items if k != 'index')
     return f'''<header><div class="wrap nav">
 <a class="brand" href="{root}"><span class="mark">ЕП</span><span><b>Екатерина Павлова</b><span>Финансовый советник · Сербия</span></span></a>
@@ -357,9 +373,9 @@ qs = ['С чего начать инвестировать, если я живу
 svc_groups = [
  ('Разовые консультации', 'Когда нужен ответ на конкретный вопрос или взгляд со стороны.', [
   ('Встреча-знакомство', 'Бесплатно', '30 минут', 'Обсудим ваш запрос и подберём подходящий формат.', 'Записаться', TG, True),
-  ('Консультация', '€150', '60 минут', 'Ответ на ваш конкретный вопрос.', 'Записаться', TG, False),
+  ('Консультация', '€100', '60 минут', 'Ответ на ваш конкретный вопрос.', 'Записаться', TG, False),
   ('Аудит финансов', '€150', '90 минут', 'Взгляд со стороны и письменные рекомендации.', 'Записаться', TG, False),
-  ('Помощь с бюджетом', '€50', 'личная встреча', 'Настроим статьи бюджета, валюты и бюджет-ассистента.', 'Записаться', TG, False)]),
+  ('Настройка бота и бюджета', '€50', 'личная встреча', 'Настроим бюджет-ассистента, статьи бюджета и валюты.', 'Записаться', TG, False)]),
  ('Долгосрочная работа', 'Когда нужен не один ответ, а система: стратегия, план и поддержка.', [
   ('Стратегическая сессия', '€500', '2 встречи', 'Разбор вашей ситуации и личная стратегия.', 'Записаться', TG, False),
   ('Финансовый план', 'от €1 500', '5 встреч за 2 месяца', 'Полный план, подбор инструментов и поддержка во внедрении.', 'Записаться', TG, True),
@@ -373,7 +389,7 @@ def svc_card(n, v, d, t, b, href, pop):
     ext = '' if not href.startswith('http') else ' target="_blank" rel="noopener"'
     small = ' style="font-size:24px"' if len(v) > 10 else ''
     return f'''<div class="price{' pop' if pop else ''} fade">{'<span class="lbl">Начните здесь</span>' if n == 'Встреча-знакомство' else ''}{'<span class="lbl">Максимум результата</span>' if n == 'Финансовый план' else ''}
-{'<img class="ava" src="bot/bot-avatar.png" alt="">' if n in ('Помощь с бюджетом', 'Бюджет-ассистент') else ''}<h3>{n}</h3><div class="val"{small}>{v}</div><div class="dur">{d}</div><p>{t}</p>
+{'<img class="ava" src="bot/bot-avatar.png" alt="">' if n in ('Настройка бота и бюджета', 'Бюджет-ассистент') else ''}<h3>{n}</h3><div class="val"{small}>{v}</div><div class="dur">{d}</div><p>{t}</p>
 <a class="btn {'btn-blue' if pop else 'btn-line'}" href="{href}"{ext}>{b}</a></div>'''
 
 svc_html = ''.join(f'''<h3 class="fade grp">{g}</h3><p class="sub fade" style="margin-bottom:26px">{gd}</p>
@@ -430,6 +446,19 @@ main_body = f'''
 <h2 class="fade">Что можно у меня заказать</h2>
 <p class="sub fade">Три направления: разовые консультации, долгосрочная работа и мои продукты.</p>
 {svc_html}
+</div></section>
+
+<section class="club" id="club"><div class="wrap">
+<div class="kicker fade">Сообщество</div>
+<h2 class="fade">Финансовый клуб</h2>
+<p class="sub fade">Закрытое сообщество для тех, кто хочет держать свои финансы в порядке постоянно, а не только во время практикума. Мы рядом, когда меняются законы, санкции и налоги, и когда нужно открыть новый счёт или выбрать инструмент.</p>
+<div class="club-card fade">
+<div class="club-side"><div class="t">Подписка</div><div class="cp">€33 <small>в месяц</small></div><div class="eur">≈ 3 900 дин. в месяц</div>
+<p class="club-note">Клуб стартует после окончания обучения по программе «Финансовая стратегия». Вступить можно после прохождения этого обучения, а оставить предварительную запись — уже сейчас.</p>
+<a class="btn" href="{PRACTICUM}#signup" target="_blank" rel="noopener">Предварительная запись в клуб</a>
+<a class="more" href="club/">Подробнее о клубе →</a></div>
+<div class="club-grid"><div class="ct"><b>Ответы на все вопросы</b><p>Постоянная помощь в закрытом чате от Анны и Екатерины: пишете вопрос — получаете ответ.</p></div><div class="ct"><b>Динамические модельные портфели</b><p>Модельные портфели от наших партнёров с 30-летним опытом инвестирования: регулярно обновляются и адаптированы под рынок. Плюс регулярные новости фондового рынка.</p></div><div class="ct"><b>Брокеры и брокерские счета</b><p>Актуальные инструкции и помощь: какого брокера выбрать, как открыть счёт и подключиться.</p></div><div class="ct"><b>Законы, налоги и санкции</b><p>Гайды и обновления по всем изменениям в России и Сербии, которые касаются нас, резидентов: налоги, санкции, как платить.</p></div><div class="ct"><b>Альтернативные инструменты</b><p>Актуальная информация об альтернативных инструментах для инвестирования.</p></div><div class="ct"><b>Криптовалюта</b><p>Как купить биткоин, пошаговые гайды и помощь в открытии криптобирж и криптокошельков.</p></div><div class="ct"><b>Переводы</b><p>Актуальная информация по валютным и денежным переводам и переводам в криптовалюте: рубли, SWIFT, крипта — и ответы на вопросы, если нужно сделать перевод.</p></div><div class="ct"><b>Финансовые новости</b><p>Актуальные финансовые новости от наших партнёров — коротко и по делу.</p></div><div class="ct"><b>Онлайн-встречи каждый месяц</b><p>Разбираем актуальные темы вместе и отвечаем на вопросы вживую.</p></div><div class="ct"><b>Страхование</b><p>Ответы на все ваши вопросы о страховании семьи, здоровья и имущества.</p></div><div class="ct"><b>Бюджет и личные финансы</b><p>Помощь с настройкой своей финансовой системы и ведением бюджета.</p></div><div class="ct"><b>Бот-ассистент бесплатно</b><p>На всё время участия в клубе — бот, который голосом помогает вести бюджет за 5 минут в день.</p></div><div class="ct"><b>Скидка 30% на консультации</b><p>На все личные консультации с Анной и Екатериной.</p></div><div class="ct"><b>Шаблоны, гайды и инструкции</b><p>Всё доступно всем участникам клуба, с инструкциями, как этим пользоваться: шаблон бюджета, подбор страхования, расчёт пенсионного капитала, расчёт, сколько инвестировать под вашу цель, риск-профиль и шаблон личного финансового плана.</p></div></div>
+</div>
 </div></section>
 
 <section class="light" style="padding-top:20px">
@@ -521,7 +550,7 @@ bot_body = f'''
 <div class="price fade"><h3>Месяц</h3><div class="val">€9</div><div class="dur">в месяц</div><p>Бот, Google-таблица с дашбордом, мини-видеоурок и клуб «Финансовая база».</p><a class="btn btn-line" href="{BOT}" target="_blank" rel="noopener">Начать бесплатно</a></div>
 <div class="price pop fade"><span class="lbl">Выгоднее</span><h3>Год</h3><div class="val">€90</div><div class="dur">за год · 2 месяца в подарок</div><p>Всё то же самое на весь год, без ежемесячных списаний.</p><a class="btn btn-blue" href="{BOT}" target="_blank" rel="noopener">Открыть бота</a></div>
 </div>
-<p class="note">В подписку входит клуб «Финансовая база»: еженедельные посты, ответы на вопросы и обратная связь по бюджету. Помощь с настройкой бюджета и другие услуги — на странице <a href="../#services">«Все услуги и цены»</a>.</p>
+<p class="note">В подписку входит клуб «Финансовая база»: еженедельные посты, ответы на вопросы и обратная связь по бюджету. Настройка бота и бюджета и другие услуги — на странице <a href="../#services">«Все услуги и цены»</a>.</p>
 </div></section>
 '''
 
