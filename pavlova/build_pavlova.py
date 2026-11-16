@@ -151,6 +151,8 @@ section.light .sym{color:var(--ink);opacity:.02}section.light .sym.b{opacity:.01
 .prices{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-bottom:22px}
 @media(max-width:900px){.prices{grid-template-columns:1fr}}
 .price{background:#fff;border:1px solid var(--line);border-radius:18px;padding:30px;display:flex;flex-direction:column;position:relative}
+.prices.p4{grid-template-columns:repeat(4,1fr)}@media(max-width:1100px){.prices.p4{grid-template-columns:1fr 1fr}}@media(max-width:600px){.prices.p4{grid-template-columns:1fr}}
+.prices.p2{grid-template-columns:repeat(2,1fr);max-width:760px}@media(max-width:700px){.prices.p2{grid-template-columns:1fr}}
 .price.pop{border:2px solid var(--blue)}
 .price .lbl{position:absolute;top:-13px;left:24px;background:var(--blue);color:#fff;font-size:12.5px;font-weight:700;padding:5px 12px;border-radius:999px}
 .price h3{margin-bottom:6px}
@@ -237,6 +239,7 @@ section.light .sym{color:var(--ink);opacity:.02}section.light .sym.b{opacity:.01
 .about img{box-shadow:0 30px 70px -28px rgba(86,117,181,.7),0 0 0 1px rgba(120,150,210,.12)!important}
 .phone{box-shadow:0 40px 80px -30px rgba(0,0,0,.6),0 0 60px -10px rgba(110,145,220,.35),inset 0 0 0 1px rgba(255,255,255,.1)}
 .qs div,.plan,.feat a{transition:transform .3s,box-shadow .3s}
+.grp{font-size:clamp(20px,2.2vw,26px);margin:56px 0 6px}
 .intro{font-size:18px;max-width:70ch;margin-bottom:26px;line-height:1.65}
 .bio{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:8px}@media(max-width:760px){.bio{grid-template-columns:1fr}}
 .bio p{background:#fff;border-radius:14px;padding:14px 18px 14px 20px;font-size:16.5px;border-left:3px solid var(--blue);box-shadow:0 18px 40px -26px rgba(86,117,181,.55)}
@@ -277,7 +280,7 @@ def btc_bg(size, top, side, val, delay=0, extra=''):
     return f'<div class="btc-bg" style="width:{size}px;height:{size}px;top:{top};{side}:{val};animation-delay:-{delay}s{extra}">{BTC}</div>'
 
 def header(active, root):
-    items = [('index', 'Главная', root), ('about', 'Обо мне', root + '#about'), ('services', 'Услуги', root + '#services'),
+    items = [('index', 'Главная', root), ('about', 'Обо мне', root + '#about'), ('services', 'Услуги и цены', root + '#services'),
              ('bot', 'Бюджет-ассистент', root + 'bot/'), ('crypto', 'Курс «Азы криптовалют»', root + 'crypto/'), ('contacts', 'Контакты', '#contacts')]
     lis = ''.join(f'<li><a href="{h}"{" class=on" if k == active else ""}>{t}</a></li>' for k, t, h in items if k != 'index')
     return f'''<header><div class="wrap nav">
@@ -348,12 +351,30 @@ qs = ['С чего начать инвестировать, если я живу
       'Как перевести деньги между странами, в том числе через криптовалюту?',
       'Верна ли моя стратегия и куда двигаться дальше?']
 
-formats = [('Встреча-знакомство', 'Бесплатно', '30 минут', 'Обсудим ваш запрос и подберём формат взаимодействия', True),
-           ('Консультация', '€150', '60 минут', 'Ответ на ваш конкретный вопрос', False),
-           ('Аудит финансового состояния', '€150', '90 минут', 'Взгляд со стороны и письменные рекомендации', False)]
-fcards = ''.join(f'''<div class="price{' pop' if p else ''} fade">{'<span class="lbl">Начните здесь</span>' if p else ''}
-<h3>{n}</h3><div class="val">{v}</div><div class="dur">{d}</div><p>{t}</p>
-<a class="btn {'btn-blue' if p else 'btn-line'}" href="{TG}" target="_blank" rel="noopener">Записаться</a></div>''' for n, v, d, t, p in formats)
+svc_groups = [
+ ('Разовые консультации', 'Когда нужен ответ на конкретный вопрос или взгляд со стороны.', [
+  ('Встреча-знакомство', 'Бесплатно', '30 минут', 'Обсудим ваш запрос и подберём подходящий формат.', 'Записаться', TG, True),
+  ('Консультация', '€150', '60 минут', 'Ответ на ваш конкретный вопрос.', 'Записаться', TG, False),
+  ('Аудит финансов', '€150', '90 минут', 'Взгляд со стороны и письменные рекомендации.', 'Записаться', TG, False),
+  ('Помощь с бюджетом', '€50', 'личная встреча', 'Настроим статьи бюджета, валюты и бюджет-ассистента.', 'Записаться', TG, False)]),
+ ('Долгосрочная работа', 'Когда нужен не один ответ, а система: стратегия, план и поддержка.', [
+  ('Стратегическая сессия', '€500', '2 встречи', 'Разбор вашей ситуации и личная стратегия.', 'Записаться', TG, False),
+  ('Финансовый план', 'от €1 500', '5 встреч за 2 месяца', 'Полный план, подбор инструментов и поддержка во внедрении.', 'Записаться', TG, True),
+  ('Практикум «Путь к финансовой свободе»', 'от 9 900 дин.', '≈ €85 · вместе с Анной Чачиной', 'Личные финансы и инвестиции для резидентов Сербии: 6 модулей с практикой.', 'Подробнее', PRACTICUM, False),
+  ('Финансовый клуб', '3 900 дин.', '≈ €33 в месяц', 'Закрытый чат с ответами, бот бесплатно, шаблоны, скидка 30%.', 'Подробнее', PRACTICUM + '#club', False)]),
+ ('Мои продукты', 'Инструменты, которыми можно пользоваться самостоятельно.', [
+  ('Бюджет-ассистент', '€9', 'в месяц или €90 за год', 'Telegram-бот и Google-таблица с дашбордом. Первый месяц бесплатно.', 'Подробнее', 'bot/', False),
+  ('Курс «Азы криптовалют»', '€390', 'за весь курс, до 5 человек', 'Живые уроки и личная проверка домашних заданий.', 'Подробнее', 'crypto/', False)])]
+
+def svc_card(n, v, d, t, b, href, pop):
+    ext = '' if not href.startswith('http') else ' target="_blank" rel="noopener"'
+    small = ' style="font-size:24px"' if len(v) > 10 else ''
+    return f'''<div class="price{' pop' if pop else ''} fade">{'<span class="lbl">Начните здесь</span>' if n == 'Встреча-знакомство' else ''}{'<span class="lbl">Максимум результата</span>' if n == 'Финансовый план' else ''}
+<h3>{n}</h3><div class="val"{small}>{v}</div><div class="dur">{d}</div><p>{t}</p>
+<a class="btn {'btn-blue' if pop else 'btn-line'}" href="{href}"{ext}>{b}</a></div>'''
+
+svc_html = ''.join(f'''<h3 class="fade grp">{g}</h3><p class="sub fade" style="margin-bottom:26px">{gd}</p>
+<div class="prices p4">{''.join(svc_card(*c) for c in cards)}</div>''' for g, gd, cards in svc_groups)
 
 main_body = f'''
 <section class="hero">
@@ -391,13 +412,6 @@ main_body = f'''
 <a class="f2 fade" href="crypto/"><span class="tag">Авторский курс · до 5 человек</span><h3>Азы криптовалют</h3><p>Живые уроки в мини-группе: от блокчейна до первой покупки, холодного кошелька и крипто-карты.</p><span class="more">Программа курса</span><div class="big">{BTC}</div></a>
 </div></div></section>
 
-<section class="light" style="padding:60px 0 0">
-<div class="wrap"><div class="card ink fade prk">
-<div><div class="kicker" style="color:var(--cyan)">Обучение</div><h3 style="font-size:clamp(21px,2.3vw,28px);text-transform:uppercase;margin-bottom:12px;overflow-wrap:normal;hyphens:none">Практикум «Путь к финансовой свободе»</h3>
-<p>Вместе с Анной Чачиной мы ведём русскоязычный практикум по личным финансам и инвестициям для резидентов Сербии: 6 модулей, в каждом практика. Полный курс — 21 урок в записи и 6 живых встреч.</p></div>
-<a class="btn btn-blue" href="{PRACTICUM}" target="_blank" rel="noopener">Подробнее о практикуме</a>
-</div></div></section>
-
 <section class="light">
 <div class="wrap">
 <div class="kicker fade">Запросы</div>
@@ -409,24 +423,10 @@ main_body = f'''
 <section class="light" id="services" style="padding-top:20px">
 
 <div class="wrap">
-<div class="kicker fade">Услуги и стоимость</div>
-<h2 class="fade">Форматы консультаций</h2>
-<p class="sub fade">Разовые встречи — когда нужен ответ на конкретный вопрос или взгляд со стороны.</p>
-<div class="prices">{fcards}</div>
-<h2 class="fade" style="margin-top:70px">Сопровождение по финансам</h2>
-<p class="sub fade">Когда нужен не один ответ, а система: стратегия, план и поддержка во внедрении.</p>
-<div class="plans">
-<div class="plan fade"><h3>Стратегическая сессия</h3><div class="val">€500</div><div class="dur">2 встречи</div>
-<ul>{li(['Разбор вашей финансовой ситуации','Личная индивидуальная стратегия'])}</ul>
-<a class="btn btn-line" href="{TG}" target="_blank" rel="noopener">Записаться</a></div>
-<div class="plan ink fade"><span class="tag">Максимум результата</span><h3>Финансовый план</h3><div class="val">от €1 500</div><div class="dur">5 встреч за 2 месяца</div>
-<ul>{li(['Полный финансовый план','Изучение инструментов','Финансовая стратегия для достижения ваших целей','Подбор страховых и инвестиционных решений','Инструкции по открытию счетов','Менторская поддержка во внедрении стратегии'])}</ul>
-<a class="btn btn-blue" href="{TG}" target="_blank" rel="noopener">Записаться</a></div>
-</div>
-<div class="grid g2" style="margin-top:22px">
-<a class="card fade" href="crypto/" style="text-decoration:none"><div class="ic">{BTC}</div><h3>Курс «Азы криптовалют»</h3><p>€390 · мини-группа до 5 человек, живые уроки и личная проверка домашних заданий. Программа →</p></a>
-<a class="card fade" href="bot/" style="text-decoration:none"><div class="ic">₽€</div><h3>Помощь в настройке бюджета · €50</h3><p>Настраиваем статьи бюджета и бюджет-ассистента под вашу семью или бизнес →</p></a>
-</div>
+<div class="kicker fade">Услуги и цены</div>
+<h2 class="fade">Что можно у меня заказать</h2>
+<p class="sub fade">Три направления: разовые консультации, долгосрочная работа и мои продукты.</p>
+{svc_html}
 </div></section>
 
 <section class="light" style="padding-top:20px">
@@ -512,14 +512,13 @@ bot_body = f'''
 <section class="light" id="price">
 <div class="wrap">
 <div class="kicker fade">Стоимость</div>
-<h2 class="fade">Подписка и настройка</h2>
+<h2 class="fade">Подписка</h2>
 <p class="sub fade">Первый месяц бесплатно — попробуйте и решите, подходит ли вам.</p>
-<div class="prices">
+<div class="prices p2">
 <div class="price fade"><h3>Месяц</h3><div class="val">9 €</div><div class="dur">или 1 050 динаров в месяц</div><p>Бот, Google-таблица с дашбордом, мини-видеоурок и клуб «Финансовая база».</p><a class="btn btn-line" href="{BOT}" target="_blank" rel="noopener">Начать бесплатно</a></div>
 <div class="price pop fade"><span class="lbl">Выгоднее</span><h3>Год</h3><div class="val">90 €</div><div class="dur">или 10 500 динаров · 2 месяца в подарок</div><p>Всё то же самое на весь год, без ежемесячных списаний.</p><a class="btn btn-blue" href="{BOT}" target="_blank" rel="noopener">Открыть бота</a></div>
-<div class="price fade"><h3>Помощь в настройке</h3><div class="val">50 €</div><div class="dur">или 5 900 динаров · личная встреча</div><p>Вместе настроим статьи бюджета, валюты и семейный доступ под вас.</p><a class="btn btn-line" href="{TG}" target="_blank" rel="noopener">Записаться</a></div>
 </div>
-<p class="note">В подписку входит клуб «Финансовая база»: еженедельные посты, ответы на вопросы и обратная связь по бюджету.</p>
+<p class="note">В подписку входит клуб «Финансовая база»: еженедельные посты, ответы на вопросы и обратная связь по бюджету. Помощь с настройкой бюджета и другие услуги — на странице <a href="../#services">«Все услуги и цены»</a>.</p>
 </div></section>
 '''
 
@@ -606,6 +605,7 @@ crypto_body = f'''
 <div class="val">€390</div><div class="dur">за весь курс · 7 живых уроков · домашние задания с проверкой · материалы навсегда</div>
 <p>Напишите мне — расскажу о ближайшем наборе и забронирую место в группе.</p>
 <a class="btn btn-blue" href="{TG}" target="_blank" rel="noopener" style="width:auto;align-self:center">{TGSVG}Узнать дату старта</a></div>
+<p class="note" style="text-align:center">Другие услуги — на странице <a href="../#services">«Все услуги и цены»</a>.</p>
 </div></section>
 '''
 
