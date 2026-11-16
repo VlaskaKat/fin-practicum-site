@@ -300,7 +300,7 @@ def btc_bg(size, top, side, val, delay=0, extra=''):
 
 def header(active, root):
     items = [('index', 'Главная', root), ('about', 'Обо мне', root + '#about'), ('services', 'Услуги', root + '#services'),
-             ('bot', 'Бюджет-бот', root + 'bot/'), ('crypto', 'Курс по крипте', root + 'crypto/'), ('club', 'Финансовый клуб', root + '#club'), ('contacts', 'Контакты', '#contacts')]
+             ('bot', 'Бюджет-бот', root + 'bot/'), ('crypto', 'Азы криптовалют', root + 'crypto/'), ('club', 'Финансовый клуб', root + '#club'), ('contacts', 'Контакты', '#contacts')]
     lis = ''.join(f'<li><a href="{h}"{" class=on" if k == active else ""}>{t}</a></li>' for k, t, h in items if k != 'index')
     return f'''<header><div class="wrap nav">
 <a class="brand" href="{root}"><span class="mark">ЕП</span><span><b>Екатерина Павлова</b><span>Финансовый советник · Сербия</span></span></a>
