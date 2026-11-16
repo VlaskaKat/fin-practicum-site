@@ -13,6 +13,8 @@ IGSVG = '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18
 CHECK = '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" d="m5 12.5 4.5 4.5L19 7.5"/></svg>'
 BTC = '<svg viewBox="0 0 64 64" aria-hidden="true"><path fill="currentColor" d="M46.1 27.4c.6-4.3-2.6-6.6-7.1-8.1l1.5-5.8-3.5-.9-1.4 5.7c-.9-.2-1.9-.5-2.8-.7l1.4-5.7-3.5-.9-1.5 5.8c-.8-.2-1.5-.3-2.2-.5l-4.9-1.2-.9 3.8s2.6.6 2.6.6c1.4.4 1.7 1.3 1.6 2l-1.7 6.7c.1 0 .2.1.4.1l-.4-.1-2.3 9.4c-.2.4-.6 1.1-1.6.8 0 0-2.6-.6-2.6-.6l-1.8 4 4.6 1.2c.9.2 1.7.4 2.5.6l-1.5 5.9 3.5.9 1.5-5.8c1 .3 1.9.5 2.8.7l-1.4 5.8 3.5.9 1.5-5.9c6 1.1 10.5.7 12.4-4.8 1.5-4.4-.1-6.9-3.2-8.6 2.3-.5 4-2 4.5-5.1zm-8 11.2c-1.1 4.4-8.4 2-10.8 1.4l1.9-7.7c2.4.6 10 1.8 8.9 6.3zm1.1-11.3c-1 4-7.1 2-9.1 1.5l1.7-7c2 .5 8.4 1.4 7.4 5.5z"/></svg>'
 
+import re as _re
+BTC_D = _re.search(r'd="([^"]+)"', BTC).group(1)
 FONTS = '<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&family=PT+Serif:ital,wght@0,700;1,400&display=swap" rel="stylesheet">'
 
 CSS = r"""
@@ -64,7 +66,11 @@ header{position:fixed;inset:0 0 auto;z-index:50;background:rgba(20,26,71,.9);bac
 .light .btc-bg{color:var(--ink);opacity:.035}
 @keyframes float{0%,100%{transform:translateY(0) rotate(-8deg)}50%{transform:translateY(-28px) rotate(6deg)}}
 @keyframes spin{to{transform:rotate(360deg)}}
-canvas.net{position:absolute;inset:0;width:100%;height:100%;z-index:0;opacity:.55}
+.sym{position:absolute;z-index:0;pointer-events:none;user-select:none;font-family:"PT Serif",Georgia,serif;font-weight:700;line-height:1;color:#fff;opacity:.06;animation-name:drift,sway;animation-timing-function:ease-in-out;animation-iteration-count:infinite;animation-direction:alternate}
+.sym.b{opacity:.03}
+section.light .sym{color:var(--ink);opacity:.035}section.light .sym.b{opacity:.02}
+@keyframes drift{from{transform:translate(0,0) rotate(-12deg)}to{transform:translate(40px,-70px) rotate(14deg)}}
+@keyframes sway{from{margin-left:-20px}to{margin-left:30px}}
 
 /* hero */
 .hero{background:radial-gradient(900px 520px at 85% 0%,rgba(37,84,214,.45),transparent 60%),radial-gradient(700px 500px at 0% 100%,rgba(117,230,254,.12),transparent 60%),var(--ink);color:#fff;padding:150px 0 0;position:relative;overflow:hidden}
@@ -236,18 +242,16 @@ document.querySelectorAll('.fade').forEach(function(el){io.observe(el)});
 var b=document.querySelector('.burger'),u=document.querySelector('.nav ul');
 if(b)b.onclick=function(){u.classList.toggle('open')};
 document.querySelectorAll('.nav ul a').forEach(function(a){a.onclick=function(){u.classList.remove('open')}});
-// animated blockchain network
-document.querySelectorAll('canvas.net').forEach(function(c){
-  var x=c.getContext('2d'),P=[],W,H,dpr=Math.min(window.devicePixelRatio||1,2);
-  function rs(){W=c.offsetWidth;H=c.offsetHeight;c.width=W*dpr;c.height=H*dpr;x.setTransform(dpr,0,0,dpr,0,0);
-    P=[];var n=Math.round(W*H/22000);for(var i=0;i<n;i++)P.push({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.25,vy:(Math.random()-.5)*.25})}
-  rs();window.addEventListener('resize',rs);
-  if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;
-  (function f(){x.clearRect(0,0,W,H);
-    for(var i=0;i<P.length;i++){var p=P[i];p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>W)p.vx*=-1;if(p.y<0||p.y>H)p.vy*=-1;
-      for(var j=i+1;j<P.length;j++){var q=P[j],d=Math.hypot(p.x-q.x,p.y-q.y);if(d<130){x.strokeStyle='rgba(117,230,254,'+(.18*(1-d/130))+')';x.lineWidth=1;x.beginPath();x.moveTo(p.x,p.y);x.lineTo(q.x,q.y);x.stroke()}}
-      x.fillStyle='rgba(117,230,254,.5)';x.fillRect(p.x-1.5,p.y-1.5,3,3)}
-    requestAnimationFrame(f)})();
+// floating ₿ € $ symbols
+var BSVG='<svg viewBox="0 0 64 64" width="1em" height="1em"><path fill="currentColor" d="'+document.querySelector('#btcpath').getAttribute('d')+'"/></svg>';
+var SY=['₿','€','$','₿','€','$','₿'];
+document.querySelectorAll('.hero,.dark,section.light').forEach(function(sec,k){
+  var n=sec.classList.contains('light')?5:9;
+  for(var i=0;i<n;i++){var e=document.createElement('span');e.className='sym';
+    var ch=SY[(i+k)%SY.length];if(ch==='₿'){e.classList.add('b');e.innerHTML=BSVG}else e.textContent=ch;
+    var sz=40+Math.random()*(i%3===0?200:90);
+    e.style.cssText='font-size:'+sz+'px;left:'+(Math.random()*96)+'%;top:'+(Math.random()*90)+'%;animation-duration:'+(16+Math.random()*18)+'s,'+(20+Math.random()*20)+'s;animation-delay:-'+(Math.random()*20)+'s,-'+(Math.random()*20)+'s';
+    sec.insertBefore(e,sec.firstChild)}
 });
 })();
 </script>
@@ -269,7 +273,7 @@ def header(active, root):
 
 def footer():
     return f'''<section class="dark cta" id="contacts">
-<canvas class="net"></canvas>{btc_bg(380,'10%','left','-90px',3)}{btc_bg(240,'45%','right','-40px',8)}
+
 <div class="wrap fade">
 <div class="kicker" style="justify-content:center">Контакты</div>
 <h2>Начните с бесплатной встречи-знакомства</h2>
@@ -299,6 +303,7 @@ def page(title, desc, active, root, body):
 {header(active, root)}
 {body}
 {footer()}
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><path id="btcpath" d="{BTC_D}"/></svg>
 {JS}
 </body>
 </html>
@@ -336,8 +341,8 @@ fcards = ''.join(f'''<div class="price{' pop' if p else ''} fade">{'<span class=
 
 main_body = f'''
 <section class="hero">
-<canvas class="net"></canvas>
-{btc_bg(520,'8%','right','-120px')}{btc_bg(170,'62%','left','4%',6)}{btc_bg(90,'22%','left','46%',10)}
+
+
 <div class="wrap hero-grid">
 <div>
 <div class="eyebrow"><i></i>Международный финансовый советник · Сербия</div>
@@ -349,8 +354,25 @@ main_body = f'''
 <div class="photo"><img src="ekaterina.jpg" alt="Екатерина Павлова"><div class="badge">{BTC}Эксперт по криптовалютам</div></div>
 </div></section>
 
+<section class="dark">
+
+<div class="wrap">
+<div class="kicker fade">Мои продукты</div>
+<h2 class="fade">Инструменты, которые я сделала для вас</h2>
+<p class="sub fade">Учёт и криптовалюта — две вещи, с которых чаще всего начинается порядок в деньгах. Для каждой у меня есть своё решение.</p>
+<div class="feat">
+<a class="f1 fade" href="bot/"><span class="tag">Telegram-бот</span><h3>Бюджет-ассистент</h3><p>Записываете расходы голосом, а бот сам раскладывает их по статьям в Google-таблицу в нужных валютах.</p><span class="more">Подробнее о боте</span><div class="big"><svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="26" fill="none" stroke="currentColor" stroke-width="3"/><path d="M32 14v18l12 8" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg></div></a>
+<a class="f2 fade" href="crypto/"><span class="tag">Авторский курс · до 5 человек</span><h3>Азы криптовалют</h3><p>Живые уроки в мини-группе: от блокчейна до первой покупки, холодного кошелька и крипто-карты.</p><span class="more">Программа курса</span><div class="big">{BTC}</div></a>
+</div></div></section>
+
+<section class="light" style="padding:60px 0 0">
+<div class="wrap"><div class="card ink fade" style="padding:44px;display:grid;grid-template-columns:1.4fr .6fr;gap:30px;align-items:center">
+<div><div class="kicker" style="color:var(--cyan)">Обучение</div><h3 style="font-size:28px;text-transform:uppercase;margin-bottom:12px">Практикум «Путь к финансовой свободе»</h3>
+<p>Вместе с Анной Чачиной мы ведём русскоязычный практикум по личным финансам и инвестициям для резидентов Сербии: 6 модулей, в каждом практика.</p></div>
+<a class="btn btn-blue" href="{PRACTICUM}" target="_blank" rel="noopener">Подробнее о практикуме</a>
+</div></div></section>
 <section class="light" id="about">
-{btc_bg(300,'12%','right','-80px',4)}
+
 <div class="wrap about">
 <img class="fade" src="ekaterina.jpg" alt="Екатерина Павлова" loading="lazy">
 <div class="fade">
@@ -359,17 +381,6 @@ main_body = f'''
 <p class="sub" style="margin-bottom:22px">Международный финансовый советник, инвестор, игропрактик</p>
 <ul>{li(bio)}</ul>
 <div class="pills"><span class="pill">Личные финансы</span><span class="pill">Криптовалюта</span><span class="pill">Налоги в Сербии</span><span class="pill">Страхование</span><span class="pill">Инвестиции</span></div>
-</div></div></section>
-
-<section class="dark">
-<canvas class="net"></canvas>{btc_bg(360,'20%','left','-100px',2)}
-<div class="wrap">
-<div class="kicker fade">Мои продукты</div>
-<h2 class="fade">Инструменты, которые я сделала для вас</h2>
-<p class="sub fade">Учёт и криптовалюта — две вещи, с которых чаще всего начинается порядок в деньгах. Для каждой у меня есть своё решение.</p>
-<div class="feat">
-<a class="f1 fade" href="bot/"><span class="tag">Telegram-бот</span><h3>Бюджет-ассистент</h3><p>Записываете расходы голосом, а бот сам раскладывает их по статьям в Google-таблицу в нужных валютах.</p><span class="more">Подробнее о боте</span><div class="big"><svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="26" fill="none" stroke="currentColor" stroke-width="3"/><path d="M32 14v18l12 8" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg></div></a>
-<a class="f2 fade" href="crypto/"><span class="tag">Авторский курс · до 5 человек</span><h3>Азы криптовалют</h3><p>Живые уроки в мини-группе: от блокчейна до первой покупки, холодного кошелька и крипто-карты.</p><span class="more">Программа курса</span><div class="big">{BTC}</div></a>
 </div></div></section>
 
 <section class="light">
@@ -381,7 +392,7 @@ main_body = f'''
 </div></section>
 
 <section class="light" id="services" style="padding-top:20px">
-{btc_bg(260,'40%','left','-90px',5)}
+
 <div class="wrap">
 <div class="kicker fade">Услуги и стоимость</div>
 <h2 class="fade">Форматы консультаций</h2>
@@ -413,12 +424,6 @@ main_body = f'''
 <div><h3>Подберём формат</h3><p>Обсудим ваш запрос и решим, какой формат вам подойдёт.</p></div>
 </div></div></section>
 
-<section class="light" style="padding-top:20px">
-<div class="wrap"><div class="card ink fade" style="padding:44px;display:grid;grid-template-columns:1.4fr .6fr;gap:30px;align-items:center">
-<div><div class="kicker" style="color:var(--cyan)">Обучение</div><h3 style="font-size:28px;text-transform:uppercase;margin-bottom:12px">Практикум «Путь к финансовой свободе»</h3>
-<p>Вместе с Анной Чачиной мы ведём русскоязычный практикум по личным финансам и инвестициям для резидентов Сербии: 6 модулей, в каждом практика.</p></div>
-<a class="btn btn-blue" href="{PRACTICUM}" target="_blank" rel="noopener">Подробнее о практикуме</a>
-</div></div></section>
 '''
 
 # ---------------- BOT ----------------
@@ -430,7 +435,7 @@ bot_feats = [('🎙', 'Голосом или текстом', 'Скажите «
              ('🎯', 'Цели и накопления', 'Норма сбережений за год, сравнение с планом по целям и топ статей расходов.')]
 bot_body = f'''
 <section class="hero phero">
-<canvas class="net"></canvas>{btc_bg(420,'10%','right','-100px')}{btc_bg(140,'70%','left','6%',7)}
+
 <div class="wrap phero-grid">
 <div>
 <div class="eyebrow"><i></i>Telegram-бот · @BudgetAssistantPavlovaBot</div>
@@ -448,7 +453,7 @@ bot_body = f'''
 </div></section>
 
 <section class="light">
-{btc_bg(280,'20%','left','-90px',3)}
+
 <div class="wrap">
 <div class="kicker fade">Возможности</div>
 <h2 class="fade">Учёт без таблиц и формул</h2>
@@ -457,7 +462,7 @@ bot_body = f'''
 </div></section>
 
 <section class="dark">
-<canvas class="net"></canvas>
+
 <div class="wrap">
 <div class="kicker fade">Как начать</div>
 <h2 class="fade" style="margin-bottom:40px">Три шага до порядка в деньгах</h2>
@@ -491,10 +496,13 @@ lessons = [
   'Открываем холодный кошелёк и правильно сохраняем сид-фразу'),
  ('Альткоины и стейблкоины', 'Какие бывают монеты и в чём их риски',
   ['Что такое альткоины и секторы рынка: DeFi, RWA, NFT, L1/L2, мем-коины','Стейблкоины: зачем нужны и кто их выпускает','Чем отличается USDT от USDC','Почему стейблкоины вроде USDC можно заблокировать — даже в холодном кошельке','Почему биткоин задаёт направление всему рынку'],
-  'Делаем первую покупку и перевод криптовалюты на свой кошелёк'),
+  'Разбираемся, какой стейблкоин и какую сеть выбрать для своих задач'),
+ ('Как купить криптовалюту и переводить деньги', 'Покупка за рубли и динары, переводы между странами',
+  ['Как купить криптовалюту в России за рубли','Как купить криптовалюту в Сербии за динары','P2P-сделки: как покупать у людей и не нарваться на мошенников','Денежные переводы между странами через криптовалюту','Как выбрать сеть и не переплатить комиссию за перевод','Как вывести криптовалюту обратно в рубли, динары или евро'],
+  'Покупаем первую криптовалюту и делаем первый перевод'),
  ('Информационные ресурсы и циклы рынка', 'Где брать данные и как понимать, что происходит',
   ['Знакомимся с CoinMarketCap и CoinGecko','Капитализация, объём, доминация биткоина: как читать цифры','Циклы биткоина и халвинг','Где брать новости и как отличать информацию от хайпа'],
-  'Собираем свой список отслеживаемых монет'),
+  'Учимся находить нужную информацию на CoinMarketCap и CoinGecko'),
  ('Виды заработка на криптовалюте', 'Какие стратегии существуют и что подходит вам',
   ['Долгосрочное инвестирование и регулярные покупки (DCA)','Трейдинг: что это и почему это не для всех','Стейкинг и earn-продукты на биржах','DeFi: доходность без посредников и её риски','Крипто-карты: как расплачиваться криптой как обычной картой'],
   'Оформляем крипто-карту'),
@@ -507,7 +515,7 @@ les_html = ''.join(f'''<details class="lesson fade"{' open' if i == 0 else ''}><
 
 crypto_body = f'''
 <section class="hero phero">
-<canvas class="net"></canvas>{btc_bg(560,'4%','right','-140px')}{btc_bg(150,'68%','left','5%',6)}{btc_bg(80,'18%','left','52%',11)}
+
 <div class="wrap phero-grid">
 <div>
 <div class="eyebrow"><i></i>Авторский курс · мини-группа до 5 человек</div>
@@ -516,14 +524,14 @@ crypto_body = f'''
 <div class="hero-btns"><a class="btn btn-blue" href="{TG}" target="_blank" rel="noopener">{TGSVG}Записаться в группу</a><a class="btn btn-ghost" href="#program">Программа</a></div>
 </div>
 <div class="grid" style="gap:14px">
-<div class="card ink" style="background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.12)"><h3>6 живых уроков</h3><p>Никаких записей вместо занятий — всё вживую, с вопросами по ходу.</p></div>
+<div class="card ink" style="background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.12)"><h3>7 живых уроков</h3><p>Никаких записей вместо занятий — всё вживую, с вопросами по ходу.</p></div>
 <div class="card ink" style="background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.12)"><h3>До 5 человек</h3><p>Мини-группа, чтобы я успевала разобрать ситуацию каждого.</p></div>
 <div class="card ink" style="background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.12)"><h3>Проверяю сама</h3><p>Домашние задания проверяю лично и даю обратную связь.</p></div>
 </div>
 </div></section>
 
 <section class="light">
-{btc_bg(300,'10%','right','-90px',4)}
+
 <div class="wrap">
 <div class="kicker fade">Для кого</div>
 <h2 class="fade">Курс для вас, если</h2>
@@ -537,13 +545,13 @@ crypto_body = f'''
 <section class="light" id="program" style="padding-top:20px">
 <div class="wrap">
 <div class="kicker fade">Программа</div>
-<h2 class="fade">Шесть уроков — от основ до налогов</h2>
+<h2 class="fade">Семь уроков — от основ до налогов</h2>
 <p class="sub fade">В каждом уроке теория и практика: по ходу курса вы шаг за шагом настраиваете всё, что нужно для жизни с криптовалютой.</p>
 <div class="lessons">{les_html}</div>
 </div></section>
 
 <section class="dark">
-<canvas class="net"></canvas>{btc_bg(400,'15%','left','-120px',2)}
+
 <div class="wrap">
 <div class="kicker fade">Результат</div>
 <h2 class="fade">Что у вас будет после курса</h2>
@@ -558,7 +566,7 @@ crypto_body = f'''
 <div class="wrap" style="max-width:820px">
 <div class="price pop fade" style="padding:44px;text-align:center"><span class="lbl">Мини-группа до 5 человек</span>
 <h3 style="font-size:28px;text-transform:uppercase">Курс «Азы криптовалют»</h3>
-<div class="val">€390</div><div class="dur">за весь курс · 6 живых уроков · домашние задания с проверкой · материалы навсегда</div>
+<div class="val">€390</div><div class="dur">за весь курс · 7 живых уроков · домашние задания с проверкой · материалы навсегда</div>
 <p>Напишите мне — расскажу о ближайшем наборе и забронирую место в группе.</p>
 <a class="btn btn-blue" href="{TG}" target="_blank" rel="noopener" style="width:auto;align-self:center">{TGSVG}Узнать дату старта</a></div>
 </div></section>

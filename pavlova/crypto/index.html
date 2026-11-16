@@ -59,7 +59,11 @@ header{position:fixed;inset:0 0 auto;z-index:50;background:rgba(20,26,71,.9);bac
 .light .btc-bg{color:var(--ink);opacity:.035}
 @keyframes float{0%,100%{transform:translateY(0) rotate(-8deg)}50%{transform:translateY(-28px) rotate(6deg)}}
 @keyframes spin{to{transform:rotate(360deg)}}
-canvas.net{position:absolute;inset:0;width:100%;height:100%;z-index:0;opacity:.55}
+.sym{position:absolute;z-index:0;pointer-events:none;user-select:none;font-family:"PT Serif",Georgia,serif;font-weight:700;line-height:1;color:#fff;opacity:.06;animation-name:drift,sway;animation-timing-function:ease-in-out;animation-iteration-count:infinite;animation-direction:alternate}
+.sym.b{opacity:.03}
+section.light .sym{color:var(--ink);opacity:.035}section.light .sym.b{opacity:.02}
+@keyframes drift{from{transform:translate(0,0) rotate(-12deg)}to{transform:translate(40px,-70px) rotate(14deg)}}
+@keyframes sway{from{margin-left:-20px}to{margin-left:30px}}
 
 /* hero */
 .hero{background:radial-gradient(900px 520px at 85% 0%,rgba(37,84,214,.45),transparent 60%),radial-gradient(700px 500px at 0% 100%,rgba(117,230,254,.12),transparent 60%),var(--ink);color:#fff;padding:150px 0 0;position:relative;overflow:hidden}
@@ -232,7 +236,7 @@ footer{background:#0e1338;color:rgba(255,255,255,.6);padding:40px 0;font-size:14
 </div></header>
 
 <section class="hero phero">
-<canvas class="net"></canvas><div class="btc-bg" style="width:560px;height:560px;top:4%;right:-140px;animation-delay:-0s"><svg viewBox="0 0 64 64" aria-hidden="true"><path fill="currentColor" d="M46.1 27.4c.6-4.3-2.6-6.6-7.1-8.1l1.5-5.8-3.5-.9-1.4 5.7c-.9-.2-1.9-.5-2.8-.7l1.4-5.7-3.5-.9-1.5 5.8c-.8-.2-1.5-.3-2.2-.5l-4.9-1.2-.9 3.8s2.6.6 2.6.6c1.4.4 1.7 1.3 1.6 2l-1.7 6.7c.1 0 .2.1.4.1l-.4-.1-2.3 9.4c-.2.4-.6 1.1-1.6.8 0 0-2.6-.6-2.6-.6l-1.8 4 4.6 1.2c.9.2 1.7.4 2.5.6l-1.5 5.9 3.5.9 1.5-5.8c1 .3 1.9.5 2.8.7l-1.4 5.8 3.5.9 1.5-5.9c6 1.1 10.5.7 12.4-4.8 1.5-4.4-.1-6.9-3.2-8.6 2.3-.5 4-2 4.5-5.1zm-8 11.2c-1.1 4.4-8.4 2-10.8 1.4l1.9-7.7c2.4.6 10 1.8 8.9 6.3zm1.1-11.3c-1 4-7.1 2-9.1 1.5l1.7-7c2 .5 8.4 1.4 7.4 5.5z"/></svg></div><div class="btc-bg" style="width:150px;height:150px;top:68%;left:5%;animation-delay:-6s"><svg viewBox="0 0 64 64" aria-hidden="true"><path fill="currentColor" d="M46.1 27.4c.6-4.3-2.6-6.6-7.1-8.1l1.5-5.8-3.5-.9-1.4 5.7c-.9-.2-1.9-.5-2.8-.7l1.4-5.7-3.5-.9-1.5 5.8c-.8-.2-1.5-.3-2.2-.5l-4.9-1.2-.9 3.8s2.6.6 2.6.6c1.4.4 1.7 1.3 1.6 2l-1.7 6.7c.1 0 .2.1.4.1l-.4-.1-2.3 9.4c-.2.4-.6 1.1-1.6.8 0 0-2.6-.6-2.6-.6l-1.8 4 4.6 1.2c.9.2 1.7.4 2.5.6l-1.5 5.9 3.5.9 1.5-5.8c1 .3 1.9.5 2.8.7l-1.4 5.8 3.5.9 1.5-5.9c6 1.1 10.5.7 12.4-4.8 1.5-4.4-.1-6.9-3.2-8.6 2.3-.5 4-2 4.5-5.1zm-8 11.2c-1.1 4.4-8.4 2-10.8 1.4l1.9-7.7c2.4.6 10 1.8 8.9 6.3zm1.1-11.3c-1 4-7.1 2-9.1 1.5l1.7-7c2 .5 8.4 1.4 7.4 5.5z"/></svg></div><div class="btc-bg" style="width:80px;height:80px;top:18%;left:52%;animation-delay:-11s"><svg viewBox="0 0 64 64" aria-hidden="true"><path fill="currentColor" d="M46.1 27.4c.6-4.3-2.6-6.6-7.1-8.1l1.5-5.8-3.5-.9-1.4 5.7c-.9-.2-1.9-.5-2.8-.7l1.4-5.7-3.5-.9-1.5 5.8c-.8-.2-1.5-.3-2.2-.5l-4.9-1.2-.9 3.8s2.6.6 2.6.6c1.4.4 1.7 1.3 1.6 2l-1.7 6.7c.1 0 .2.1.4.1l-.4-.1-2.3 9.4c-.2.4-.6 1.1-1.6.8 0 0-2.6-.6-2.6-.6l-1.8 4 4.6 1.2c.9.2 1.7.4 2.5.6l-1.5 5.9 3.5.9 1.5-5.8c1 .3 1.9.5 2.8.7l-1.4 5.8 3.5.9 1.5-5.9c6 1.1 10.5.7 12.4-4.8 1.5-4.4-.1-6.9-3.2-8.6 2.3-.5 4-2 4.5-5.1zm-8 11.2c-1.1 4.4-8.4 2-10.8 1.4l1.9-7.7c2.4.6 10 1.8 8.9 6.3zm1.1-11.3c-1 4-7.1 2-9.1 1.5l1.7-7c2 .5 8.4 1.4 7.4 5.5z"/></svg></div>
+
 <div class="wrap phero-grid">
 <div>
 <div class="eyebrow"><i></i>Авторский курс · мини-группа до 5 человек</div>
@@ -241,14 +245,14 @@ footer{background:#0e1338;color:rgba(255,255,255,.6);padding:40px 0;font-size:14
 <div class="hero-btns"><a class="btn btn-blue" href="https://t.me/katerinavlaska" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M21.9 4.3 18.7 19.4c-.2 1.1-.9 1.3-1.8.8l-4.8-3.6-2.3 2.2c-.3.3-.5.5-1 .5l.3-4.9 8.9-8c.4-.3-.1-.5-.6-.2L6.4 13.2l-4.7-1.5c-1-.3-1-1 .2-1.5L20.6 3c.9-.3 1.6.2 1.3 1.3z"/></svg>Записаться в группу</a><a class="btn btn-ghost" href="#program">Программа</a></div>
 </div>
 <div class="grid" style="gap:14px">
-<div class="card ink" style="background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.12)"><h3>6 живых уроков</h3><p>Никаких записей вместо занятий — всё вживую, с вопросами по ходу.</p></div>
+<div class="card ink" style="background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.12)"><h3>7 живых уроков</h3><p>Никаких записей вместо занятий — всё вживую, с вопросами по ходу.</p></div>
 <div class="card ink" style="background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.12)"><h3>До 5 человек</h3><p>Мини-группа, чтобы я успевала разобрать ситуацию каждого.</p></div>
 <div class="card ink" style="background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.12)"><h3>Проверяю сама</h3><p>Домашние задания проверяю лично и даю обратную связь.</p></div>
 </div>
 </div></section>
 
 <section class="light">
-<div class="btc-bg" style="width:300px;height:300px;top:10%;right:-90px;animation-delay:-4s"><svg viewBox="0 0 64 64" aria-hidden="true"><path fill="currentColor" d="M46.1 27.4c.6-4.3-2.6-6.6-7.1-8.1l1.5-5.8-3.5-.9-1.4 5.7c-.9-.2-1.9-.5-2.8-.7l1.4-5.7-3.5-.9-1.5 5.8c-.8-.2-1.5-.3-2.2-.5l-4.9-1.2-.9 3.8s2.6.6 2.6.6c1.4.4 1.7 1.3 1.6 2l-1.7 6.7c.1 0 .2.1.4.1l-.4-.1-2.3 9.4c-.2.4-.6 1.1-1.6.8 0 0-2.6-.6-2.6-.6l-1.8 4 4.6 1.2c.9.2 1.7.4 2.5.6l-1.5 5.9 3.5.9 1.5-5.8c1 .3 1.9.5 2.8.7l-1.4 5.8 3.5.9 1.5-5.9c6 1.1 10.5.7 12.4-4.8 1.5-4.4-.1-6.9-3.2-8.6 2.3-.5 4-2 4.5-5.1zm-8 11.2c-1.1 4.4-8.4 2-10.8 1.4l1.9-7.7c2.4.6 10 1.8 8.9 6.3zm1.1-11.3c-1 4-7.1 2-9.1 1.5l1.7-7c2 .5 8.4 1.4 7.4 5.5z"/></svg></div>
+
 <div class="wrap">
 <div class="kicker fade">Для кого</div>
 <h2 class="fade">Курс для вас, если</h2>
@@ -262,19 +266,20 @@ footer{background:#0e1338;color:rgba(255,255,255,.6);padding:40px 0;font-size:14
 <section class="light" id="program" style="padding-top:20px">
 <div class="wrap">
 <div class="kicker fade">Программа</div>
-<h2 class="fade">Шесть уроков — от основ до налогов</h2>
+<h2 class="fade">Семь уроков — от основ до налогов</h2>
 <p class="sub fade">В каждом уроке теория и практика: по ходу курса вы шаг за шагом настраиваете всё, что нужно для жизни с криптовалютой.</p>
 <div class="lessons"><details class="lesson fade" open><summary><span class="n">01</span><h3>Знакомство с криптовалютой<small>Что это такое и почему это работает без банков</small></h3><span class="pl">+</span></summary>
 <div class="body"><ul><li>Что такое криптовалюта и криптография</li><li>Блокчейн: цепочка блоков, которую нельзя подделать</li><li>Биткоин — первая криптовалюта: лимит 21 млн, халвинг, Сатоши Накамото</li><li>Что такое сети: Bitcoin, Ethereum, TRON, BNB Chain, Solana и почему важно не перепутать сеть при переводе</li><li>Децентрализация и главные плюсы криптовалюты</li><li>Публичный и приватный ключ: что подтверждает, что актив ваш</li></ul><div class="prac"><b>Практика</b>Регистрируемся на криптобирже и проходим верификацию</div></div></details><details class="lesson fade"><summary><span class="n">02</span><h3>Безопасность<small>Как не потерять деньги и не попасться мошенникам</small></h3><span class="pl">+</span></summary>
 <div class="body"><ul><li>Как хранить ключи и сид-фразу</li><li>Горячие и холодные кошельки: в чём разница</li><li>Популярные схемы мошенников и как от них защититься</li><li>Централизованные (CEX) и децентрализованные (DEX) биржи</li><li>Двухфакторная защита и «гигиена» аккаунтов</li></ul><div class="prac"><b>Практика</b>Открываем холодный кошелёк и правильно сохраняем сид-фразу</div></div></details><details class="lesson fade"><summary><span class="n">03</span><h3>Альткоины и стейблкоины<small>Какие бывают монеты и в чём их риски</small></h3><span class="pl">+</span></summary>
-<div class="body"><ul><li>Что такое альткоины и секторы рынка: DeFi, RWA, NFT, L1/L2, мем-коины</li><li>Стейблкоины: зачем нужны и кто их выпускает</li><li>Чем отличается USDT от USDC</li><li>Почему стейблкоины вроде USDC можно заблокировать — даже в холодном кошельке</li><li>Почему биткоин задаёт направление всему рынку</li></ul><div class="prac"><b>Практика</b>Делаем первую покупку и перевод криптовалюты на свой кошелёк</div></div></details><details class="lesson fade"><summary><span class="n">04</span><h3>Информационные ресурсы и циклы рынка<small>Где брать данные и как понимать, что происходит</small></h3><span class="pl">+</span></summary>
-<div class="body"><ul><li>Знакомимся с CoinMarketCap и CoinGecko</li><li>Капитализация, объём, доминация биткоина: как читать цифры</li><li>Циклы биткоина и халвинг</li><li>Где брать новости и как отличать информацию от хайпа</li></ul><div class="prac"><b>Практика</b>Собираем свой список отслеживаемых монет</div></div></details><details class="lesson fade"><summary><span class="n">05</span><h3>Виды заработка на криптовалюте<small>Какие стратегии существуют и что подходит вам</small></h3><span class="pl">+</span></summary>
-<div class="body"><ul><li>Долгосрочное инвестирование и регулярные покупки (DCA)</li><li>Трейдинг: что это и почему это не для всех</li><li>Стейкинг и earn-продукты на биржах</li><li>DeFi: доходность без посредников и её риски</li><li>Крипто-карты: как расплачиваться криптой как обычной картой</li></ul><div class="prac"><b>Практика</b>Оформляем крипто-карту</div></div></details><details class="lesson fade"><summary><span class="n">06</span><h3>Налоги<small>Как всё сделать законно</small></h3><span class="pl">+</span></summary>
+<div class="body"><ul><li>Что такое альткоины и секторы рынка: DeFi, RWA, NFT, L1/L2, мем-коины</li><li>Стейблкоины: зачем нужны и кто их выпускает</li><li>Чем отличается USDT от USDC</li><li>Почему стейблкоины вроде USDC можно заблокировать — даже в холодном кошельке</li><li>Почему биткоин задаёт направление всему рынку</li></ul><div class="prac"><b>Практика</b>Разбираемся, какой стейблкоин и какую сеть выбрать для своих задач</div></div></details><details class="lesson fade"><summary><span class="n">04</span><h3>Как купить криптовалюту и переводить деньги<small>Покупка за рубли и динары, переводы между странами</small></h3><span class="pl">+</span></summary>
+<div class="body"><ul><li>Как купить криптовалюту в России за рубли</li><li>Как купить криптовалюту в Сербии за динары</li><li>P2P-сделки: как покупать у людей и не нарваться на мошенников</li><li>Денежные переводы между странами через криптовалюту</li><li>Как выбрать сеть и не переплатить комиссию за перевод</li><li>Как вывести криптовалюту обратно в рубли, динары или евро</li></ul><div class="prac"><b>Практика</b>Покупаем первую криптовалюту и делаем первый перевод</div></div></details><details class="lesson fade"><summary><span class="n">05</span><h3>Информационные ресурсы и циклы рынка<small>Где брать данные и как понимать, что происходит</small></h3><span class="pl">+</span></summary>
+<div class="body"><ul><li>Знакомимся с CoinMarketCap и CoinGecko</li><li>Капитализация, объём, доминация биткоина: как читать цифры</li><li>Циклы биткоина и халвинг</li><li>Где брать новости и как отличать информацию от хайпа</li></ul><div class="prac"><b>Практика</b>Учимся находить нужную информацию на CoinMarketCap и CoinGecko</div></div></details><details class="lesson fade"><summary><span class="n">06</span><h3>Виды заработка на криптовалюте<small>Какие стратегии существуют и что подходит вам</small></h3><span class="pl">+</span></summary>
+<div class="body"><ul><li>Долгосрочное инвестирование и регулярные покупки (DCA)</li><li>Трейдинг: что это и почему это не для всех</li><li>Стейкинг и earn-продукты на биржах</li><li>DeFi: доходность без посредников и её риски</li><li>Крипто-карты: как расплачиваться криптой как обычной картой</li></ul><div class="prac"><b>Практика</b>Оформляем крипто-карту</div></div></details><details class="lesson fade"><summary><span class="n">07</span><h3>Налоги<small>Как всё сделать законно</small></h3><span class="pl">+</span></summary>
 <div class="body"><ul><li>Налог на криптовалюту в Сербии: 15% на прирост капитала и льгота 90 дней</li><li>Почему важно сохранять подтверждение цены покупки</li><li>Новый закон о криптовалюте в РФ (282-ФЗ): что важно резидентам и нерезидентам</li><li>Налоговое резидентство: где и что платить</li><li>Как вести учёт сделок</li></ul><div class="prac"><b>Практика</b>Настраиваем учёт своих операций</div></div></details></div>
 </div></section>
 
 <section class="dark">
-<canvas class="net"></canvas><div class="btc-bg" style="width:400px;height:400px;top:15%;left:-120px;animation-delay:-2s"><svg viewBox="0 0 64 64" aria-hidden="true"><path fill="currentColor" d="M46.1 27.4c.6-4.3-2.6-6.6-7.1-8.1l1.5-5.8-3.5-.9-1.4 5.7c-.9-.2-1.9-.5-2.8-.7l1.4-5.7-3.5-.9-1.5 5.8c-.8-.2-1.5-.3-2.2-.5l-4.9-1.2-.9 3.8s2.6.6 2.6.6c1.4.4 1.7 1.3 1.6 2l-1.7 6.7c.1 0 .2.1.4.1l-.4-.1-2.3 9.4c-.2.4-.6 1.1-1.6.8 0 0-2.6-.6-2.6-.6l-1.8 4 4.6 1.2c.9.2 1.7.4 2.5.6l-1.5 5.9 3.5.9 1.5-5.8c1 .3 1.9.5 2.8.7l-1.4 5.8 3.5.9 1.5-5.9c6 1.1 10.5.7 12.4-4.8 1.5-4.4-.1-6.9-3.2-8.6 2.3-.5 4-2 4.5-5.1zm-8 11.2c-1.1 4.4-8.4 2-10.8 1.4l1.9-7.7c2.4.6 10 1.8 8.9 6.3zm1.1-11.3c-1 4-7.1 2-9.1 1.5l1.7-7c2 .5 8.4 1.4 7.4 5.5z"/></svg></div>
+
 <div class="wrap">
 <div class="kicker fade">Результат</div>
 <h2 class="fade">Что у вас будет после курса</h2>
@@ -289,13 +294,13 @@ footer{background:#0e1338;color:rgba(255,255,255,.6);padding:40px 0;font-size:14
 <div class="wrap" style="max-width:820px">
 <div class="price pop fade" style="padding:44px;text-align:center"><span class="lbl">Мини-группа до 5 человек</span>
 <h3 style="font-size:28px;text-transform:uppercase">Курс «Азы криптовалют»</h3>
-<div class="val">€390</div><div class="dur">за весь курс · 6 живых уроков · домашние задания с проверкой · материалы навсегда</div>
+<div class="val">€390</div><div class="dur">за весь курс · 7 живых уроков · домашние задания с проверкой · материалы навсегда</div>
 <p>Напишите мне — расскажу о ближайшем наборе и забронирую место в группе.</p>
 <a class="btn btn-blue" href="https://t.me/katerinavlaska" target="_blank" rel="noopener" style="width:auto;align-self:center"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M21.9 4.3 18.7 19.4c-.2 1.1-.9 1.3-1.8.8l-4.8-3.6-2.3 2.2c-.3.3-.5.5-1 .5l.3-4.9 8.9-8c.4-.3-.1-.5-.6-.2L6.4 13.2l-4.7-1.5c-1-.3-1-1 .2-1.5L20.6 3c.9-.3 1.6.2 1.3 1.3z"/></svg>Узнать дату старта</a></div>
 </div></section>
 
 <section class="dark cta" id="contacts">
-<canvas class="net"></canvas><div class="btc-bg" style="width:380px;height:380px;top:10%;left:-90px;animation-delay:-3s"><svg viewBox="0 0 64 64" aria-hidden="true"><path fill="currentColor" d="M46.1 27.4c.6-4.3-2.6-6.6-7.1-8.1l1.5-5.8-3.5-.9-1.4 5.7c-.9-.2-1.9-.5-2.8-.7l1.4-5.7-3.5-.9-1.5 5.8c-.8-.2-1.5-.3-2.2-.5l-4.9-1.2-.9 3.8s2.6.6 2.6.6c1.4.4 1.7 1.3 1.6 2l-1.7 6.7c.1 0 .2.1.4.1l-.4-.1-2.3 9.4c-.2.4-.6 1.1-1.6.8 0 0-2.6-.6-2.6-.6l-1.8 4 4.6 1.2c.9.2 1.7.4 2.5.6l-1.5 5.9 3.5.9 1.5-5.8c1 .3 1.9.5 2.8.7l-1.4 5.8 3.5.9 1.5-5.9c6 1.1 10.5.7 12.4-4.8 1.5-4.4-.1-6.9-3.2-8.6 2.3-.5 4-2 4.5-5.1zm-8 11.2c-1.1 4.4-8.4 2-10.8 1.4l1.9-7.7c2.4.6 10 1.8 8.9 6.3zm1.1-11.3c-1 4-7.1 2-9.1 1.5l1.7-7c2 .5 8.4 1.4 7.4 5.5z"/></svg></div><div class="btc-bg" style="width:240px;height:240px;top:45%;right:-40px;animation-delay:-8s"><svg viewBox="0 0 64 64" aria-hidden="true"><path fill="currentColor" d="M46.1 27.4c.6-4.3-2.6-6.6-7.1-8.1l1.5-5.8-3.5-.9-1.4 5.7c-.9-.2-1.9-.5-2.8-.7l1.4-5.7-3.5-.9-1.5 5.8c-.8-.2-1.5-.3-2.2-.5l-4.9-1.2-.9 3.8s2.6.6 2.6.6c1.4.4 1.7 1.3 1.6 2l-1.7 6.7c.1 0 .2.1.4.1l-.4-.1-2.3 9.4c-.2.4-.6 1.1-1.6.8 0 0-2.6-.6-2.6-.6l-1.8 4 4.6 1.2c.9.2 1.7.4 2.5.6l-1.5 5.9 3.5.9 1.5-5.8c1 .3 1.9.5 2.8.7l-1.4 5.8 3.5.9 1.5-5.9c6 1.1 10.5.7 12.4-4.8 1.5-4.4-.1-6.9-3.2-8.6 2.3-.5 4-2 4.5-5.1zm-8 11.2c-1.1 4.4-8.4 2-10.8 1.4l1.9-7.7c2.4.6 10 1.8 8.9 6.3zm1.1-11.3c-1 4-7.1 2-9.1 1.5l1.7-7c2 .5 8.4 1.4 7.4 5.5z"/></svg></div>
+
 <div class="wrap fade">
 <div class="kicker" style="justify-content:center">Контакты</div>
 <h2>Начните с бесплатной встречи-знакомства</h2>
@@ -305,6 +310,7 @@ footer{background:#0e1338;color:rgba(255,255,255,.6);padding:40px 0;font-size:14
 </div></section>
 <footer><div class="wrap foot"><span>© 2026 Екатерина Павлова · Международный финансовый советник · Нови-Сад, Сербия</span>
 <div class="soc"><a href="https://t.me/katerinavlaska" target="_blank" rel="noopener" aria-label="Telegram"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M21.9 4.3 18.7 19.4c-.2 1.1-.9 1.3-1.8.8l-4.8-3.6-2.3 2.2c-.3.3-.5.5-1 .5l.3-4.9 8.9-8c.4-.3-.1-.5-.6-.2L6.4 13.2l-4.7-1.5c-1-.3-1-1 .2-1.5L20.6 3c.9-.3 1.6.2 1.3 1.3z"/></svg></a><a href="https://instagram.com/pavlova_finance" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.4" cy="6.6" r="1.2" fill="currentColor"/></svg></a></div></div></footer>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><path id="btcpath" d="M46.1 27.4c.6-4.3-2.6-6.6-7.1-8.1l1.5-5.8-3.5-.9-1.4 5.7c-.9-.2-1.9-.5-2.8-.7l1.4-5.7-3.5-.9-1.5 5.8c-.8-.2-1.5-.3-2.2-.5l-4.9-1.2-.9 3.8s2.6.6 2.6.6c1.4.4 1.7 1.3 1.6 2l-1.7 6.7c.1 0 .2.1.4.1l-.4-.1-2.3 9.4c-.2.4-.6 1.1-1.6.8 0 0-2.6-.6-2.6-.6l-1.8 4 4.6 1.2c.9.2 1.7.4 2.5.6l-1.5 5.9 3.5.9 1.5-5.8c1 .3 1.9.5 2.8.7l-1.4 5.8 3.5.9 1.5-5.9c6 1.1 10.5.7 12.4-4.8 1.5-4.4-.1-6.9-3.2-8.6 2.3-.5 4-2 4.5-5.1zm-8 11.2c-1.1 4.4-8.4 2-10.8 1.4l1.9-7.7c2.4.6 10 1.8 8.9 6.3zm1.1-11.3c-1 4-7.1 2-9.1 1.5l1.7-7c2 .5 8.4 1.4 7.4 5.5z"/></svg>
 
 <script>
 (function(){
@@ -313,18 +319,16 @@ document.querySelectorAll('.fade').forEach(function(el){io.observe(el)});
 var b=document.querySelector('.burger'),u=document.querySelector('.nav ul');
 if(b)b.onclick=function(){u.classList.toggle('open')};
 document.querySelectorAll('.nav ul a').forEach(function(a){a.onclick=function(){u.classList.remove('open')}});
-// animated blockchain network
-document.querySelectorAll('canvas.net').forEach(function(c){
-  var x=c.getContext('2d'),P=[],W,H,dpr=Math.min(window.devicePixelRatio||1,2);
-  function rs(){W=c.offsetWidth;H=c.offsetHeight;c.width=W*dpr;c.height=H*dpr;x.setTransform(dpr,0,0,dpr,0,0);
-    P=[];var n=Math.round(W*H/22000);for(var i=0;i<n;i++)P.push({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.25,vy:(Math.random()-.5)*.25})}
-  rs();window.addEventListener('resize',rs);
-  if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;
-  (function f(){x.clearRect(0,0,W,H);
-    for(var i=0;i<P.length;i++){var p=P[i];p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>W)p.vx*=-1;if(p.y<0||p.y>H)p.vy*=-1;
-      for(var j=i+1;j<P.length;j++){var q=P[j],d=Math.hypot(p.x-q.x,p.y-q.y);if(d<130){x.strokeStyle='rgba(117,230,254,'+(.18*(1-d/130))+')';x.lineWidth=1;x.beginPath();x.moveTo(p.x,p.y);x.lineTo(q.x,q.y);x.stroke()}}
-      x.fillStyle='rgba(117,230,254,.5)';x.fillRect(p.x-1.5,p.y-1.5,3,3)}
-    requestAnimationFrame(f)})();
+// floating ₿ € $ symbols
+var BSVG='<svg viewBox="0 0 64 64" width="1em" height="1em"><path fill="currentColor" d="'+document.querySelector('#btcpath').getAttribute('d')+'"/></svg>';
+var SY=['₿','€','$','₿','€','$','₿'];
+document.querySelectorAll('.hero,.dark,section.light').forEach(function(sec,k){
+  var n=sec.classList.contains('light')?5:9;
+  for(var i=0;i<n;i++){var e=document.createElement('span');e.className='sym';
+    var ch=SY[(i+k)%SY.length];if(ch==='₿'){e.classList.add('b');e.innerHTML=BSVG}else e.textContent=ch;
+    var sz=40+Math.random()*(i%3===0?200:90);
+    e.style.cssText='font-size:'+sz+'px;left:'+(Math.random()*96)+'%;top:'+(Math.random()*90)+'%;animation-duration:'+(16+Math.random()*18)+'s,'+(20+Math.random()*20)+'s;animation-delay:-'+(Math.random()*20)+'s,-'+(Math.random()*20)+'s';
+    sec.insertBefore(e,sec.firstChild)}
 });
 })();
 </script>
