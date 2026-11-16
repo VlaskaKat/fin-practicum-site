@@ -624,14 +624,14 @@ crypto_body = f'''
 <div class="results fade">
 <div><i>⇄</i>Аккаунт на бирже</div><div><i>🔒</i>Холодный кошелёк</div><div><i>💳</i>Криптовалютная карта</div><div><i>₿</i>Первая покупка</div><div><i>↗</i>Первый перевод</div>
 </div>
-<div class="pills" style="justify-content:center;margin-top:40px"><span class="pill">Все уроки вживую, 2 раза в неделю</span><span class="pill">Личная проверка домашних заданий</span><span class="pill">Презентации к урокам остаются с вами навсегда</span><span class="pill">Криптословарь</span><span class="pill">Месяц ответов на вопросы и поддержки после курса</span></div>
+<div class="pills" style="justify-content:center;margin-top:40px"><span class="pill">Все уроки вживую, 2 раза в неделю</span><span class="pill">Личная проверка домашних заданий</span><span class="pill">Презентации к урокам остаются с вами навсегда</span><span class="pill">Криптословарь</span><span class="pill">Чат поддержки на весь курс: ответы на все вопросы</span><span class="pill">Ещё месяц поддержки после курса</span></div>
 </div></section>
 
 <section class="light">
 <div class="wrap" style="max-width:820px">
 <div class="price pop fade" style="padding:44px;text-align:center"><span class="lbl">Мини-группа до 5 человек</span>
 <h3 style="font-size:28px;text-transform:uppercase">Курс «Азы криптовалют»</h3>
-<div class="val">€390</div><div class="dur">за весь курс · 6 живых уроков по 60 минут · 2 раза в неделю · проверка домашних заданий · поддержка месяц после курса</div>
+<div class="val">€390</div><div class="dur">за весь курс · 6 живых уроков по 60 минут · 2 раза в неделю · проверка домашних заданий · чат поддержки на весь курс и месяц после</div>
 <p>Напишите мне — расскажу о ближайшем наборе и забронирую место в группе.</p>
 <a class="btn btn-blue" href="{TG}" target="_blank" rel="noopener" style="width:auto;align-self:center">{TGSVG}Узнать дату старта</a></div>
 <p class="note" style="text-align:center">Другие услуги — на странице <a href="../#services">«Все услуги и цены»</a>.</p>
