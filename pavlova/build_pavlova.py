@@ -237,6 +237,7 @@ section.light .sym{color:var(--ink);opacity:.02}section.light .sym.b{opacity:.01
 .about img{box-shadow:0 30px 70px -28px rgba(86,117,181,.7),0 0 0 1px rgba(120,150,210,.12)!important}
 .phone{box-shadow:0 40px 80px -30px rgba(0,0,0,.6),0 0 60px -10px rgba(110,145,220,.35),inset 0 0 0 1px rgba(255,255,255,.1)}
 .qs div,.plan,.feat a{transition:transform .3s,box-shadow .3s}
+.intro{font-size:18px;max-width:70ch;margin-bottom:26px;line-height:1.65}
 .bio{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:8px}@media(max-width:760px){.bio{grid-template-columns:1fr}}
 .bio p{background:#fff;border-radius:14px;padding:14px 18px 14px 20px;font-size:16.5px;border-left:3px solid var(--blue);box-shadow:0 18px 40px -26px rgba(86,117,181,.55)}
 footer{background:#101d3c;color:rgba(255,255,255,.6);padding:40px 0;font-size:14.5px}
@@ -334,7 +335,7 @@ bio = ['Более 25 лет в корпоративных финансах, п�
        'Эксперт в сфере криптовалют: создаю безопасные стратегии для роста капитала, автор курса «Азы криптовалют»',
        'Сооснователь клуба «Денежный поток»',
        'Работаю с клиентами по всему миру, помогаю создавать пассивный доход и достигать финансовых целей',
-       'Инвестор, мама двоих подростков']
+       'Больше 50 клиентов уже понимают свои финансы и идут к своим целям', 'Инвестор, мама двоих подростков']
 
 qs = ['С чего начать инвестировать, если я живу за рубежом?',
       'Как безопасно купить первую криптовалюту и где её хранить?',
@@ -374,7 +375,8 @@ main_body = f'''
 <div class="fade">
 <div class="kicker">О себе</div>
 <h2>Екатерина Павлова</h2>
-<p class="sub" style="margin-bottom:22px">Международный финансовый советник, инвестор, игропрактик</p>
+<p class="sub" style="margin-bottom:14px">Международный финансовый советник, инвестор, игропрактик</p>
+<p class="intro">Больше 25 лет я работаю в финансах, из них 15 лет руководила финансами в крупных компаниях: X5 Retail Group, Glencore, «Мария». С 2023 года живу в Сербии, в Нови-Саде, и на себе знаю, как устроены деньги, банки и налоги после переезда. Сейчас помогаю русскоязычным семьям по всему миру навести порядок в деньгах, защитить их и превратить доход в капитал.</p>
 <div class="bio">{"".join(f"<p>{b}</p>" for b in bio)}</div>
 </div></div></section>
 
