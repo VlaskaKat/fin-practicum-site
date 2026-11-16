@@ -475,7 +475,8 @@ bot_body = f'''
 
 <div class="wrap">
 <div class="kicker fade">Возможности</div>
-<h2 class="fade">Учёт без таблиц и формул</h2>
+<h2 class="fade">Учёт без потери времени</h2>
+<p class="sub fade" style="margin-bottom:12px">Быстро, просто и сразу в нужной таблице: одно сообщение — и трата уже в вашем бюджете.</p>
 <p class="sub fade">Учёт показывает, сколько реально остаётся на подушку и инвестиции. Без него мы просто надеемся, что «как-нибудь хватит».</p>
 <div class="grid g3">{''.join(f'<div class="card fade"><div class="ic" style="font-size:22px">{i}</div><h3>{h}</h3><p>{t}</p></div>' for i, h, t in bot_feats)}</div>
 </div></section>
