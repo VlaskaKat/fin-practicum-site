@@ -221,7 +221,7 @@ section.light .sym{color:var(--ink);opacity:.02}section.light .sym.b{opacity:.01
 
 /* misc */
 .cta{text-align:center}
-.cta h2{margin:0 auto 14px;max-width:22ch}.cta .sub{margin:0 auto 34px}
+.cta h2{margin:0 auto 14px;max-width:30ch;font-size:clamp(22px,2.6vw,30px);text-transform:none;letter-spacing:0;font-weight:700;line-height:1.25}.cta .sub{margin:0 auto 34px}
 .cta .hero-btns{justify-content:center;margin:0}
 .note{font-size:14.5px;color:var(--muted);margin-top:18px}
 .pill{display:inline-flex;align-items:center;gap:8px;background:rgba(63,93,156,.1);color:var(--blue);font-weight:600;font-size:14px;padding:7px 14px;border-radius:999px}
@@ -291,7 +291,7 @@ def footer():
 
 <div class="wrap fade">
 <div class="kicker" style="justify-content:center">Контакты</div>
-<h2>Начните с бесплатной встречи-знакомства</h2>
+<h2>Начните с бесплатной встречи&#8209;знакомства</h2>
 <p class="sub">30 минут онлайн: разберём ваш вопрос и подберём формат. Пишите в Telegram или Instagram, отвечаю лично.</p>
 <div class="hero-btns"><a class="btn btn-blue" href="{TG}" target="_blank" rel="noopener">{TGSVG}Telegram @katerinavlaska</a>
 <a class="btn btn-ghost" href="{IG}" target="_blank" rel="noopener">{IGSVG}Instagram @pavlova_finance</a></div>
