@@ -585,7 +585,7 @@ crypto_body = f'''
 <div>
 <div class="eyebrow"><i></i>Авторский курс · мини-группа до 5 человек</div>
 <h1 style="color:#fff;text-transform:uppercase;margin-bottom:22px">Азы криптовалют</h1>
-<p class="lead">От «что такое блокчейн» до первой покупки, своего кошелька и криптовалютной карты — вживую и под моим личным контролем</p>
+<p class="lead">От понимания, что такое блокчейн, до первой покупки и криптовалютной карты — вживую и под моим личным контролем</p>
 <p style="display:inline-block;background:rgba(255,255,255,.08);border:1px solid rgba(117,230,254,.35);color:#fff;border-radius:12px;padding:10px 16px;margin:0 0 26px;font-weight:600">Чёрная пятница: <s style="opacity:.6">€500</s> €390 до 30 ноября</p>
 <div class="hero-btns"><a class="btn btn-blue" href="{TG}" target="_blank" rel="noopener">{TGSVG}Записаться в группу</a><a class="btn btn-ghost" href="#program">Программа</a></div>
 </div>
