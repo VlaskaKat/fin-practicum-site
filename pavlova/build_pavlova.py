@@ -303,7 +303,7 @@ def header(active, root):
              ('bot', 'Бюджет-бот', root + 'bot/'), ('crypto', 'Азы криптовалют', root + 'crypto/'), ('club', 'Финансовый клуб', root + '#club'), ('contacts', 'Контакты', '#contacts')]
     lis = ''.join(f'<li><a href="{h}"{" class=on" if k == active else ""}>{t}</a></li>' for k, t, h in items if k != 'index')
     return f'''<header><div class="wrap nav">
-<a class="brand" href="{root}"><span class="mark">ЕП</span><span><b>Екатерина Павлова</b><span>Финансовый советник · Сербия</span></span></a>
+<a class="brand" href="{root}"><span class="mark">ЕП</span><span><b>Екатерина Павлова</b><span>Международный финансовый советник</span></span></a>
 <ul>{lis}</ul>
 <div style="display:flex;gap:10px;align-items:center"><a class="btn btn-blue" href="{TG}" target="_blank" rel="noopener">{TGSVG}Записаться</a>
 <button class="burger" aria-label="Меню"><svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button></div>
@@ -401,7 +401,7 @@ main_body = f'''
 
 <div class="wrap hero-grid">
 <div>
-<div class="eyebrow"><i></i>Международный финансовый советник · Сербия</div>
+<div class="eyebrow"><i></i>Международный финансовый советник</div>
 <h1>Превращаю доход в капитал</h1>
 <p class="lead">Помогаю навести порядок в деньгах и выстроить устойчивую систему личных финансов — в любой стране мира</p>
 <div class="hero-btns"><a class="btn btn-blue" href="{TG}" target="_blank" rel="noopener">{TGSVG}Бесплатная встреча 30 минут</a><a class="btn btn-ghost" href="#services">Форматы работы</a></div>
@@ -692,7 +692,7 @@ os.makedirs('bot', exist_ok=True)
 os.makedirs('club', exist_ok=True)
 os.makedirs('crypto', exist_ok=True)
 pages = {
- 'index.html': page('Екатерина Павлова — международный финансовый советник', 'Екатерина Павлова, международный финансовый советник в Сербии. Личные финансы, криптовалюта, налоги, инвестиции. Бесплатная встреча-знакомство 30 минут.', 'index', '', main_body),
+ 'index.html': page('Екатерина Павлова — международный финансовый советник', 'Екатерина Павлова, международный финансовый советник. Личные финансы, криптовалюта, налоги, инвестиции. Бесплатная встреча-знакомство 30 минут.', 'index', '', main_body),
  'bot/index.html': page('Бюджет-ассистент — Telegram-бот для учёта финансов | Екатерина Павлова', 'Telegram-бот для учёта личных финансов и мини-бизнеса: голосовой ввод, несколько валют, Google-таблица с дашбордом. Первый месяц бесплатно.', 'bot', '../', bot_body),
  'crypto/index.html': page('Курс «Азы криптовалют» — мини-группа до 5 человек | Екатерина Павлова', 'Авторский курс Екатерины Павловой: блокчейн, биткоин, безопасность, стейблкоины, налоги. Живые уроки, тест после каждого урока, поддержка в чате, первая покупка и свой кошелёк.', 'crypto', '../', crypto_body),
  'club/index.html': page('Финансовый клуб Анны Чачиной и Екатерины Павловой', 'Закрытое сообщество для русскоязычных резидентов Сербии: ответы на вопросы, модельные портфели, налоги и санкции, встречи каждый месяц, бот-ассистент бесплатно. €33 в месяц.', 'club', '../', club_body),
