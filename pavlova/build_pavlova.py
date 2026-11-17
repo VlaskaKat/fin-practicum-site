@@ -383,7 +383,7 @@ svc_groups = [
   ('Финансовый клуб', '€33', 'в месяц', 'Закрытый чат с ответами, бот бесплатно, шаблоны, скидка 30%.', 'Подробнее', 'club/', False)]),
  ('Мои продукты', 'Инструменты, которыми можно пользоваться самостоятельно.', [
   ('Бюджет-ассистент', '€9', 'в месяц или €90 за год', 'Telegram-бот и Google-таблица с дашбордом. Первый месяц бесплатно.', 'Подробнее', 'bot/', False),
-  ('Курс «Азы криптовалют»', '€390', 'первый поток · с 2027 года €500', 'Живые уроки, тест после каждого урока и поддержка в чате.', 'Подробнее', 'crypto/', False)])]
+  ('Курс «Азы криптовалют»', '€390', 'Чёрная пятница: вместо €500, до 30 ноября', 'Живые уроки, тест после каждого урока и поддержка в чате.', 'Подробнее', 'crypto/', False)])]
 
 def svc_card(n, v, d, t, b, href, pop):
     ext = '' if not href.startswith('http') else ' target="_blank" rel="noopener"'
@@ -586,6 +586,7 @@ crypto_body = f'''
 <div class="eyebrow"><i></i>Авторский курс · мини-группа до 5 человек</div>
 <h1 style="color:#fff;text-transform:uppercase;margin-bottom:22px">Азы криптовалют</h1>
 <p class="lead">От «что такое блокчейн» до первой покупки, холодного кошелька и криптовалютной карты — вживую и под моим личным контролем</p>
+<p style="display:inline-block;background:rgba(255,255,255,.08);border:1px solid rgba(117,230,254,.35);color:#fff;border-radius:12px;padding:10px 16px;margin:0 0 26px;font-weight:600">Чёрная пятница: <s style="opacity:.6">€500</s> €390 до 30 ноября</p>
 <div class="hero-btns"><a class="btn btn-blue" href="{TG}" target="_blank" rel="noopener">{TGSVG}Записаться в группу</a><a class="btn btn-ghost" href="#program">Программа</a></div>
 </div>
 <div class="grid" style="gap:14px">
@@ -629,10 +630,10 @@ crypto_body = f'''
 
 <section class="light">
 <div class="wrap" style="max-width:820px">
-<div class="price pop fade" style="padding:44px;text-align:center"><span class="lbl">Мини-группа до 5 человек</span>
+<div class="price pop fade" style="padding:44px;text-align:center"><span class="lbl">Чёрная пятница · −22% · мини-группа до 5 человек</span>
 <h3 style="font-size:28px;text-transform:uppercase">Курс «Азы криптовалют»</h3>
-<div class="dur" style="margin:14px 0 0"><s>€500</s> · цена первого потока</div><div class="val">€390</div><div class="dur">за весь курс · 6 живых уроков по 60 минут · 2 раза в неделю · тест после каждого урока · чат поддержки на весь курс и месяц после</div>
-<p>Это первый поток, поэтому цена специальная. С 2027 года стоимость курса повышается до €500. Напишите мне — расскажу о дате старта и забронирую место в группе.</p>
+<div class="dur" style="margin:14px 0 0"><s>€500</s> · Чёрная пятница до 30 ноября</div><div class="val">€390</div><div class="dur">за весь курс · 6 живых уроков по 60 минут · 2 раза в неделю · тест после каждого урока · чат поддержки на весь курс и месяц после</div>
+<p>Скидка Чёрной пятницы действует до 30 ноября, потом курс будет стоить €500. Напишите мне — расскажу о дате старта и забронирую место в группе.</p>
 <a class="btn btn-blue" href="{TG}" target="_blank" rel="noopener" style="width:auto;align-self:center">{TGSVG}Узнать дату старта</a></div>
 <p class="note" style="text-align:center">Другие услуги — на странице <a href="../#services">«Все услуги и цены»</a>.</p>
 </div></section>
